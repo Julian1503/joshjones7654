@@ -16,7 +16,7 @@ export function IndexGrid({
                               isMobile,
                               isTablet,
                           }: IndexGridProps) {
-    const columns = isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)'
+    const columns = isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)'
 
     return (
         <div

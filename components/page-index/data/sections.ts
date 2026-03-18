@@ -30,13 +30,24 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         sublabel: 'What He Plays',
         description:
             'From PS5 sessions to gaming setups, this is Joshua in his element.',
-        cta: 'See his setup',
+        cta: 'See games',
         href: '#gaming',
         image: '/aboutme.png',
     },
     {
-        id: 'tbd',
+        id: 'music',
         index: '04',
+        label: 'MUSIC',
+        sublabel: 'What He Creates',
+        description:
+            'From BandLab sessions to original ideas, this is where Joshua turns emotion into sound.',
+        cta: 'Explore music',
+        href: '#music',
+        image: '/studio.png',
+    },
+    {
+        id: 'tbd',
+        index: '05',
         label: 'THE BETTER DAY',
         sublabel: 'Who We Are',
         description:
