@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useResponsiveSection } from '@/hooks/useResponsiveSection'
-import { SITE_MENU_NAV_ITEMS, SITE_MENU_SOCIAL_LINKS } from './data/menuItems'
-import { useSiteMenuVisibility } from './hooks/useSiteMenuVisibility'
-import { useSiteMenuAnimations } from './hooks/useSiteMenuAnimations'
-import { FloatingMenuButton } from './components/FloatingMenuButton'
-import { MenuOverlay } from './components/MenuOverlay'
+import { SITE_MENU_NAV_ITEMS, SITE_MENU_SOCIAL_LINKS } from '@/components/site-menu/data/menuItems'
+import { useSiteMenuVisibility } from '@/components/site-menu/hooks/useSiteMenuVisibility'
+import { useSiteMenuAnimations } from '@/components/site-menu/hooks/useSiteMenuAnimations'
+import { FloatingMenuButton } from '@/components/site-menu/components/FloatingMenuButton'
+import { MenuOverlay } from '@/components/site-menu/components/MenuOverlay'
 import { getFocusableElements, trapFocusWithin } from '@/lib/a11y/focus'
 
 const SITE_MENU_OVERLAY_ID = 'site-menu-overlay'

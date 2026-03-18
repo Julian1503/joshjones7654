@@ -1,5 +1,5 @@
 import { MENU_SECTION_ITEMS, SOCIAL_LINKS } from '@/lib/navigation/site-navigation'
-import type { SiteMenuNavItem, SiteMenuSocialItem } from '../types'
+import type { SiteMenuNavItem, SiteMenuSocialItem } from '@/components/site-menu/types'
 
 export const SITE_MENU_NAV_ITEMS: SiteMenuNavItem[] = MENU_SECTION_ITEMS.map((item) => ({
     index: item.index,

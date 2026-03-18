@@ -1,6 +1,6 @@
 'use client'
 
-import { SITE_MENU_BUTTON_SIZE, SITE_MENU_COLORS } from '../constants'
+import { SITE_MENU_BUTTON_SIZE, SITE_MENU_COLORS } from '@/components/site-menu/constants'
 
 type FloatingMenuButtonProps = {
     buttonRef: React.RefObject<HTMLButtonElement | null>

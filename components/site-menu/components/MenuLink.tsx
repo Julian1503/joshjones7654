@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
 import Link from 'next/link'
-import type { SiteMenuNavItem } from '../types'
+import type { SiteMenuNavItem } from '@/components/site-menu/types'
 
 type MenuLinkProps = {
     item: SiteMenuNavItem

@@ -1,9 +1,9 @@
 'use client'
 
-import { SITE_MENU_COLORS } from '../constants'
-import type { SiteMenuNavItem, SiteMenuSocialItem } from '../types'
-import { MenuLink } from './MenuLink'
-import { SocialLink } from './SocialLink'
+import { SITE_MENU_COLORS } from '@/components/site-menu/constants'
+import type { SiteMenuNavItem, SiteMenuSocialItem } from '@/components/site-menu/types'
+import { MenuLink } from '@/components/site-menu/components/MenuLink'
+import { SocialLink } from '@/components/site-menu/components/SocialLink'
 
 type MenuOverlayProps = {
     overlayRef: React.RefObject<HTMLDivElement | null>
