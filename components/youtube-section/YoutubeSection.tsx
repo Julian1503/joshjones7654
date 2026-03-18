@@ -21,7 +21,7 @@ export default function YoutubeSection() {
 
     const cardRefs = useRef<HTMLDivElement[]>([])
 
-    const setCardRef = (index: number) => (element: HTMLDivElement | null) => {
+    const setCardRefAction = (index: number) => (element: HTMLDivElement | null) => {
         if (element) cardRefs.current[index] = element
     }
 
@@ -55,17 +55,17 @@ export default function YoutubeSection() {
     })
 
     /* ── Handlers with direction tracking ──────────────────────── */
-    const handlePrevWithDir = useCallback(() => {
+    const handlePrevWithDirAction = useCallback(() => {
         setPagingDirection('prev')
         handlePrev()
     }, [handlePrev])
 
-    const handleNextWithDir = useCallback(() => {
+    const handleNextWithDirAction = useCallback(() => {
         setPagingDirection('next')
         handleNext()
     }, [handleNext])
 
-    const handlePlayVideo = useCallback((video: YoutubeVideo) => {
+    const handlePlayVideoAction = useCallback((video: YoutubeVideo) => {
         setActiveVideo(video)
     }, [])
 
@@ -75,7 +75,7 @@ export default function YoutubeSection() {
             {activeVideo && (
                 <VideoModal
                     video={activeVideo}
-                    onClose={() => setActiveVideo(null)}
+                    onCloseAction={() => setActiveVideo(null)}
                 />
             )}
 
@@ -206,8 +206,8 @@ export default function YoutubeSection() {
                             isPaging={isPaging}
                             isMobile={isMobile}
                             isTablet={isTablet}
-                            setCardRef={setCardRef}
-                            onPlay={handlePlayVideo}
+                            setCardRefAction={setCardRefAction}
+                            onPlayAction={handlePlayVideoAction}
                             direction={pagingDirection}
                         />
                     ) : (
@@ -236,8 +236,8 @@ export default function YoutubeSection() {
                             hasNext={hasNext}
                             isLoading={isPaging}
                             totalVideoCount={totalVideoCount}
-                            onPrev={handlePrevWithDir}
-                            onNext={handleNextWithDir}
+                            onPrevAction={handlePrevWithDirAction}
+                            onNextAction={handleNextWithDirAction}
                             isMobile={isMobile}
                         />
                     )}

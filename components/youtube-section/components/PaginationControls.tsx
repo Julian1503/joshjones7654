@@ -10,8 +10,8 @@ type PaginationControlsProps = {
     hasNext: boolean
     isLoading: boolean
     totalVideoCount: number
-    onPrev: () => void
-    onNext: () => void
+    onPrevAction: () => void
+    onNextAction: () => void
     isMobile: boolean
 }
 
@@ -21,8 +21,8 @@ export function PaginationControls({
                                        hasNext,
                                        isLoading,
                                        totalVideoCount,
-                                       onPrev,
-                                       onNext,
+                                       onPrevAction,
+                                       onNextAction,
                                        isMobile,
                                    }: PaginationControlsProps) {
     const from = page * PAGE_SIZE + 1
@@ -41,7 +41,7 @@ export function PaginationControls({
             <NavArrow
                 direction="prev"
                 disabled={!hasPrev || isLoading}
-                onClick={onPrev}
+                onClickAction={onPrevAction}
                 isMobile={isMobile}
             />
 
@@ -103,7 +103,7 @@ export function PaginationControls({
             <NavArrow
                 direction="next"
                 disabled={!hasNext || isLoading}
-                onClick={onNext}
+                onClickAction={onNextAction}
                 isMobile={isMobile}
             />
         </div>

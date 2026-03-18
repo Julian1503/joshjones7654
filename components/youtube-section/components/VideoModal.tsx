@@ -8,10 +8,10 @@ import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 
 type VideoModalProps = {
     video: YoutubeVideo
-    onClose: () => void
+    onCloseAction: () => void
 }
 
-export function VideoModal({ video, onClose }: VideoModalProps) {
+export function VideoModal({ video, onCloseAction }: VideoModalProps) {
     const backdropRef = useRef<HTMLDivElement>(null)
     const panelRef = useRef<HTMLDivElement>(null)
 
@@ -49,7 +49,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
     }, [])
 
     const handleClose = () => {
-        const timeline = gsap.timeline({ onComplete: onClose })
+        const timeline = gsap.timeline({ onComplete: onCloseAction })
 
         timeline.to(panelRef.current, {
             y: 24,

@@ -1,0 +1,20 @@
+{
+  "entries": [
+    {
+      "normalizedName": "grand theft auto v",
+      "displayName": "grand theft auto v",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg",
+      "provider": "manual",
+      "providerGameId": null,
+      "aliases": [
+        "grand theft auto v",
+        "Gta V Online",
+        "Gtav Online"
+      ],
+      "confidence": 0.4,
+      "createdAt": "2026-03-18T05:32:22.803Z",
+      "updatedAt": "2026-03-18T05:32:22.803Z"
+    }
+  ]
+}

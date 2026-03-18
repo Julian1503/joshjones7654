@@ -11,8 +11,8 @@ type YoutubeGridProps = {
     isPaging: boolean
     isMobile: boolean
     isTablet: boolean
-    setCardRef: (index: number) => (element: HTMLDivElement | null) => void
-    onPlay: (video: YoutubeVideo) => void
+    setCardRefAction: (index: number) => (element: HTMLDivElement | null) => void
+    onPlayAction: (video: YoutubeVideo) => void
     direction?: 'next' | 'prev' | null
 }
 
@@ -36,8 +36,8 @@ export function YoutubeGrid({
                                 isPaging,
                                 isMobile,
                                 isTablet,
-                                setCardRef,
-                                onPlay,
+                                setCardRefAction,
+                                onPlayAction,
                                 direction,
                             }: YoutubeGridProps) {
     const gridRef      = useRef<HTMLDivElement>(null)
@@ -133,8 +133,8 @@ export function YoutubeGrid({
                             key={video.id}
                             video={video}
                             variant={index === 0 ? 'featured' : 'small'}
-                            cardRef={setCardRef(index)}
-                            onPlay={onPlay}
+                            cardRefAction={setCardRefAction(index)}
+                            onPlayAction={onPlayAction}
                         />
                     ))}
                 </div>
@@ -152,8 +152,8 @@ export function YoutubeGrid({
                             key={video.id}
                             video={video}
                             variant={index === 0 ? 'featured' : 'medium'}
-                            cardRef={setCardRef(index)}
-                            onPlay={onPlay}
+                            cardRefAction={setCardRefAction(index)}
+                            onPlayAction={onPlayAction}
                         />
                     ))}
                 </div>
@@ -172,17 +172,17 @@ export function YoutubeGrid({
             >
                 {videos[0] && (
                     <div style={{ gridColumn: '1 / 3', gridRow: '1 / 3' }}>
-                        <VideoCard video={videos[0]} variant="featured" cardRef={setCardRef(0)} onPlay={onPlay} />
+                        <VideoCard video={videos[0]} variant="featured" cardRefAction={setCardRefAction(0)} onPlayAction={onPlayAction} />
                     </div>
                 )}
                 {videos[1] && (
                     <div style={{ gridColumn: '3', gridRow: '1' }}>
-                        <VideoCard video={videos[1]} variant="medium" cardRef={setCardRef(1)} onPlay={onPlay} />
+                        <VideoCard video={videos[1]} variant="medium" cardRefAction={setCardRefAction(1)} onPlayAction={onPlayAction} />
                     </div>
                 )}
                 {videos[2] && (
                     <div style={{ gridColumn: '3', gridRow: '2' }}>
-                        <VideoCard video={videos[2]} variant="medium" cardRef={setCardRef(2)} onPlay={onPlay} />
+                        <VideoCard video={videos[2]} variant="medium" cardRefAction={setCardRefAction(2)} onPlayAction={onPlayAction} />
                     </div>
                 )}
                 {[3, 4, 5].map((videoIndex, gridIndex) => {
@@ -190,7 +190,7 @@ export function YoutubeGrid({
                     if (!video) return null
                     return (
                         <div key={video.id} style={{ gridColumn: `${gridIndex + 1}`, gridRow: '3' }}>
-                            <VideoCard video={video} variant="small" cardRef={setCardRef(videoIndex)} onPlay={onPlay} />
+                            <VideoCard video={video} variant="small" cardRefAction={setCardRefAction(videoIndex)} onPlayAction={onPlayAction} />
                         </div>
                     )
                 })}

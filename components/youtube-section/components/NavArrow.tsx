@@ -6,14 +6,14 @@ import gsap from 'gsap'
 type NavArrowProps = {
     direction: 'prev' | 'next'
     disabled: boolean
-    onClick: () => void
+    onClickAction: () => void
     isMobile: boolean
 }
 
 export function NavArrow({
                              direction,
                              disabled,
-                             onClick,
+                             onClickAction,
                              isMobile,
                          }: NavArrowProps) {
     const buttonRef = useRef<HTMLButtonElement>(null)
@@ -41,7 +41,7 @@ export function NavArrow({
     return (
         <button
             ref={buttonRef}
-            onClick={onClick}
+            onClick={onClickAction}
             disabled={disabled}
             style={{
                 display: 'flex',

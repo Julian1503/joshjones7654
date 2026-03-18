@@ -59,6 +59,7 @@ export interface YoutubePlaylistItemsResponse {
     items?: Array<{
         snippet?: {
             title?: string
+            description?: string
             publishedAt?: string
             thumbnails?: {
                 maxres?: { url?: string }
@@ -113,4 +114,46 @@ export interface YoutubeApiErrorResponse {
         code?: number
         message?: string
     }
+}
+
+// ─── Game detection types ─────────────────────────────────────────────────────
+
+export type YoutubeGamesDegradedReason = 'quotaExceeded' | 'upstreamError'
+
+export interface YoutubeGameMention {
+    videoId: string
+    videoTitle: string
+    videoDate: string
+    videoUrl: string
+    thumbnail: string
+    matchedAlias: string
+}
+
+export interface YoutubeDetectedGame {
+    id: string
+    gameName: string
+    mentionCount: number
+    posterUrl: string | null
+    posterSource: 'catalog' | 'fallback' | 'none'
+    latestMention: YoutubeGameMention | null
+    mentions: YoutubeGameMention[]
+}
+
+export interface YoutubeGamesResponse {
+    channelHandle: string
+    generatedAt: string
+    games: YoutubeDetectedGame[]
+    isDegraded?: boolean
+    degradedReason?: YoutubeGamesDegradedReason
+    message?: string
+}
+
+export interface YoutubeVideosSnippetListResponse {
+    items?: Array<{
+        id?: string
+        snippet?: {
+            title?: string
+            tags?: string[]
+        }
+    }>
 }

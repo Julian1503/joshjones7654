@@ -11,15 +11,15 @@ type VideoCardVariant = 'featured' | 'medium' | 'small'
 type VideoCardProps = {
     video: YoutubeVideo
     variant: VideoCardVariant
-    cardRef?: (element: HTMLDivElement | null) => void
-    onPlay: (video: YoutubeVideo) => void
+    cardRefAction?: (element: HTMLDivElement | null) => void
+    onPlayAction: (video: YoutubeVideo) => void
 }
 
 export function VideoCard({
                               video,
                               variant,
-                              cardRef,
-                              onPlay,
+                              cardRefAction,
+                              onPlayAction,
                           }: VideoCardProps) {
     const innerRef = useRef<HTMLDivElement>(null)
     const thumbnailRef = useRef<HTMLDivElement>(null)
@@ -30,9 +30,9 @@ export function VideoCard({
     const combinedRef = useCallback(
         (element: HTMLDivElement | null) => {
             innerRef.current = element
-            cardRef?.(element)
+            cardRefAction?.(element)
         },
-        [cardRef]
+        [cardRefAction]
     )
 
     const isFeatured = variant === 'featured'
@@ -86,7 +86,7 @@ export function VideoCard({
                 background: '#0c0e0f',
                 transition: 'box-shadow 0.3s ease',
             }}
-            onClick={() => onPlay(video)}
+            onClick={() => onPlayAction(video)}
         >
             <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                 <div
