@@ -37,7 +37,7 @@ export function FooterBottomBar({
         © {new Date().getFullYear()}{' '}
           <a
               style={{ color: '#cc0000' }}
-              href="http://juliandelgado.com.au"
+              href="http://juliandelgado.com.au/about-me"
               target="_blank"
               rel="noopener noreferrer"
           >

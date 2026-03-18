@@ -19,6 +19,7 @@ export function PageIndex() {
         <section
             id='site-index'
             aria-label='Page index'
+            data-site-menu="false"
             style={{
                 position: 'relative',
                 background: PAGE_INDEX_COLORS.background,

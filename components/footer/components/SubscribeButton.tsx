@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import gsap from 'gsap'
+import { SOCIAL_LINKS } from '@/lib/navigation/site-navigation'
 
 export function SubscribeButton({ isMobile }: { isMobile: boolean }) {
     const buttonRef = useRef<HTMLAnchorElement>(null)
@@ -60,7 +61,7 @@ export function SubscribeButton({ isMobile }: { isMobile: boolean }) {
 
             <a
                 ref={buttonRef}
-                href="https://youtube.com/@JoshJones-t4q"
+                href={SOCIAL_LINKS.youtubeJoshua.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Subscribe to Joshua on YouTube (opens in a new tab)"

@@ -1,4 +1,5 @@
 import type { PageIndexSectionItem } from '@/components/page-index/types'
+import { SECTION_ANCHORS } from '@/lib/navigation/site-navigation'
 
 export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
     {
@@ -9,7 +10,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'A kid with a disability who proves every day that limits are just the beginning.',
         cta: 'Read his story',
-        href: '#about-me',
+        href: SECTION_ANCHORS.about,
         image: '/thebetterday.png',
     },
     {
@@ -20,7 +21,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'Watch what Joshua has been up to, reactions, gaming, and real moments.',
         cta: 'Watch now',
-        href: '#videos',
+        href: SECTION_ANCHORS.videos,
         image: '/youtube.png',
     },
     {
@@ -31,7 +32,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'From PS5 sessions to gaming setups, this is Joshua in his element.',
         cta: 'See games',
-        href: '#gaming',
+        href: SECTION_ANCHORS.gaming,
         image: '/aboutme.png',
     },
     {
@@ -42,7 +43,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'From BandLab sessions to original ideas, this is where Joshua turns emotion into sound.',
         cta: 'Explore music',
-        href: '#music',
+        href: SECTION_ANCHORS.music,
         image: '/studio.png',
     },
     {
@@ -53,7 +54,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'The team behind Joshua, how we show up for him every single day.',
         cta: 'About us',
-        href: '#the-better-day',
+        href: SECTION_ANCHORS.theBetterDay,
         image: '/community.png',
     },
 ]

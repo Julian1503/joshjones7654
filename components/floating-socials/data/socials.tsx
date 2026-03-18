@@ -1,10 +1,11 @@
 import type { SocialItem } from '@/components/floating-socials/types'
+import { SOCIAL_LINKS } from '@/lib/navigation/site-navigation'
 
 export const FLOATING_SOCIALS: SocialItem[] = [
     {
         id: 'youtube',
-        label: 'YouTube',
-        href: 'https://www.youtube.com/@JoshJones-t4q',
+        label: SOCIAL_LINKS.youtubeJoshua.label,
+        href: SOCIAL_LINKS.youtubeJoshua.href,
         color: '#ff4545',
         borderColor: 'rgba(255,69,69,0.45)',
         icon: (
@@ -16,8 +17,8 @@ export const FLOATING_SOCIALS: SocialItem[] = [
     },
     {
         id: 'facebook',
-        label: 'Facebook',
-        href: 'https://www.facebook.com/profile.php?id=61584056596239',
+        label: SOCIAL_LINKS.facebookJoshua.label,
+        href: SOCIAL_LINKS.facebookJoshua.href,
         color: '#1877f2',
         borderColor: 'rgba(24,119,242,0.45)',
         icon: (

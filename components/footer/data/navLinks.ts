@@ -1,19 +1,20 @@
 import type { FooterNavGroup } from '@/components/footer/types'
+import { SECTION_ANCHORS, SOCIAL_LINKS } from '@/lib/navigation/site-navigation'
 
 export const FOOTER_NAV_GROUPS: FooterNavGroup[] = [
     {
         group: 'Joshua',
         links: [
-            { label: 'His Story', href: '#about-me' },
-            { label: 'Gaming', href: '#gaming' },
-            { label: 'Videos', href: '#videos' },
+            { label: 'His Story', href: SECTION_ANCHORS.about },
+            { label: 'Gaming', href: SECTION_ANCHORS.gaming },
+            { label: 'Videos', href: SECTION_ANCHORS.videos },
         ],
     },
     {
         group: 'The Better Day',
         links: [
             { label: 'Who We Are', href: 'https://thebetterday.com.au/about-us/', external: true },
-            { label: 'How We Take Care', href: 'https://thebetterday.com.au/about-us/', external: true },
+            { label: 'How We Take Care', href: SECTION_ANCHORS.theBetterDay },
             { label: 'Get in Touch', href: 'https://thebetterday.com.au/contact-us/', external: true },
         ],
     },
@@ -21,18 +22,18 @@ export const FOOTER_NAV_GROUPS: FooterNavGroup[] = [
         group: 'Follow',
         links: [
             {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/profile.php?id=100090472671177',
+                label: SOCIAL_LINKS.facebookBetterDay.label,
+                href: SOCIAL_LINKS.facebookBetterDay.href,
                 external: true,
             },
             {
-                label: 'Youtube',
-                href: 'https://www.youtube.com/@TheBetterDayToowoomba/videos',
+                label: SOCIAL_LINKS.youtubeBetterDay.label,
+                href: SOCIAL_LINKS.youtubeBetterDay.href,
                 external: true,
             },
             {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/thebetterday_toowoomba/',
+                label: SOCIAL_LINKS.instagramBetterDay.label,
+                href: SOCIAL_LINKS.instagramBetterDay.href,
                 external: true,
             },
         ],
