@@ -13,7 +13,7 @@ export function FloatingSocials() {
     const lineRef = useRef<HTMLDivElement>(null)
 
     const { isVisible } = useFloatingSocialsVisibility()
-    const { isMobile, isTablet } = useResponsiveSection()
+    const { isMobile } = useResponsiveSection()
 
     useFloatingSocialsAnimations({
         containerRef,

@@ -2,6 +2,31 @@ import { NextResponse } from 'next/server'
 
 const BANDLAB_USER_ID = '62a08e0b-bdca-4979-afd5-5272be187725'
 
+type BandLabTrackSample = {
+    duration?: number
+    audioUrl?: string
+    waveformUrl?: string
+}
+
+type BandLabTrackData = {
+    name?: string
+    picture?: { url?: string }
+    sample?: BandLabTrackSample
+}
+
+type BandLabTrackPost = {
+    id: string
+    revisionId?: string
+    track?: BandLabTrackData
+    counters?: { plays?: number; likes?: number }
+    createdOn?: string
+}
+
+type BandLabApiResponse = {
+    data?: BandLabTrackPost[]
+    paging?: unknown
+}
+
 export async function GET() {
     try {
         const url = `https://www.bandlab.com/api/v1.3/users/${BANDLAB_USER_ID}/track-posts?limit=20&sort=popular`
@@ -25,9 +50,9 @@ export async function GET() {
             )
         }
 
-        const data = await res.json()
+        const data: BandLabApiResponse = await res.json()
 
-        const tracks = (data?.data ?? []).map((post: any) => {
+        const tracks = (data?.data ?? []).map((post: BandLabTrackPost) => {
             const sample = post?.track?.sample
             const seconds = Math.round(sample?.duration ?? 0)
             const mins = Math.floor(seconds / 60)
