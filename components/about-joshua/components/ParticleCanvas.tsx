@@ -100,7 +100,7 @@ export function ParticleCanvas() {
                         context.beginPath()
                         context.moveTo(a.x, a.y)
                         context.lineTo(b.x, b.y)
-                        context.strokeStyle = `rgba(77,227,255,${t * 0.18})`
+                        context.strokeStyle = `rgba(255,69,69,${t * 0.16})`
                         context.lineWidth = t * 0.8
                         context.stroke()
                     }
@@ -110,7 +110,7 @@ export function ParticleCanvas() {
             for (const particle of particles) {
                 context.beginPath()
                 context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2)
-                context.fillStyle = `rgba(77,227,255,${particle.alpha})`
+                context.fillStyle = `rgba(255,107,107,${particle.alpha})`
                 context.fill()
             }
 

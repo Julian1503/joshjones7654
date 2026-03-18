@@ -76,7 +76,7 @@ export default function AboutJoshuaSection() {
                     style={{
                         height: 1,
                         background:
-                            'linear-gradient(90deg, rgba(77,227,255,0.6), rgba(77,227,255,0.15) 40%, transparent)',
+                            'linear-gradient(90deg, rgba(255,69,69,0.64), rgba(255,69,69,0.2) 40%, transparent)',
                         marginBottom: 'clamp(3rem, 6vw, 5.5rem)',
                     }}
                 />

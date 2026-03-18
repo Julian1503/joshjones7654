@@ -16,7 +16,7 @@ export function PullQuote({ quoteRef, isMobile }: PullQuoteProps) {
                 padding: isMobile ? '1.4rem 1.2rem 1.5rem' : 'clamp(2rem, 4vw, 3.5rem)',
                 position: 'relative',
                 borderLeft: `2px solid ${ABOUT_JOSHUA_COLORS.accent}`,
-                background: 'linear-gradient(120deg, rgba(77,227,255,0.05) 0%, transparent 60%)',
+                background: 'linear-gradient(120deg, rgba(255,69,69,0.07) 0%, transparent 60%)',
             }}
         >
             <div
@@ -34,7 +34,7 @@ export function PullQuote({ quoteRef, isMobile }: PullQuoteProps) {
                     pointerEvents: 'none',
                 }}
             >
-                "
+                &quot;
             </div>
 
             <p

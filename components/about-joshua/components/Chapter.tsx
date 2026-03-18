@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { ABOUT_JOSHUA_COLORS } from '@/components/about-joshua/constants'
 import { PlatformReveal } from '@/components/about-joshua/components/PlatformReveal'
 import type { PlatformType } from '@/components/about-joshua/types'
@@ -89,7 +89,7 @@ export function Chapter({
                             : 'clamp(5rem, 10vw, 9rem)',
                         lineHeight: 0.85,
                         color: 'transparent',
-                        WebkitTextStroke: '1px rgba(77,227,255,0.2)',
+                        WebkitTextStroke: '1px rgba(255,69,69,0.24)',
                         userSelect: 'none',
                     }}
                 >
