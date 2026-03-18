@@ -1,18 +1,20 @@
 'use client'
 
 import type React from 'react'
-import type { Pillar } from '../types'
+import type { Pillar } from '@/components/the-better-day/types'
 
 type PillarPanelProps = {
     pillar: Pillar
     index: number
-    panelRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    bgRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    wordRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    numRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    labelRefs: React.MutableRefObject<(HTMLSpanElement | null)[]>
-    titleRefs: React.MutableRefObject<(HTMLHeadingElement | null)[]>
-    bodyRefs: React.MutableRefObject<(HTMLParagraphElement | null)[]>
+    panelRefs: React.RefObject<(HTMLDivElement | null)[]>
+    bgRefs: React.RefObject<(HTMLDivElement | null)[]>
+    wordRefs: React.RefObject<(HTMLDivElement | null)[]>
+    numRefs: React.RefObject<(HTMLDivElement | null)[]>
+    labelRefs: React.RefObject<(HTMLSpanElement | null)[]>
+    titleRefs: React.RefObject<(HTMLHeadingElement | null)[]>
+    bodyRefs: React.RefObject<(HTMLParagraphElement | null)[]>
+    isMobile: boolean
+    isTablet: boolean
 }
 
 export function PillarPanel({
@@ -25,6 +27,8 @@ export function PillarPanel({
                                 labelRefs,
                                 titleRefs,
                                 bodyRefs,
+                                isMobile,
+                                isTablet,
                             }: PillarPanelProps) {
     return (
         <div
@@ -35,11 +39,14 @@ export function PillarPanel({
                 position: 'absolute',
                 inset: 0,
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: isMobile ? 'flex-start' : 'center',
+                justifyContent: 'center',
                 overflow: 'hidden',
                 clipPath: 'inset(100% 0% 0% 0%)',
                 opacity: 0,
                 zIndex: 20 + index,
+                paddingTop: isMobile ? '5.5rem' : 0,
+                paddingBottom: isMobile ? '3rem' : 0,
             }}
         >
             <div style={{ position: 'absolute', inset: 0, background: '#07090a' }} />
@@ -67,29 +74,33 @@ export function PillarPanel({
                 }}
             />
 
-            <div
-                ref={(element) => {
-                    wordRefs.current[index] = element
-                }}
-                style={{
-                    position: 'absolute',
-                    right: '-2vw',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    fontFamily: '"Bebas Neue", sans-serif',
-                    fontSize: 'clamp(10rem, 24vw, 22rem)',
-                    lineHeight: 0.85,
-                    letterSpacing: '0.04em',
-                    color: 'transparent',
-                    WebkitTextStroke: `1px ${pillar.color}20`,
-                    userSelect: 'none',
-                    pointerEvents: 'none',
-                    opacity: 0,
-                    whiteSpace: 'nowrap',
-                }}
-            >
-                {pillar.word}
-            </div>
+            {!isMobile && (
+                <div
+                    ref={(element) => {
+                        wordRefs.current[index] = element
+                    }}
+                    style={{
+                        position: 'absolute',
+                        right: isTablet ? '-4vw' : '-2vw',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        fontFamily: '"Bebas Neue", sans-serif',
+                        fontSize: isTablet
+                            ? 'clamp(7rem, 16vw, 12rem)'
+                            : 'clamp(10rem, 24vw, 22rem)',
+                        lineHeight: 0.85,
+                        letterSpacing: '0.04em',
+                        color: 'transparent',
+                        WebkitTextStroke: `1px ${pillar.color}20`,
+                        userSelect: 'none',
+                        pointerEvents: 'none',
+                        opacity: 0,
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    {pillar.word}
+                </div>
+            )}
 
             <div
                 style={{
@@ -98,11 +109,15 @@ export function PillarPanel({
                     width: '100%',
                     maxWidth: 1200,
                     margin: '0 auto',
-                    padding: '0 clamp(2rem, 8vw, 10rem)',
+                    padding: isMobile
+                        ? '0 1.25rem'
+                        : isTablet
+                            ? '0 2rem'
+                            : '0 clamp(2rem, 8vw, 10rem)',
                     display: 'grid',
-                    gridTemplateColumns: 'auto 1fr',
-                    gap: 'clamp(2rem, 5vw, 6rem)',
-                    alignItems: 'center',
+                    gridTemplateColumns: isMobile ? '1fr' : isTablet ? '110px 1fr' : 'auto 1fr',
+                    gap: isMobile ? '1.25rem' : isTablet ? '2rem' : 'clamp(2rem, 5vw, 6rem)',
+                    alignItems: isMobile ? 'start' : 'center',
                 }}
             >
                 <div
@@ -115,12 +130,17 @@ export function PillarPanel({
                         alignItems: 'center',
                         gap: 8,
                         opacity: 0,
+                        justifySelf: isMobile ? 'flex-start' : 'center',
                     }}
                 >
           <span
               style={{
                   fontFamily: '"Bebas Neue", sans-serif',
-                  fontSize: 'clamp(6rem, 14vw, 13rem)',
+                  fontSize: isMobile
+                      ? 'clamp(3.2rem, 16vw, 5rem)'
+                      : isTablet
+                          ? 'clamp(4.5rem, 10vw, 7rem)'
+                          : 'clamp(6rem, 14vw, 13rem)',
                   lineHeight: 0.85,
                   color: 'transparent',
                   WebkitTextStroke: `2px ${pillar.color}`,
@@ -134,24 +154,28 @@ export function PillarPanel({
                     <div
                         style={{
                             width: 2,
-                            height: 'clamp(3rem, 8vh, 7rem)',
+                            height: isMobile ? '2.5rem' : 'clamp(3rem, 8vh, 7rem)',
                             background: `linear-gradient(to bottom, ${pillar.color}, ${pillar.color}00)`,
                             borderRadius: 2,
                         }}
                     />
                 </div>
 
-                <div style={{ maxWidth: '52ch' }}>
+                <div style={{ maxWidth: isMobile ? '100%' : '52ch' }}>
           <span
               ref={(element) => {
                   labelRefs.current[index] = element
               }}
               style={{
                   display: 'inline-block',
-                  marginBottom: 'clamp(0.8rem, 1.5vw, 1.2rem)',
+                  marginBottom: isMobile ? '0.8rem' : 'clamp(0.8rem, 1.5vw, 1.2rem)',
                   fontFamily: 'monospace',
-                  fontSize: 'clamp(0.6rem, 0.88vw, 0.74rem)',
-                  letterSpacing: '0.4em',
+                  fontSize: isMobile
+                      ? '0.58rem'
+                      : isTablet
+                          ? '0.64rem'
+                          : 'clamp(0.6rem, 0.88vw, 0.74rem)',
+                  letterSpacing: isMobile ? '0.22em' : '0.4em',
                   textTransform: 'uppercase',
                   color: pillar.color,
                   opacity: 0,
@@ -171,8 +195,12 @@ export function PillarPanel({
                         style={{
                             margin: '0 0 clamp(1rem, 2vw, 1.6rem)',
                             fontFamily: '"Bebas Neue", sans-serif',
-                            fontSize: 'clamp(2.6rem, 6vw, 5.5rem)',
-                            lineHeight: 0.92,
+                            fontSize: isMobile
+                                ? 'clamp(2rem, 9vw, 3rem)'
+                                : isTablet
+                                    ? 'clamp(2.4rem, 5vw, 4rem)'
+                                    : 'clamp(2.6rem, 6vw, 5.5rem)',
+                            lineHeight: isMobile ? 0.98 : 0.92,
                             letterSpacing: '0.02em',
                             textTransform: 'uppercase',
                             color: 'rgba(255,255,255,0.95)',
@@ -189,9 +217,14 @@ export function PillarPanel({
                         style={{
                             margin: 0,
                             color: 'rgba(255,255,255,0.52)',
-                            fontSize: 'clamp(1rem, 1.2vw, 1.1rem)',
-                            lineHeight: 1.85,
+                            fontSize: isMobile
+                                ? '0.98rem'
+                                : isTablet
+                                    ? '1rem'
+                                    : 'clamp(1rem, 1.2vw, 1.1rem)',
+                            lineHeight: isMobile ? 1.7 : 1.85,
                             opacity: 0,
+                            maxWidth: '100%',
                         }}
                     >
                         {pillar.body}

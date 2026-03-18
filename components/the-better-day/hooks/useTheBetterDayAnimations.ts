@@ -3,8 +3,8 @@
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import type { Pillar } from '../types'
-import { updateProgressDots } from '../utils/progressTrack'
+import type { Pillar } from '@/components/the-better-day/types'
+import { updateProgressDots } from '@/components/the-better-day/utils/progressTrack'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,14 +13,14 @@ type UseTheBetterDayAnimationsParams = {
     wrapperRef: React.RefObject<HTMLDivElement | null>
     trackRef: React.RefObject<HTMLDivElement | null>
     fillRef: React.RefObject<HTMLDivElement | null>
-    dotRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    panelRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    bgRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    wordRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    numRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
-    labelRefs: React.MutableRefObject<(HTMLSpanElement | null)[]>
-    titleRefs: React.MutableRefObject<(HTMLHeadingElement | null)[]>
-    bodyRefs: React.MutableRefObject<(HTMLParagraphElement | null)[]>
+    dotRefs: React.RefObject<(HTMLDivElement | null)[]>
+    panelRefs: React.RefObject<(HTMLDivElement | null)[]>
+    bgRefs: React.RefObject<(HTMLDivElement | null)[]>
+    wordRefs: React.RefObject<(HTMLDivElement | null)[]>
+    numRefs: React.RefObject<(HTMLDivElement | null)[]>
+    labelRefs: React.RefObject<(HTMLSpanElement | null)[]>
+    titleRefs: React.RefObject<(HTMLHeadingElement | null)[]>
+    bodyRefs: React.RefObject<(HTMLParagraphElement | null)[]>
     introRef: React.RefObject<HTMLDivElement | null>
     outroRef: React.RefObject<HTMLDivElement | null>
     ctaRef: React.RefObject<HTMLAnchorElement | null>

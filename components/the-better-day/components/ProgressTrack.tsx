@@ -1,13 +1,15 @@
 'use client'
 
-import type { Pillar } from '../types'
+import type { Pillar } from '@/components/the-better-day/types'
 import React from 'react'
 
 type ProgressTrackProps = {
     pillars: readonly Pillar[]
     trackRef: React.RefObject<HTMLDivElement | null>
     fillRef: React.RefObject<HTMLDivElement | null>
-    dotRefs: React.MutableRefObject<(HTMLDivElement | null)[]>
+    dotRefs: React.RefObject<(HTMLDivElement | null)[]>
+    isMobile: boolean
+    isTablet: boolean
 }
 
 export function ProgressTrack({
@@ -15,15 +17,22 @@ export function ProgressTrack({
                                   trackRef,
                                   fillRef,
                                   dotRefs,
+                                  isMobile,
+                                  isTablet,
                               }: ProgressTrackProps) {
+    if (isMobile) {
+        return null
+    }
+
     return (
         <div
             ref={trackRef}
             style={{
                 position: 'fixed',
-                right: 'clamp(1.4rem, 3vw, 2.6rem)',
+                right: isTablet ? '1rem' : 'clamp(1.4rem, 3vw, 2.6rem)',
                 top: '50%',
-                transform: 'translateY(-50%)',
+                transform: `translateY(-50%) scale(${isTablet ? 0.9 : 1})`,
+                transformOrigin: 'center center',
                 zIndex: 200,
                 display: 'flex',
                 flexDirection: 'column',
@@ -86,7 +95,7 @@ export function ProgressTrack({
                   top: '50%',
                   transform: 'translateY(-50%)',
                   fontFamily: 'monospace',
-                  fontSize: '0.58rem',
+                  fontSize: isTablet ? '0.52rem' : '0.58rem',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: 'rgba(255,255,255,0.35)',

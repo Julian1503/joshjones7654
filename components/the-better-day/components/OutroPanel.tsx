@@ -1,15 +1,23 @@
 'use client'
 
 import type React from 'react'
-import type { Pillar } from '../types'
+import type { Pillar } from '@/components/the-better-day/types'
 
 type OutroPanelProps = {
     pillars: readonly Pillar[]
     outroRef: React.RefObject<HTMLDivElement | null>
     ctaRef: React.RefObject<HTMLAnchorElement | null>
+    isMobile: boolean
+    isTablet: boolean
 }
 
-export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
+export function OutroPanel({
+                               pillars,
+                               outroRef,
+                               ctaRef,
+                               isMobile,
+                               isTablet,
+                           }: OutroPanelProps) {
     return (
         <div
             ref={outroRef}
@@ -22,15 +30,19 @@ export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
                 flexDirection: 'column',
                 zIndex: 40,
                 opacity: 0,
-                padding: '0 clamp(2rem, 8vw, 8rem)',
+                padding: isMobile
+                    ? '0 1.25rem'
+                    : isTablet
+                        ? '0 2rem'
+                        : '0 clamp(2rem, 8vw, 8rem)',
                 textAlign: 'center',
             }}
         >
             <div
                 style={{
-                    width: 'min(400px, 80vw)',
+                    width: isMobile ? 'min(260px, 80vw)' : 'min(400px, 80vw)',
                     height: 1,
-                    marginBottom: 'clamp(2.5rem, 5vw, 4rem)',
+                    marginBottom: isMobile ? '1.8rem' : 'clamp(2.5rem, 5vw, 4rem)',
                     background: `linear-gradient(90deg,
             ${pillars[0].color} 0%,
             ${pillars[1].color} 25%,
@@ -44,8 +56,12 @@ export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
                 style={{
                     margin: '0 0 clamp(1rem, 2vw, 1.5rem)',
                     fontFamily: 'monospace',
-                    fontSize: 'clamp(0.58rem, 0.88vw, 0.74rem)',
-                    letterSpacing: '0.38em',
+                    fontSize: isMobile
+                        ? '0.55rem'
+                        : isTablet
+                            ? '0.62rem'
+                            : 'clamp(0.58rem, 0.88vw, 0.74rem)',
+                    letterSpacing: isMobile ? '0.22em' : '0.38em',
                     textTransform: 'uppercase',
                     color: 'rgba(255,255,255,0.28)',
                 }}
@@ -55,16 +71,20 @@ export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
 
             <blockquote
                 style={{
-                    margin: '0 0 clamp(2.5rem, 5vw, 4rem)',
-                    maxWidth: '50ch',
+                    margin: '0 0 clamp(2rem, 5vw, 4rem)',
+                    maxWidth: isMobile ? '22ch' : '50ch',
                     color: 'rgba(255,255,255,0.9)',
-                    fontSize: 'clamp(1.5rem, 3.5vw, 3rem)',
+                    fontSize: isMobile
+                        ? 'clamp(1.2rem, 7vw, 2rem)'
+                        : isTablet
+                            ? 'clamp(1.6rem, 4vw, 2.4rem)'
+                            : 'clamp(1.5rem, 3.5vw, 3rem)',
                     lineHeight: 1.2,
                     letterSpacing: '-0.03em',
                     fontStyle: 'normal',
                 }}
             >
-                "Not just surviving the day.{' '}
+                &quot;Not just surviving the day.{' '}
                 <span
                     style={{
                         background: `linear-gradient(90deg, ${pillars[0].color}, ${pillars[1].color})`,
@@ -72,7 +92,7 @@ export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
                         WebkitTextFillColor: 'transparent',
                     }}
                 >
-          Living it."
+          Living it.&quot;
         </span>
             </blockquote>
 
@@ -85,14 +105,20 @@ export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 10,
-                    padding: 'clamp(12px, 2vw, 16px) clamp(24px, 4vw, 40px)',
+                    padding: isMobile
+                        ? '12px 18px'
+                        : isTablet
+                            ? '14px 24px'
+                            : 'clamp(12px, 2vw, 16px) clamp(24px, 4vw, 40px)',
                     borderRadius: 100,
                     border: `1px solid ${pillars[0].color}50`,
                     background: `${pillars[0].color}0e`,
                     color: pillars[0].color,
                     fontFamily: 'monospace',
-                    fontSize: 'clamp(0.65rem, 0.9vw, 0.78rem)',
-                    letterSpacing: '0.3em',
+                    fontSize: isMobile
+                        ? '0.62rem'
+                        : 'clamp(0.65rem, 0.9vw, 0.78rem)',
+                    letterSpacing: isMobile ? '0.18em' : '0.3em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
                     opacity: 0,
@@ -129,16 +155,16 @@ export function OutroPanel({ pillars, outroRef, ctaRef }: OutroPanelProps) {
             <div
                 style={{
                     display: 'flex',
-                    gap: 10,
-                    marginTop: 'clamp(2rem, 4vw, 3.5rem)',
+                    gap: isMobile ? 8 : 10,
+                    marginTop: isMobile ? '1.5rem' : 'clamp(2rem, 4vw, 3.5rem)',
                 }}
             >
                 {pillars.map((pillar) => (
                     <div
                         key={pillar.index}
                         style={{
-                            width: 6,
-                            height: 6,
+                            width: isMobile ? 5 : 6,
+                            height: isMobile ? 5 : 6,
                             borderRadius: '50%',
                             background: pillar.color,
                             boxShadow: `0 0 8px ${pillar.color}88`,

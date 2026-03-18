@@ -1,12 +1,13 @@
 'use client'
 
 import { useRef } from 'react'
-import { PILLARS } from './data/pillars'
-import { ProgressTrack } from './components/ProgressTrack'
-import { IntroPanel } from './components/IntroPanel'
-import { PillarPanel } from './components/PillarPanel'
-import { OutroPanel } from './components/OutroPanel'
-import { useTheBetterDayAnimations } from './hooks/useTheBetterDayAnimations'
+import { PILLARS } from '@/components/the-better-day/data/pillars'
+import { ProgressTrack } from '@/components/the-better-day/components/ProgressTrack'
+import { IntroPanel } from '@/components/the-better-day/components/IntroPanel'
+import { PillarPanel } from '@/components/the-better-day/components/PillarPanel'
+import { OutroPanel } from '@/components/the-better-day/components/OutroPanel'
+import { useTheBetterDayAnimations } from '@/components/the-better-day/hooks/useTheBetterDayAnimations'
+import { useResponsiveSection } from '@/hooks/useResponsiveSection'
 
 export default function TheBetterDaySection() {
     const wrapperRef = useRef<HTMLDivElement>(null)
@@ -30,6 +31,8 @@ export default function TheBetterDaySection() {
     const outroRef = useRef<HTMLDivElement>(null)
     const ctaRef = useRef<HTMLAnchorElement>(null)
 
+    const { isMobile, isTablet, isDesktop } = useResponsiveSection()
+
     useTheBetterDayAnimations({
         pillars: PILLARS,
         wrapperRef,
@@ -48,7 +51,7 @@ export default function TheBetterDaySection() {
         ctaRef,
     })
 
-    const wrapperHeight = `${(1 + PILLARS.length + 1) * 100}vh`
+    const wrapperHeight = `${(1 + PILLARS.length + 2) * 100}vh`
 
     return (
         <div
@@ -64,6 +67,8 @@ export default function TheBetterDaySection() {
                 trackRef={trackRef}
                 fillRef={fillRef}
                 dotRefs={dotRefs}
+                isMobile={isMobile}
+                isTablet={isTablet}
             />
 
             <div
@@ -82,6 +87,9 @@ export default function TheBetterDaySection() {
                     introRef={introRef}
                     logoWrapRef={logoWrapRef}
                     introCopyRef={introCopyRef}
+                    isMobile={isMobile}
+                    isTablet={isTablet}
+                    isDesktop={isDesktop}
                 />
 
                 {PILLARS.map((pillar, index) => (
@@ -96,10 +104,18 @@ export default function TheBetterDaySection() {
                         labelRefs={labelRefs}
                         titleRefs={titleRefs}
                         bodyRefs={bodyRefs}
+                        isMobile={isMobile}
+                        isTablet={isTablet}
                     />
                 ))}
 
-                <OutroPanel pillars={PILLARS} outroRef={outroRef} ctaRef={ctaRef} />
+                <OutroPanel
+                    pillars={PILLARS}
+                    outroRef={outroRef}
+                    ctaRef={ctaRef}
+                    isMobile={isMobile}
+                    isTablet={isTablet}
+                />
             </div>
         </div>
     )

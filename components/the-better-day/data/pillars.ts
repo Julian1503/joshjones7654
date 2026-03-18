@@ -1,4 +1,4 @@
-import type { Pillar } from '../types'
+import type { Pillar } from '@/components/the-better-day/types'
 
 export const PILLARS: readonly Pillar[] = [
     {
