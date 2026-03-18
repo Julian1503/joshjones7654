@@ -2,6 +2,7 @@
 
 import type React from 'react'
 import type { Pillar } from '@/components/the-better-day/types'
+import Image from "next/image";
 
 type IntroPanelProps = {
     pillars: readonly Pillar[]
@@ -52,9 +53,12 @@ export function IntroPanel({
                 }}
             >
                 <div ref={logoWrapRef}>
-                    <img
+                    <Image
                         src="/logo.png"
                         alt="The Better Day logo"
+                        width={380}
+                        height={120}
+                        priority
                         style={{
                             width: isMobile
                                 ? 'min(220px, 72vw)'
