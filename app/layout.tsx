@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "BandLab music",
     "community support",
     "schizophrenia awareness",
-    "Julian Delgado"
+    "Julian Delgado",
   ],
   authors: SITE_AUTHORS,
   creator: "The Better Day Team",
@@ -57,23 +57,14 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_DEFAULT_TITLE,
     description:
-      "Follow Joshua's journey through gaming, music, and everyday progress supported by The Better Day community.",
+        "Follow Joshua's journey through gaming, music, and everyday progress supported by The Better Day community.",
     locale: "en_AU",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Joshua website social preview",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_DEFAULT_TITLE,
     description:
-      "Story, videos, games, and music from Joshua, supported by The Better Day community.",
-    images: ["/twitter-image"],
+        "Story, videos, games, and music from Joshua, supported by The Better Day community.",
   },
   robots: {
     index: true,

@@ -35,6 +35,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <nav aria-label='Primary site menu'>
+        <SiteMenu />
+      </nav>
+
       <aside aria-label='Joshua social links'>
         <FloatingSocials />
       </aside>
@@ -42,7 +46,6 @@ export default function Home() {
       <main id='main-content'>
         <ParallaxHeroSection />
         <PageIndex />
-        <SiteMenu/>
         <AboutJoshuaSection />
         <YoutubeSection />
         <GamesJoshPlaysSection />
