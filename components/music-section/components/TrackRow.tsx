@@ -37,7 +37,10 @@ export function TrackRow({
     return (
         <button
             ref={rowRef}
+            type='button'
             onClick={onClickAction}
+            aria-pressed={isActive}
+            aria-label={`Play track ${index + 1}: ${track.title}`}
             style={{
                 position: 'relative',
                 display: 'flex',
@@ -111,7 +114,7 @@ export function TrackRow({
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                         src={track.cover}
-                        alt={track.title}
+                        alt={`${track.title} cover art`}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 ) : isActive ? (

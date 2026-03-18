@@ -27,6 +27,7 @@ export function FloatingMenuButton({
             type="button"
             onClick={onToggleAction}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-haspopup="dialog"
             aria-expanded={isMenuOpen}
             aria-controls={controlsId}
             style={{

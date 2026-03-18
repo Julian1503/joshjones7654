@@ -35,8 +35,8 @@ function sanitizeCandidate(value: string): string {
     const withoutTrailingId = normalized.replace(/\s+\d{6,}$/g, '')
     const withoutGameplay = withoutTrailingId
         .replace(/\b(gameplay|walkthrough|playthrough|reaction)\b/g, '')
-        .replace(/\b(like|comment|share|subscribe)\b/g, '')
-        .replace(/\b(ps5live|ps5|playstation 5|sony interactive entertainment)\b/g, '')
+        .replace(/\b(like|comment|share|subscribe|Game Play)\b/g, '')
+        .replace(/\b(ps5live|ps5|Ps5share|playstation 5|sony interactive entertainment)\b/g, '')
 
     return withoutGameplay.replace(/\s+/g, ' ').trim()
 }

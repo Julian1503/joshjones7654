@@ -29,10 +29,23 @@ export function useSiteMenuAnimations({
                                           isMenuOpen,
                                       }: UseSiteMenuAnimationsParams) {
     const timelineRef = useRef<gsap.core.Timeline | null>(null)
+    const prefersReducedMotion =
+        typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     useEffect(() => {
         const buttonElement = buttonRef.current
         if (!buttonElement) return
+
+        if (prefersReducedMotion) {
+            gsap.set(buttonElement, {
+                opacity: isButtonVisible ? 1 : 0,
+                scale: 1,
+                y: 0,
+                pointerEvents: isButtonVisible ? 'auto' : 'none',
+            })
+            return
+        }
 
         gsap.to(buttonElement, {
             opacity: isButtonVisible ? 1 : 0,
@@ -42,7 +55,7 @@ export function useSiteMenuAnimations({
             ease: isButtonVisible ? 'back.out(2)' : 'power2.in',
             pointerEvents: isButtonVisible ? 'auto' : 'none',
         })
-    }, [buttonRef, isButtonVisible])
+    }, [buttonRef, isButtonVisible, prefersReducedMotion])
 
     useEffect(() => {
         const overlayElement = overlayRef.current
@@ -62,6 +75,19 @@ export function useSiteMenuAnimations({
             !line2Element ||
             !line3Element
         ) {
+            return
+        }
+
+        if (prefersReducedMotion) {
+            gsap.set(overlayElement, {
+                display: isMenuOpen ? 'flex' : 'none',
+                pointerEvents: isMenuOpen ? 'auto' : 'none',
+                opacity: 1,
+                clipPath: 'none',
+            })
+            gsap.set([line1Element, line2Element, line3Element], {
+                clearProps: 'all',
+            })
             return
         }
 
@@ -182,10 +208,20 @@ export function useSiteMenuAnimations({
         line1Ref,
         line2Ref,
         line3Ref,
+        prefersReducedMotion,
+        isMenuOpen,
     ])
 
     useEffect(() => {
         const timeline = timelineRef.current
+
+        if (prefersReducedMotion) {
+            document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+            return () => {
+                document.body.style.overflow = ''
+            }
+        }
+
         if (!timeline) return
 
         if (isMenuOpen) {
@@ -199,5 +235,5 @@ export function useSiteMenuAnimations({
         return () => {
             document.body.style.overflow = ''
         }
-    }, [isMenuOpen])
+    }, [isMenuOpen, prefersReducedMotion])
 }

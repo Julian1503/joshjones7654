@@ -34,7 +34,11 @@ export function MenuOverlay({
         <div
             id={overlayId}
             ref={overlayRef}
+            role='dialog'
+            aria-modal='true'
+            aria-label='Site menu'
             aria-hidden={!isOpen}
+            tabIndex={-1}
             onClick={(event) => {
                 if (event.target === event.currentTarget) {
                     onCloseAction()
@@ -117,7 +121,7 @@ export function MenuOverlay({
             </div>
 
             <nav
-                aria-label="Site menu"
+                aria-label='Site menu links'
                 ref={linksRef}
                 style={{
                     flex: 1,

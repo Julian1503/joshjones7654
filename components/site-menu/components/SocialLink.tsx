@@ -16,6 +16,7 @@ export function SocialLink({ label, href }: SocialLinkProps) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`${label} (opens in a new tab)`}
             style={{
                 fontFamily: 'monospace',
                 fontSize: '0.52rem',

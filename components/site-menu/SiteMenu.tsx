@@ -7,6 +7,7 @@ import { useSiteMenuVisibility } from './hooks/useSiteMenuVisibility'
 import { useSiteMenuAnimations } from './hooks/useSiteMenuAnimations'
 import { FloatingMenuButton } from './components/FloatingMenuButton'
 import { MenuOverlay } from './components/MenuOverlay'
+import { getFocusableElements, trapFocusWithin } from '@/lib/a11y/focus'
 
 const SITE_MENU_OVERLAY_ID = 'site-menu-overlay'
 
@@ -47,15 +48,32 @@ export function SiteMenu() {
     }, [])
 
     useEffect(() => {
+        if (!isMenuOpen) return
+
+        const overlayElement = overlayRef.current
+        if (!overlayElement) return
+
+        const previouslyFocused = document.activeElement as HTMLElement | null
+        requestAnimationFrame(() => {
+            const focusables = getFocusableElements(overlayElement)
+            ;(focusables[0] ?? overlayElement).focus()
+        })
+
         const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Escape' && isMenuOpen) {
+            if (event.key === 'Escape') {
+                event.preventDefault()
                 closeMenu()
+                return
             }
+
+            trapFocusWithin(event, overlayElement)
         }
 
         window.addEventListener('keydown', handleKeyDown)
+
         return () => {
             window.removeEventListener('keydown', handleKeyDown)
+            previouslyFocused?.focus()
         }
     }, [isMenuOpen, closeMenu])
 

@@ -54,7 +54,7 @@ export function IntroPanel({
                 <div ref={logoWrapRef}>
                     <img
                         src="/logo.png"
-                        alt="The Better Day"
+                        alt="The Better Day logo"
                         style={{
                             width: isMobile
                                 ? 'min(220px, 72vw)'

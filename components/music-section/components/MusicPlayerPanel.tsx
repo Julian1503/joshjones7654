@@ -49,6 +49,7 @@ export function MusicPlayerPanel({
                 <iframe
                     key={activeTrack.embedId}
                     src={`https://www.bandlab.com/embed/?id=${activeTrack.embedId}&blur=false`}
+                    title={`BandLab embedded player for ${activeTrack.title}`}
                     width="100%"
                     height="240"
                     allow="autoplay"
@@ -62,6 +63,7 @@ export function MusicPlayerPanel({
             </div>
 
             <div
+                aria-live='polite'
                 style={{
                     display: 'flex',
                     alignItems: 'center',

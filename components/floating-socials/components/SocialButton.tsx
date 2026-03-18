@@ -117,7 +117,8 @@ export function SocialButton({
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={label}
+                aria-label={`${label} (opens in a new tab)`}
+                title={label}
                 onMouseEnter={handleEnter}
                 onMouseLeave={handleLeave}
                 style={{
@@ -136,7 +137,7 @@ export function SocialButton({
                     flexShrink: 0,
                 }}
             >
-                {icon}
+                <span aria-hidden='true'>{icon}</span>
             </a>
         </div>
     )

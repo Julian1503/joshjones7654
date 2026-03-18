@@ -77,6 +77,9 @@ export function VideoCard({
     return (
         <div
             ref={combinedRef}
+            role='button'
+            tabIndex={0}
+            aria-label={`Play video: ${video.title}`}
             style={{
                 position: 'relative',
                 borderRadius: isFeatured ? 20 : 14,
@@ -87,6 +90,12 @@ export function VideoCard({
                 transition: 'box-shadow 0.3s ease',
             }}
             onClick={() => onPlayAction(video)}
+            onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    onPlayAction(video)
+                }
+            }}
         >
             <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                 <div
@@ -140,6 +149,7 @@ export function VideoCard({
 
                 <div
                     ref={playRef}
+                    aria-hidden='true'
                     style={{
                         position: 'absolute',
                         top: '50%',

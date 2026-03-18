@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { CategoryPill } from '@/components/youtube-section/components/CategoryPill'
 import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
+import { getFocusableElements, trapFocusWithin } from '@/lib/a11y/focus'
 
 type VideoModalProps = {
     video: YoutubeVideo
@@ -14,12 +15,35 @@ type VideoModalProps = {
 export function VideoModal({ video, onCloseAction }: VideoModalProps) {
     const backdropRef = useRef<HTMLDivElement>(null)
     const panelRef = useRef<HTMLDivElement>(null)
+    const closeButtonRef = useRef<HTMLButtonElement>(null)
+    const titleId = `video-modal-title-${video.id}`
+
+    const handleClose = useCallback(() => {
+        const timeline = gsap.timeline({ onComplete: onCloseAction })
+
+        timeline.to(panelRef.current, {
+            y: 24,
+            opacity: 0,
+            scale: 0.97,
+            duration: 0.3,
+            ease: 'power2.in',
+        })
+
+        timeline.to(
+            backdropRef.current,
+            { opacity: 0, duration: 0.25, ease: 'power2.in' },
+            '-=0.15'
+        )
+    }, [onCloseAction])
 
     useEffect(() => {
         const backdropElement = backdropRef.current
         const panelElement = panelRef.current
 
         if (!backdropElement || !panelElement) return
+
+        const previouslyFocused = document.activeElement as HTMLElement | null
+        document.body.style.overflow = 'hidden'
 
         const timeline = gsap.timeline()
 
@@ -43,39 +67,30 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
             '-=0.15'
         )
 
-        return () => {
-            timeline.kill()
-        }
-    }, [])
-
-    const handleClose = () => {
-        const timeline = gsap.timeline({ onComplete: onCloseAction })
-
-        timeline.to(panelRef.current, {
-            y: 24,
-            opacity: 0,
-            scale: 0.97,
-            duration: 0.3,
-            ease: 'power2.in',
+        requestAnimationFrame(() => {
+            const focusables = getFocusableElements(panelElement)
+            ;(focusables[0] ?? closeButtonRef.current)?.focus()
         })
 
-        timeline.to(
-            backdropRef.current,
-            { opacity: 0, duration: 0.25, ease: 'power2.in' },
-            '-=0.15'
-        )
-    }
-
-    useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
+                event.preventDefault()
                 handleClose()
+                return
             }
+
+            trapFocusWithin(event, panelElement)
         }
 
         window.addEventListener('keydown', handleKeyDown)
-        return () => window.removeEventListener('keydown', handleKeyDown)
-    })
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            timeline.kill()
+            document.body.style.overflow = ''
+            previouslyFocused?.focus()
+        }
+    }, [handleClose])
 
     return (
         <div
@@ -95,6 +110,9 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
         >
             <div
                 ref={panelRef}
+                role='dialog'
+                aria-modal='true'
+                aria-labelledby={titleId}
                 onClick={(event) => event.stopPropagation()}
                 style={{
                     width: 'min(900px, 100%)',
@@ -108,8 +126,8 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
                 <div style={{ position: 'relative', aspectRatio: '16/9', background: '#000' }}>
                     <iframe
                         src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
-                        title={video.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        title={`YouTube video player: ${video.title}`}
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                         allowFullScreen
                         style={{
                             position: 'absolute',
@@ -132,6 +150,7 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
                 >
                     <div style={{ flex: 1, minWidth: 0 }}>
                         <h3
+                            id={titleId}
                             style={{
                                 margin: '0 0 8px',
                                 color: 'rgba(255,255,255,0.92)',
@@ -153,13 +172,16 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
                                     letterSpacing: '0.1em',
                                 }}
                             >
-                {video.views} views · {video.date}
-              </span>
+                                {video.views} views · {video.date}
+                            </span>
                         </div>
                     </div>
 
                     <button
+                        ref={closeButtonRef}
+                        type='button'
                         onClick={handleClose}
+                        aria-label='Close video dialog'
                         style={{
                             flexShrink: 0,
                             display: 'flex',
@@ -184,12 +206,12 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
                             event.currentTarget.style.color = 'rgba(255,255,255,0.6)'
                         }}
                     >
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <svg width='14' height='14' viewBox='0 0 14 14' fill='none' aria-hidden='true'>
                             <path
-                                d="M1 1L13 13M13 1L1 13"
-                                stroke="currentColor"
-                                strokeWidth="1.8"
-                                strokeLinecap="round"
+                                d='M1 1L13 13M13 1L1 13'
+                                stroke='currentColor'
+                                strokeWidth='1.8'
+                                strokeLinecap='round'
                             />
                         </svg>
                     </button>
@@ -198,3 +220,4 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
         </div>
     )
 }
+

@@ -15,6 +15,137 @@
       "confidence": 0.4,
       "createdAt": "2026-03-18T05:32:22.803Z",
       "updatedAt": "2026-03-18T05:32:22.803Z"
+    },
+    {
+      "normalizedName": "grand theft auto v gameplayonline",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V Gameplayonline",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-18T09:38:57.853Z",
+      "updatedAt": "2026-03-18T09:38:57.853Z"
+    },
+    {
+      "normalizedName": "a quiet place",
+      "displayName": "A Quiet Place",
+      "slug": "a-quiet-place",
+      "posterUrl": "https://media.rawg.io/media/screenshots/4ae/4ae94c37f9b29c0dfae99e5f40fe3ba7.jpg",
+      "provider": "rawg",
+      "providerGameId": "716215",
+      "aliases": [
+        "A Quiet Place"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-18T09:39:01.663Z",
+      "updatedAt": "2026-03-18T09:39:01.663Z"
+    },
+    {
+      "normalizedName": "bronze",
+      "displayName": "Bronze",
+      "slug": "bronze",
+      "posterUrl": "https://media.rawg.io/media/screenshots/117/117c466a65dbb2b2c1e4685576a08b41.jpg",
+      "provider": "rawg",
+      "providerGameId": "40474",
+      "aliases": [
+        "Bronze"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-18T09:39:02.565Z",
+      "updatedAt": "2026-03-18T09:39:02.565Z"
+    },
+    {
+      "normalizedName": "fortnite",
+      "displayName": "Fortnite Battle Royale",
+      "slug": "fornite-battle-royale",
+      "posterUrl": "https://media.rawg.io/media/games/dcb/dcbb67f371a9a28ea38ffd73ee0f53f3.jpg",
+      "provider": "rawg",
+      "providerGameId": "47137",
+      "aliases": [
+        "Fortnite",
+        "Fortnite Battle Royale"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-18T09:39:08.419Z",
+      "updatedAt": "2026-03-18T09:39:08.419Z"
+    },
+    {
+      "normalizedName": "fortnite epicfail",
+      "displayName": "Fortnite",
+      "slug": "fortnite-3",
+      "posterUrl": "https://media.rawg.io/media/screenshots/5cc/5cc1a3f085356345aa902a38af82345a.jpg",
+      "provider": "rawg",
+      "providerGameId": "583859",
+      "aliases": [
+        "Fortnite Epicfail",
+        "Fortnite"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-18T09:39:09.338Z",
+      "updatedAt": "2026-03-18T09:39:09.338Z"
+    },
+    {
+      "normalizedName": "lego city undercover",
+      "displayName": "Lego City Undercover",
+      "slug": "lego-city-undercover",
+      "posterUrl": "https://media.rawg.io/media/games/1fa/1fa173b8507cab48b755eebfabeb9930.jpg",
+      "provider": "rawg",
+      "providerGameId": "959",
+      "aliases": [
+        "Lego City Undercover"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-18T09:39:11.953Z",
+      "updatedAt": "2026-03-18T09:39:11.953Z"
+    },
+    {
+      "normalizedName": "need for speed heat",
+      "displayName": "Need for Speed Heat",
+      "slug": "need-for-speed-heat",
+      "posterUrl": "https://media.rawg.io/media/games/370/3703c683968a54f09630dcf03366ea35.jpg",
+      "provider": "rawg",
+      "providerGameId": "364806",
+      "aliases": [
+        "Need For Speed Heat"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-18T09:39:16.331Z",
+      "updatedAt": "2026-03-18T09:39:16.331Z"
+    },
+    {
+      "normalizedName": "need for speed heatgameplayonline",
+      "displayName": "Need for Speed",
+      "slug": "need-for-speed",
+      "posterUrl": "https://media.rawg.io/media/games/19a/19a512a8c1293c22894b7364e1405ec1.jpg",
+      "provider": "rawg",
+      "providerGameId": "3090",
+      "aliases": [
+        "Need For Speed Heatgameplayonline",
+        "Need for Speed"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-18T09:39:17.110Z",
+      "updatedAt": "2026-03-18T09:39:17.110Z"
+    },
+    {
+      "normalizedName": "a quiet place the road ahead",
+      "displayName": "A Quiet Place: The Road Ahead",
+      "slug": "a-quiet-place-the-road-ahead",
+      "posterUrl": "https://media.rawg.io/media/games/fff/fff66fcc5922c2d6db60b5fbb7a466da.jpg",
+      "provider": "rawg",
+      "providerGameId": "989330",
+      "aliases": [
+        "A Quiet Place The Road Ahead",
+        "A Quiet Place: The Road Ahead"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-18T09:42:25.234Z",
+      "updatedAt": "2026-03-18T09:42:25.234Z"
     }
   ]
 }

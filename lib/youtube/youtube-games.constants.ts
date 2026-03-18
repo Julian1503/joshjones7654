@@ -12,6 +12,7 @@ export const GAME_NAME_ALIASES: Record<string, string> = {
     cs2: 'Counter-Strike 2',
     'cs go': 'Counter-Strike 2',
     csgo: 'Counter-Strike 2',
+    'A Quiet Place': 'A Quiet Place: The Road Ahead'
 }
 
 export const GAME_CANDIDATE_BLACKLIST = new Set([
@@ -37,6 +38,7 @@ export const GAME_CANDIDATE_BLACKLIST = new Set([
     'today',
     'ps5',
     'ps5live',
+    'Ps5share',
     'playstation',
     'sony',
     'interactive',
@@ -71,6 +73,7 @@ export const GAME_CANDIDATE_PHRASE_BLACKLIST = new Set([
     'playstation 5',
     'ps5 live',
     'ps5live',
+    'Ps5share'
 ])
 
 export const MANUAL_GAME_OVERRIDES: Record<string, { posterUrl: string | null }> = {

@@ -41,8 +41,10 @@ export function NavArrow({
     return (
         <button
             ref={buttonRef}
+            type='button'
             onClick={onClickAction}
             disabled={disabled}
+            aria-label={direction === 'prev' ? 'Show previous videos' : 'Show next videos'}
             style={{
                 display: 'flex',
                 alignItems: 'center',
