@@ -1,4 +1,7 @@
-import { GAME_CANDIDATE_BLACKLIST } from '@/lib/youtube/youtube-games.constants'
+import {
+    GAME_CANDIDATE_BLACKLIST,
+    GAME_CANDIDATE_PHRASE_BLACKLIST,
+} from '@/lib/youtube/youtube-games.constants'
 import { normalizeName } from '@/lib/youtube/games/detection/normalizer'
 
 export type YoutubeVideoMetadata = {
@@ -74,6 +77,7 @@ function cleanSegment(value: string): string | null {
     if (!normalized) return null
     if (normalized.length < 3 || normalized.length > 48) return null
 
+    if (isBlacklistedPhrase(normalized)) return null
     if (isDateOrTimestampLike(normalized)) return null
     if (!hasLikelyGameShape(normalized)) return null
 
@@ -84,6 +88,16 @@ function cleanSegment(value: string): string | null {
     if (nonBlacklisted.length === 0) return null
 
     return compact
+}
+
+function isBlacklistedPhrase(value: string): boolean {
+    if (GAME_CANDIDATE_PHRASE_BLACKLIST.has(value)) return true
+
+    for (const phrase of GAME_CANDIDATE_PHRASE_BLACKLIST) {
+        if (value.includes(phrase)) return true
+    }
+
+    return false
 }
 
 function hasLikelyGameShape(value: string): boolean {

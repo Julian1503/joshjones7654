@@ -30,17 +30,17 @@ export const GAME_CANDIDATE_BLACKLIST = new Set([
     'gaming',
     'gameplay',
     'playthrough',
+    'walkthrough',
     'highlights',
     'update',
     'new',
     'today',
     'ps5',
-    'Ps5live',
-    'Playstation 5',
-    'ps5share',
-    'Ps5live',
-    'Sony Interactive Entertainment',
-    'Playstation 5',
+    'ps5live',
+    'playstation',
+    'sony',
+    'interactive',
+    'entertainment',
     'like',
     'likes',
     'comment',
@@ -64,6 +64,13 @@ export const GAME_CANDIDATE_BLACKLIST = new Set([
     'october',
     'november',
     'december',
+])
+
+export const GAME_CANDIDATE_PHRASE_BLACKLIST = new Set([
+    'sony interactive entertainment',
+    'playstation 5',
+    'ps5 live',
+    'ps5live',
 ])
 
 export const MANUAL_GAME_OVERRIDES: Record<string, { posterUrl: string | null }> = {
