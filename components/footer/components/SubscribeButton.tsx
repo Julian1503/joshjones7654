@@ -60,9 +60,10 @@ export function SubscribeButton({ isMobile }: { isMobile: boolean }) {
 
             <a
                 ref={buttonRef}
-                href="https://youtube.com/@thebetterday"
+                href="https://youtube.com/@JoshJones-t4q"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Subscribe to Joshua on YouTube (opens in a new tab)"
                 onMouseEnter={handleEnter}
                 onMouseLeave={handleLeave}
                 style={{

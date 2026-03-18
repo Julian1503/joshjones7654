@@ -55,6 +55,9 @@ export default function ParallaxHero() {
             <style>{FLICKER_KEYFRAMES}</style>
 
             <div
+                id='hero'
+                role='region'
+                aria-label='Joshua hero'
                 ref={wrapperRef}
                 style={{
                     position: 'relative',

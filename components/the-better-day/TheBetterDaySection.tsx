@@ -8,7 +8,6 @@ import { PillarPanel } from '@/components/the-better-day/components/PillarPanel'
 import { OutroPanel } from '@/components/the-better-day/components/OutroPanel'
 import { useTheBetterDayAnimations } from '@/components/the-better-day/hooks/useTheBetterDayAnimations'
 import { useResponsiveSection } from '@/hooks/useResponsiveSection'
-import {THE_BETTER_DAY_SECTION} from "@/components/the-better-day/constants";
 
 export default function TheBetterDaySection() {
     const wrapperRef = useRef<HTMLDivElement>(null)
@@ -56,9 +55,11 @@ export default function TheBetterDaySection() {
 
     return (
         <div
+            id='the-better-day'
+            role='region'
+            aria-label='The Better Day support pillars'
             ref={wrapperRef}
-            id={THE_BETTER_DAY_SECTION}
-            data-floating-social="false"
+            data-floating-social='false'
             style={{
                 position: 'relative',
                 height: wrapperHeight,

@@ -17,6 +17,8 @@ export function PageIndex() {
 
     return (
         <section
+            id='site-index'
+            aria-label='Page index'
             style={{
                 position: 'relative',
                 background: PAGE_INDEX_COLORS.background,
@@ -25,12 +27,14 @@ export function PageIndex() {
                 flexDirection: 'column',
             }}
         >
-            <IndexGrid
-                cardsRef={cardsRef}
-                sections={PAGE_INDEX_SECTIONS}
-                isMobile={isMobile}
-                isTablet={isTablet}
-            />
+            <nav aria-label='Section links'>
+                <IndexGrid
+                    cardsRef={cardsRef}
+                    sections={PAGE_INDEX_SECTIONS}
+                    isMobile={isMobile}
+                    isTablet={isTablet}
+                />
+            </nav>
         </section>
     )
 }
