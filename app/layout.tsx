@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     "BandLab music",
     "community support",
     "schizophrenia awareness",
+    "Julian Delgado"
   ],
   authors: SITE_AUTHORS,
   creator: "The Better Day Team",

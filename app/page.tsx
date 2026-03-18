@@ -10,6 +10,7 @@ import { FloatingSocials } from '@/components/floating-socials/FloatingSocials';
 import GamesJoshPlaysSection from '@/components/games-josh-plays/GamesJoshPlaysSection';
 import { MusicSection } from '@/components/music-section/MusicSection';
 import { SITE_DEFAULT_TITLE } from '@/lib/seo/site';
+import {SiteMenu} from "@/components/site-menu/SiteMenu";
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -41,6 +42,7 @@ export default function Home() {
       <main id='main-content'>
         <ParallaxHeroSection />
         <PageIndex />
+        <SiteMenu/>
         <AboutJoshuaSection />
         <YoutubeSection />
         <GamesJoshPlaysSection />
