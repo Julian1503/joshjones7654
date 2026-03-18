@@ -3,7 +3,7 @@ export const DEFAULT_YOUTUBE_HANDLE = '@JoshJones-t4q'
 export const DEFAULT_MAX_RESULTS = 6
 export const YOUTUBE_REVALIDATE_SECONDS = 60 * 30
 /** How often the client polls the live-status endpoint (ms) */
-export const LIVE_POLL_INTERVAL_MS = 60_000
+export const LIVE_POLL_INTERVAL_MS = 5 * 60_000
 
 export type VideoCategory = 'Gaming' | 'Personal' | 'Reaction' | 'Setup' | 'Other'
 

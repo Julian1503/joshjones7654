@@ -1,4 +1,4 @@
-import { VideoCategory } from './youtube.types'
+import { VideoCategory } from '@/lib/youtube/youtube.types'
 
 export function assertEnv(value: string | undefined, name: string): string {
     if (!value) {

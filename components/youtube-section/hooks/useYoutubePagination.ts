@@ -3,13 +3,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { fetchYoutubePage } from '@/components/youtube-section/utils/fetchYoutubePage'
-
 export function useYoutubePagination() {
     const [videos, setVideos] = useState<YoutubeVideo[]>([])
     const [totalVideoCount, setTotalVideoCount] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
     const [isPaging, setIsPaging] = useState(false)
     const [fetchError, setFetchError] = useState<string | null>(null)
+    const [degradedNotice, setDegradedNotice] = useState<string | null>(null)
 
     const [tokenStack, setTokenStack] = useState<(string | undefined)[]>([undefined])
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -27,6 +27,8 @@ export function useYoutubePagination() {
                 setVideos(data.videos)
                 setTotalVideoCount(data.totalVideoCount)
                 setNextToken(data.nextPageToken)
+                setFetchError(null)
+                setDegradedNotice(data.isDegraded ? (data.message ?? 'Showing cached videos while YouTube is temporarily limited.') : null)
             })
             .catch((error) => {
                 if (!mounted) return
@@ -49,6 +51,8 @@ export function useYoutubePagination() {
             setVideos(data.videos)
             setNextToken(data.nextPageToken)
             setCurrentIndex(newIndex)
+            setFetchError(null)
+            setDegradedNotice(data.isDegraded ? (data.message ?? 'Showing cached videos while YouTube is temporarily limited.') : null)
         } catch (error) {
             setFetchError(error instanceof Error ? error.message : 'Error loading page')
         } finally {
@@ -85,6 +89,7 @@ export function useYoutubePagination() {
         isLoading,
         isPaging,
         fetchError,
+        degradedNotice,
         page: currentIndex,
         hasPrev: currentIndex > 0,
         hasNext: Boolean(nextToken),

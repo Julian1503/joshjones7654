@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { CategoryPill } from '@/components/youtube-section/components/CategoryPill'
+import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 
 type VideoModalProps = {
     video: YoutubeVideo
@@ -97,7 +98,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
                 onClick={(event) => event.stopPropagation()}
                 style={{
                     width: 'min(900px, 100%)',
-                    background: '#0c0e10',
+                    background: YOUTUBE_SECTION_COLORS.modalBackground,
                     borderRadius: 20,
                     border: '1px solid rgba(255,255,255,0.08)',
                     overflow: 'hidden',
@@ -176,7 +177,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
                         }}
                         onMouseEnter={(event) => {
                             event.currentTarget.style.background = 'rgba(255,69,69,0.15)'
-                            event.currentTarget.style.color = '#ff6b6b'
+                            event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.redSoft
                         }}
                         onMouseLeave={(event) => {
                             event.currentTarget.style.background = 'rgba(255,255,255,0.06)'

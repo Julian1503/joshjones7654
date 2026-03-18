@@ -11,6 +11,7 @@ import { YoutubeSectionHeader } from '@/components/youtube-section/components/Yo
 import { YoutubeGrid } from '@/components/youtube-section/components/YoutubeGrid'
 import { PaginationControls } from '@/components/youtube-section/components/PaginationControls'
 import { YoutubeChannelLink } from '@/components/youtube-section/components/YoutubeChannelLink'
+import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 
 export default function YoutubeSection() {
     const sectionRef = useRef<HTMLElement>(null)
@@ -33,6 +34,7 @@ export default function YoutubeSection() {
         isLoading,
         isPaging,
         fetchError,
+        degradedNotice,
         page,
         hasPrev,
         hasNext,
@@ -67,31 +69,6 @@ export default function YoutubeSection() {
         setActiveVideo(video)
     }, [])
 
-    /* ── Error state ─────────────────────────────────────────────── */
-    if (fetchError) {
-        return (
-            <section
-                style={{
-                    position:   'relative',
-                    background: '#070809',
-                    padding:    'clamp(5rem, 9vw, 9rem) 0',
-                }}
-            >
-                <div
-                    style={{
-                        width:      isMobile ? 'min(100% - 2rem, 1200px)' : 'min(1200px, calc(100% - 3rem))',
-                        margin:     '0 auto',
-                        color:      '#ff6b6b',
-                        fontFamily: 'monospace',
-                        letterSpacing: '0.08em',
-                    }}
-                >
-                    Error loading YouTube videos: {fetchError}
-                </div>
-            </section>
-        )
-    }
-
     /* ── Main render ─────────────────────────────────────────────── */
     return (
         <>
@@ -105,10 +82,10 @@ export default function YoutubeSection() {
             <section
                 ref={sectionRef}
                 style={{
-                    position:   'relative',
-                    background: '#070809',
-                    padding:    'clamp(5rem, 9vw, 9rem) 0 clamp(5rem, 9vw, 8rem)',
-                    overflow:   'hidden',
+                    position: 'relative',
+                    background: YOUTUBE_SECTION_COLORS.background,
+                    padding: 'clamp(5rem, 9vw, 9rem) 0 clamp(5rem, 9vw, 8rem)',
+                    overflow: 'hidden',
                 }}
             >
                 {/* Decorative top gradient */}
@@ -119,7 +96,7 @@ export default function YoutubeSection() {
                         left:        0,
                         right:       0,
                         height:      260,
-                        background:  'linear-gradient(to bottom, rgba(77,227,255,0.03) 0%, transparent 100%)',
+                        background:  'linear-gradient(to bottom, rgba(255,69,69,0.07) 0%, transparent 100%)',
                         pointerEvents: 'none',
                         zIndex:      0,
                     }}
@@ -134,7 +111,7 @@ export default function YoutubeSection() {
                         width:       'min(36rem, 60vw)',
                         height:      'min(36rem, 60vw)',
                         borderRadius: '50%',
-                        background:  'radial-gradient(circle, rgba(200,20,20,0.10) 0%, transparent 68%)',
+                        background:  'radial-gradient(circle, rgba(200,20,20,0.14) 0%, transparent 68%)',
                         filter:      'blur(50px)',
                         pointerEvents: 'none',
                         zIndex:      0,
@@ -150,7 +127,7 @@ export default function YoutubeSection() {
                         left:       0,
                         right:      0,
                         height:     1,
-                        background: 'linear-gradient(90deg, transparent 0%, rgba(220,30,30,0.7) 30%, rgba(220,30,30,0.4) 70%, transparent 100%)',
+                        background: 'linear-gradient(90deg, transparent 0%, rgba(220,30,30,0.72) 30%, rgba(220,30,30,0.42) 70%, transparent 100%)',
                     }}
                 />
 
@@ -169,12 +146,49 @@ export default function YoutubeSection() {
 
                 <div
                     style={{
-                        width:    isMobile ? 'calc(100% - 2rem)' : 'min(1200px, calc(100% - 3rem))',
-                        margin:   '0 auto',
+                        width: isMobile ? 'calc(100% - 2rem)' : 'min(1200px, calc(100% - 3rem))',
+                        margin: '0 auto',
                         position: 'relative',
-                        zIndex:   2,
+                        zIndex: 2,
                     }}
                 >
+                    {degradedNotice && (
+                        <div
+                            style={{
+                                marginBottom: 'clamp(1rem, 2.2vw, 1.4rem)',
+                                border: '1px solid rgba(255,69,69,0.32)',
+                                background: 'rgba(255,69,69,0.08)',
+                                color: YOUTUBE_SECTION_COLORS.textSecondary,
+                                borderRadius: 12,
+                                padding: isMobile ? '0.6rem 0.75rem' : '0.72rem 0.9rem',
+                                fontFamily: 'monospace',
+                                fontSize: isMobile ? '0.56rem' : '0.62rem',
+                                letterSpacing: isMobile ? '0.12em' : '0.15em',
+                                textTransform: 'uppercase',
+                            }}
+                        >
+                            {degradedNotice}
+                        </div>
+                    )}
+
+                    {fetchError && (
+                        <div
+                            style={{
+                                marginBottom: 'clamp(1rem, 2.2vw, 1.4rem)',
+                                border: '1px solid rgba(255,107,107,0.34)',
+                                background: 'rgba(255,107,107,0.08)',
+                                color: YOUTUBE_SECTION_COLORS.redSoft,
+                                borderRadius: 12,
+                                padding: isMobile ? '0.6rem 0.75rem' : '0.72rem 0.9rem',
+                                fontFamily: 'monospace',
+                                fontSize: isMobile ? '0.56rem' : '0.62rem',
+                                letterSpacing: isMobile ? '0.12em' : '0.15em',
+                            }}
+                        >
+                            {`Could not refresh videos right now. ${fetchError}`}
+                        </div>
+                    )}
+
                     <YoutubeSectionHeader
                         headerRef={headerRef}
                         countRef={countRef}
@@ -186,7 +200,7 @@ export default function YoutubeSection() {
 
                     {isLoading ? (
                         <GridSkeleton isMobile={isMobile} isTablet={isTablet} />
-                    ) : (
+                    ) : videos.length > 0 ? (
                         <YoutubeGrid
                             videos={videos}
                             isPaging={isPaging}
@@ -196,6 +210,23 @@ export default function YoutubeSection() {
                             onPlay={handlePlayVideo}
                             direction={pagingDirection}
                         />
+                    ) : (
+                        <div
+                            style={{
+                                border: '1px solid rgba(255,255,255,0.08)',
+                                background: 'rgba(12,14,16,0.6)',
+                                borderRadius: 16,
+                                padding: isMobile ? '1rem' : '1.25rem',
+                                color: YOUTUBE_SECTION_COLORS.textSecondary,
+                                fontFamily: 'monospace',
+                                fontSize: isMobile ? '0.66rem' : '0.72rem',
+                                letterSpacing: '0.08em',
+                                textTransform: 'uppercase',
+                                textAlign: 'center',
+                            }}
+                        >
+                            Videos are temporarily unavailable. Please check back in a bit.
+                        </div>
                     )}
 
                     {!isLoading && videos.length > 0 && (

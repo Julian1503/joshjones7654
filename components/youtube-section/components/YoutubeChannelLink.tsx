@@ -1,6 +1,7 @@
 'use client'
 
 import { YOUTUBE_HANDLE } from '@/components/youtube-section/types'
+import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 
 type YoutubeChannelLinkProps = {
     isLoading: boolean
@@ -45,7 +46,7 @@ export function YoutubeChannelLink({
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 8,
-                    color: 'rgba(255,255,255,0.45)',
+                    color: YOUTUBE_SECTION_COLORS.textSecondary,
                     fontFamily: 'monospace',
                     fontSize: isMobile ? '0.66rem' : '0.68rem',
                     letterSpacing: isMobile ? '0.08em' : '0.15em',
@@ -55,10 +56,10 @@ export function YoutubeChannelLink({
                     justifyContent: 'center',
                 }}
                 onMouseEnter={(event) => {
-                    event.currentTarget.style.color = '#ff4545'
+                    event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.red
                 }}
                 onMouseLeave={(event) => {
-                    event.currentTarget.style.color = 'rgba(255,255,255,0.45)'
+                    event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.textSecondary
                 }}
             >
                 youtube.com/{YOUTUBE_HANDLE}

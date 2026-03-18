@@ -2,6 +2,7 @@ export const PAGE_SIZE = 6
 export const YOUTUBE_HANDLE = '@JoshJones-t4q'
 
 export type VideoCategory = 'Gaming' | 'Personal' | 'Reaction' | 'Setup' | 'Other'
+export type YoutubeDataDegradedReason = 'quotaExceeded' | 'upstreamError'
 
 export interface YoutubeVideo {
     id: string
@@ -20,4 +21,7 @@ export interface YoutubeLatestResponse {
     totalVideoCount: number
     nextPageToken: string | null
     videos: YoutubeVideo[]
+    isDegraded?: boolean
+    degradedReason?: YoutubeDataDegradedReason
+    message?: string
 }

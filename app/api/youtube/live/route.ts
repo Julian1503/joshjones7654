@@ -19,8 +19,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json(liveStream, {
             status: 200,
             headers: {
-                // Also set Cache-Control so browsers/CDNs respect it
-                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30',
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
             },
         })
     } catch (error) {
@@ -29,6 +28,18 @@ export async function GET(request: NextRequest) {
                 ? error.message
                 : 'Unexpected error while checking live status'
 
-        return NextResponse.json({ message }, { status: 500 })
+        return NextResponse.json(
+            {
+                isLive: false,
+                videoId: null,
+                title: null,
+                thumbnail: null,
+                startedAt: null,
+                watchUrl: null,
+                concurrentViewers: null,
+                message,
+            },
+            { status: 200 }
+        )
     }
 }

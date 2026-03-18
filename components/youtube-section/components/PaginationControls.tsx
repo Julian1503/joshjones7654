@@ -2,6 +2,7 @@
 
 import { PAGE_SIZE } from '@/components/youtube-section/types'
 import { NavArrow } from '@/components/youtube-section/components/NavArrow'
+import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 
 type PaginationControlsProps = {
     page: number
@@ -70,7 +71,7 @@ export function PaginationControls({
                         fontSize: isMobile ? '0.52rem' : '0.6rem',
                         letterSpacing: isMobile ? '0.18em' : '0.3em',
                         textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.25)',
+                        color: YOUTUBE_SECTION_COLORS.textMuted,
                         whiteSpace: 'nowrap',
                     }}
                 >
@@ -91,7 +92,7 @@ export function PaginationControls({
                         style={{
                             height: '100%',
                             width: totalVideoCount > 0 ? `${(to / totalVideoCount) * 100}%` : '0%',
-                            background: 'linear-gradient(90deg, #ff4545, rgba(255,69,69,0.5))',
+                            background: `linear-gradient(90deg, ${YOUTUBE_SECTION_COLORS.red}, rgba(255,69,69,0.5))`,
                             borderRadius: 4,
                             transition: 'width 0.5s ease',
                         }}

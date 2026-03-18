@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { VideoCard } from '@/components/youtube-section/components/VideoCard'
+import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 
 type YoutubeGridProps = {
     videos: YoutubeVideo[]
@@ -92,12 +93,15 @@ export function YoutubeGrid({
                     scaleX:   1,
                     duration: 0.25,
                     ease:     'power2.out',
-                    onComplete: () =>
+                    onComplete: () => {
                         gsap.to(overlayEl, {
                             opacity:  0,
-                            duration: 0.3,
-                            onComplete: () => gsap.set(overlayEl, { display: 'none' }),
-                        }),
+                            duration: 1,
+                            onComplete: () => {
+                                gsap.set(overlayEl, { display: 'none' })
+                            },
+                        })
+                    },
                 })
             }
 
@@ -209,7 +213,7 @@ export function YoutubeGrid({
                     flexDirection:  'column',
                     alignItems:     'center',
                     justifyContent: 'center',
-                    background:     'rgba(7,8,9,0.72)',
+                    background:     'rgba(7,8,9,0.76)',
                     backdropFilter: 'blur(8px)',
                     borderRadius:   16,
                     zIndex:         10,
@@ -237,7 +241,7 @@ export function YoutubeGrid({
                         style={{
                             height:         '100%',
                             width:          '100%',
-                            background:     'linear-gradient(90deg, #cc0000 0%, #ff4545 40%, #ff6b6b 60%, #cc0000 100%)',
+                            background:     `linear-gradient(90deg, ${YOUTUBE_SECTION_COLORS.redStrong} 0%, ${YOUTUBE_SECTION_COLORS.red} 40%, ${YOUTUBE_SECTION_COLORS.redSoft} 60%, ${YOUTUBE_SECTION_COLORS.redStrong} 100%)`,
                             backgroundSize: '200% 100%',
                             animation:      'yt-bar-shimmer 1.4s linear infinite',
                         }}
@@ -263,7 +267,7 @@ export function YoutubeGrid({
                             fill="none"
                             style={{ animation: 'yt-pulse 1.3s ease-in-out infinite' }}
                         >
-                            <rect width="42" height="30" rx="6.5" fill="#FF0000" />
+                            <rect width="42" height="30" rx="6.5" fill="var(--yt-red)" />
                             <path d="M17 21V9L30 15L17 21Z" fill="white" />
                         </svg>
                     </div>
@@ -287,7 +291,7 @@ export function YoutubeGrid({
                         />
                         <circle
                             cx="38" cy="38" r="34"
-                            stroke="#ff2020"
+                            stroke={YOUTUBE_SECTION_COLORS.redStrong}
                             strokeWidth="3"
                             strokeLinecap="round"
                             strokeDasharray="213"

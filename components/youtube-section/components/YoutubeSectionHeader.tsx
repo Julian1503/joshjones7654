@@ -1,5 +1,7 @@
 'use client'
 
+import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
+
 type YoutubeSectionHeaderProps = {
     headerRef: React.RefObject<HTMLDivElement | null>
     countRef: React.RefObject<HTMLSpanElement | null>
@@ -41,12 +43,12 @@ export function YoutubeSectionHeader({
                         fontSize: isMobile ? '0.58rem' : 'clamp(0.55rem, 0.9vw, 0.72rem)',
                         letterSpacing: isMobile ? '0.22em' : '0.4em',
                         textTransform: 'uppercase',
-                        color: '#ff4545',
+                        color: YOUTUBE_SECTION_COLORS.red,
                         flexWrap: 'wrap',
                     }}
                 >
                     <svg width="16" height="11" viewBox="0 0 16 11" fill="none">
-                        <rect width="16" height="11" rx="2.5" fill="#FF0000" />
+                        <rect width="16" height="11" rx="2.5" fill="var(--yt-red)" />
                         <path d="M6.5 7.8V3.2L10.8 5.5L6.5 7.8Z" fill="white" />
                     </svg>
                     YouTube channel
@@ -64,12 +66,12 @@ export function YoutubeSectionHeader({
                         lineHeight: 0.9,
                         letterSpacing: '0.04em',
                         textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.94)',
+                        color: YOUTUBE_SECTION_COLORS.textPrimary,
                     }}
                 >
                     Latest
                     <br />
-                    <span style={{ color: '#ff4545' }}>videos</span>
+                    <span style={{ color: YOUTUBE_SECTION_COLORS.red }}>videos</span>
                 </h2>
             </div>
 
@@ -89,8 +91,8 @@ export function YoutubeSectionHeader({
                     ? 'clamp(1.8rem, 10vw, 2.8rem)'
                     : 'clamp(2.4rem, 5vw, 4rem)',
                 lineHeight: 1,
-                color: 'rgba(255,255,255,0.1)',
-                WebkitTextStroke: '1px rgba(255,69,69,0.3)',
+                color: 'rgba(255,255,255,0.12)',
+                WebkitTextStroke: '1px rgba(255,69,69,0.34)',
             }}
         >
           <span ref={countRef}>{isLoading ? '…' : totalVideoCount}</span>
@@ -102,7 +104,7 @@ export function YoutubeSectionHeader({
                         fontSize: isMobile ? '0.58rem' : '0.62rem',
                         letterSpacing: isMobile ? '0.18em' : '0.3em',
                         textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.22)',
+                        color: YOUTUBE_SECTION_COLORS.textMuted,
                     }}
                 >
           published videos

@@ -9,7 +9,7 @@ import {
     YoutubeVideo,
     YoutubeVideosListResponse,
     YoutubeVideosPage,
-} from './youtube.types'
+} from '@/lib/youtube/youtube.types'
 import {
     assertEnv,
     buildYoutubeWatchUrl,
@@ -18,7 +18,7 @@ import {
     formatYoutubeDuration,
     inferVideoCategory,
     pickBestThumbnail,
-} from './youtube.utils'
+} from '@/lib/youtube/youtube.utils'
 
 interface GetLatestYoutubeVideosParams {
     handle?: string

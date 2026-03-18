@@ -14,12 +14,13 @@ export async function fetchYoutubePage(
 
     const response = await fetch(`/api/youtube/latest?${params.toString()}`, {
         method: 'GET',
-        cache: 'no-store',
     })
 
+    const payload = (await response.json()) as YoutubeLatestResponse | { message?: string }
+
     if (!response.ok) {
-        throw new Error('Failed to fetch YouTube videos')
+        throw new Error(payload.message ?? 'Failed to fetch YouTube videos')
     }
 
-    return (await response.json()) as YoutubeLatestResponse
+    return payload as YoutubeLatestResponse
 }

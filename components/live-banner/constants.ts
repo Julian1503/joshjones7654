@@ -1,7 +1,9 @@
+import { BRAND_COLORS } from '@/lib/theme/colors'
+
 export const BANNER_COLORS = {
-    live: '#ff2020',
-    liveHover: '#ff3a3a',
-    liveSoft: '#ff4545',
+    live: BRAND_COLORS.accentStrong,
+    liveHover: BRAND_COLORS.accentHover,
+    liveSoft: BRAND_COLORS.accent,
     background: 'rgba(8,9,10,0.92)',
     border: 'rgba(255,30,30,0.25)',
     borderSoft: 'rgba(255,30,30,0.08)',
