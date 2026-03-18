@@ -1,7 +1,24 @@
 @import "tailwindcss";
 
 :root {
+  --background: #070809;
+  --foreground: rgba(255, 255, 255, 0.94);
+
   --bg-base: #070809;
+  --bg-elevated: #0c0e10;
+  --bg-muted: #111416;
+
+  --yt-red: #ff0000;
+  --yt-red-accent: #ff4545;
+  --yt-red-strong: #ff2020;
+  --yt-red-soft: #ff6b6b;
+
+  --warm-1: #ff6b3d;
+  --warm-2: #ff8a3d;
+  --warm-3: #ffb03b;
+  --warm-4: #ff7a50;
+  --warm-5: #ff5a4d;
+
   --bg-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --noise-opacity: 0.025;
 }
