@@ -60,10 +60,10 @@ export function IntroPanel({
                                 ? 'min(220px, 72vw)'
                                 : isTablet
                                     ? 'min(280px, 78vw)'
-                                    : 'min(360px, 90%)',
+                                    : 'min(380px, 90%)',
                             height: 'auto',
                             filter:
-                                'drop-shadow(0 0 40px rgba(114,196,74,0.3)) drop-shadow(0 0 80px rgba(74,159,212,0.2))',
+                                'drop-shadow(0 0 40px rgba(255,69,69,0.28)) drop-shadow(0 0 80px rgba(255,122,80,0.2))',
                             marginBottom: isMobile ? '1rem' : 'clamp(1.5rem, 3vw, 2.5rem)',
                             display: 'block',
                             marginInline: isDesktop ? '0' : 'auto',

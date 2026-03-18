@@ -56,10 +56,11 @@ export default function TheBetterDaySection() {
     return (
         <div
             ref={wrapperRef}
+            data-floating-social="false"
             style={{
                 position: 'relative',
                 height: wrapperHeight,
-                background: '#07090a',
+                background: 'var(--bg-base)',
             }}
         >
             <ProgressTrack
@@ -79,7 +80,7 @@ export default function TheBetterDaySection() {
                     width: '100%',
                     height: '100vh',
                     overflow: 'hidden',
-                    background: '#07090a',
+                    background: 'var(--bg-base)',
                 }}
             >
                 <IntroPanel

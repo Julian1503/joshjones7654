@@ -49,7 +49,7 @@ export function PillarPanel({
                 paddingBottom: isMobile ? '3rem' : 0,
             }}
         >
-            <div style={{ position: 'absolute', inset: 0, background: '#07090a' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'var(--bg-base)' }} />
 
             <div
                 ref={(element) => {
