@@ -11,6 +11,9 @@ import GamesJoshPlaysSection from '@/components/games-josh-plays/GamesJoshPlaysS
 import { MusicSection } from '@/components/music-section/MusicSection';
 import { SITE_DEFAULT_TITLE } from '@/lib/seo/site';
 import {SiteMenu} from "@/components/site-menu/SiteMenu";
+import {useLoadingScreen} from "@/components/loading-screen/hooks/useLoadingScreen";
+import {LoadingScreen} from "@/components/loading-screen/LoadingScreen";
+import {LoadingScreenWrapper} from "@/components/loading-screen/LoadingScreenWrapper";
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -33,9 +36,11 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
+    return (
     <>
-      <nav aria-label='Primary site menu'>
+        <LoadingScreenWrapper/>
+
+        <nav aria-label='Primary site menu'>
         <SiteMenu />
       </nav>
 
