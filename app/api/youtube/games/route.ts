@@ -2,11 +2,10 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDetectedGamesFromYoutube } from '@/lib/youtube/youtube-games.service'
 import {
     DEFAULT_YOUTUBE_HANDLE,
-    YOUTUBE_REVALIDATE_SECONDS,
     type YoutubeGamesResponse,
 } from '@/lib/youtube/youtube.types'
 
-export const revalidate = YOUTUBE_REVALIDATE_SECONDS
+export const revalidate = 1800
 
 const QUOTA_COOLDOWN_MS = 15 * 60 * 1000
 const FALLBACK_MAX_AGE_MS = 3 * 60 * 60 * 1000

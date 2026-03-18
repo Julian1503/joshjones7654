@@ -4,10 +4,9 @@ import type { YoutubeLatestResponse } from '@/components/youtube-section/types'
 import {
     DEFAULT_MAX_RESULTS,
     DEFAULT_YOUTUBE_HANDLE,
-    YOUTUBE_REVALIDATE_SECONDS,
 } from '@/lib/youtube/youtube.types'
 
-export const revalidate = YOUTUBE_REVALIDATE_SECONDS
+export const revalidate = 1800
 
 const QUOTA_COOLDOWN_MS = 15 * 60 * 1000
 const FALLBACK_MAX_AGE_MS = 3 * 60 * 60 * 1000

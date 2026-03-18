@@ -2,7 +2,6 @@ import {
     DEFAULT_MAX_RESULTS,
     DEFAULT_YOUTUBE_HANDLE,
     YOUTUBE_API_BASE_URL,
-    YOUTUBE_REVALIDATE_SECONDS,
     YoutubeApiErrorResponse,
     YoutubeChannelListResponse,
     YoutubePlaylistItemsResponse,
@@ -161,7 +160,7 @@ async function buildVideos({
 
 export async function fetchYoutube<T>(url: string): Promise<T> {
     const response = await fetch(url, {
-        next: { revalidate: YOUTUBE_REVALIDATE_SECONDS },
+        next: { revalidate: 1800 },
     })
     if (response.ok) return (await response.json()) as T
 
