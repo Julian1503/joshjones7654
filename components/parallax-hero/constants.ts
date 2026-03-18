@@ -1,3 +1,5 @@
+import { BRAND_COLORS } from '@/lib/theme/colors'
+
 export const SECTION_HEIGHT = '220vh'
 
 export const PARALLAX_TRAVEL = {
@@ -32,13 +34,13 @@ export const DEPTH_BREATHING = {
 } as const
 
 export const COLORS = {
-    background: '#060809',
-    accent: '#4de3ff',
+    background: BRAND_COLORS.background,
+    accent: BRAND_COLORS.accent,
     titleStroke: 'rgba(255,255,255,0.08)',
     ghostStroke: 'rgba(255,255,255,0.10)',
 } as const
 
-export const ROLE_TAGS = ['GAMER', 'CREATOR', 'DEVELOPER'] as const
+export const ROLE_TAGS = ['GAMER', 'CREATOR', 'YOUTUBER'] as const
 
 export const FLICKER_KEYFRAMES = `
   @keyframes flicker {

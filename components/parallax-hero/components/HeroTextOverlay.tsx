@@ -68,7 +68,7 @@ export function HeroTextOverlay({
                                 : 'clamp(0.55rem, 1vw, 0.8rem)',
                         letterSpacing: isMobile ? '0.22em' : '0.4em',
                         textTransform: 'uppercase',
-                        textShadow: '0 0 14px rgba(77,227,255,0.65)',
+                        textShadow: '0 0 14px rgba(255,69,69,0.5)',
                         animation: 'flicker 8s ease-in-out infinite',
                         willChange: 'transform, opacity, filter',
                         flexWrap: 'wrap',
@@ -107,13 +107,13 @@ export function HeroTextOverlay({
                                 : 'clamp(4.5rem, 13vw, 12rem)',
                         lineHeight: 0.9,
                         letterSpacing: isMobile ? '0.03em' : '0.06em',
-                        background: 'linear-gradient(180deg, #ffffff 15%, #bad5e5 100%)',
+                        background: 'linear-gradient(180deg, #ffffff 15%, #ffb3b3 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         WebkitTextStroke: `1px ${COLORS.titleStroke}`,
                         textShadow:
-                            '0 0 32px rgba(60,200,255,0.18), 0 4px 16px rgba(0,0,0,0.8)',
+                            '0 0 32px rgba(255,69,69,0.2), 0 4px 16px rgba(0,0,0,0.8)',
                         willChange: 'transform, opacity, filter',
                     }}
                 >

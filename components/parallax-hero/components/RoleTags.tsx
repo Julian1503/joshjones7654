@@ -14,25 +14,23 @@ export function RoleTags({ viewport }: RoleTagsProps) {
     return (
         <>
             {ROLE_TAGS.flatMap((tag, index, allTags) => {
-                const nodes: ReactNode[] = [<span key={tag}>{tag}</span>]
+                const dot: ReactNode[] = [<span
+                    key={`dot-${tag}`}
+                    style={{
+                        display: 'inline-block',
+                        width: isMobile ? 2 : 3,
+                        height: isMobile ? 2 : 3,
+                        borderRadius: '50%',
+                        background: COLORS.accent,
+                        boxShadow: `0 0 6px ${COLORS.accent}`,
+                    }}
+                />];
 
-                if (index < allTags.length - 1) {
-                    nodes.push(
-                        <span
-                            key={`dot-${tag}`}
-                            style={{
-                                display: 'inline-block',
-                                width: isMobile ? 2 : 3,
-                                height: isMobile ? 2 : 3,
-                                borderRadius: '50%',
-                                background: COLORS.accent,
-                                boxShadow: `0 0 6px ${COLORS.accent}`,
-                            }}
-                        />
-                    )
-                }
+                dot.push(
+                    <span key={tag}>{tag}</span>
+                );
 
-                return nodes
+                return dot;
             })}
         </>
     )
