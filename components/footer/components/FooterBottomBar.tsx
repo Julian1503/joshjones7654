@@ -19,7 +19,7 @@ export function FooterBottomBar({
                 padding: 'clamp(1.2rem, 2vw, 1.8rem) clamp(1.4rem, 4vw, 3.5rem)',
                 display: 'flex',
                 alignItems: isMobile ? 'flex-start' : 'center',
-                justifyContent: 'space-between',
+                justifyContent: 'center',
                 flexDirection: isMobile ? 'column' : 'row',
                 flexWrap: 'wrap',
                 gap: 12,
@@ -32,6 +32,7 @@ export function FooterBottomBar({
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.14)',
+              marginLeft: 'auto',
           }}
       >
         © {new Date().getFullYear()}{' '}
@@ -53,6 +54,7 @@ export function FooterBottomBar({
                     letterSpacing: '0.18em',
                     textTransform: 'uppercase',
                     color: 'rgba(255,255,255,0.1)',
+                    marginLeft: 'auto',
                 }}
             >
         Toowoomba, AU
