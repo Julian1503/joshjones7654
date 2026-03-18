@@ -11,7 +11,7 @@ import { YoutubeSectionHeader } from '@/components/youtube-section/components/Yo
 import { YoutubeGrid } from '@/components/youtube-section/components/YoutubeGrid'
 import { PaginationControls } from '@/components/youtube-section/components/PaginationControls'
 import { YoutubeChannelLink } from '@/components/youtube-section/components/YoutubeChannelLink'
-import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
+import {VIDEOS_SECTION_ID, YOUTUBE_SECTION_COLORS} from '@/components/youtube-section/constants'
 
 export default function YoutubeSection() {
     const sectionRef = useRef<HTMLElement>(null)
@@ -80,6 +80,7 @@ export default function YoutubeSection() {
             )}
 
             <section
+                id={VIDEOS_SECTION_ID}
                 ref={sectionRef}
                 style={{
                     position: 'relative',

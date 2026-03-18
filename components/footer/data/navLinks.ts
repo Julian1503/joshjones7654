@@ -4,7 +4,7 @@ export const FOOTER_NAV_GROUPS: FooterNavGroup[] = [
     {
         group: 'Joshua',
         links: [
-            { label: 'His Story', href: '#story' },
+            { label: 'His Story', href: '#about-me' },
             { label: 'Gaming', href: '#gaming' },
             { label: 'Videos', href: '#videos' },
         ],

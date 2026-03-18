@@ -14,6 +14,7 @@ import { MusicPlayerPanel } from '@/components/music-section/components/MusicPla
 import { LoadingSkeleton } from '@/components/music-section/components/states/LoadingSkeleton'
 import { ErrorState } from '@/components/music-section/components/states/ErrorState'
 import { EmptyState } from '@/components/music-section/components/states/EmptyState'
+import {MUSIC_SECTION_ID} from "@/components/music-section/constants";
 
 export function MusicSection() {
     const sectionRef = useRef<HTMLElement>(null)
@@ -81,6 +82,7 @@ export function MusicSection() {
 
     return (
         <section
+            id={MUSIC_SECTION_ID}
             ref={sectionRef}
             style={{
                 position: 'relative',

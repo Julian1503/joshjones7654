@@ -8,6 +8,8 @@ export const MUSIC_SECTION_COLORS = {
     border: 'rgba(255,255,255,0.06)',
 } as const
 
+export const MUSIC_SECTION_ID = 'music'
+
 export const MUSIC_WAVEFORM_BAR_COUNT = 52
 export const MUSIC_VISIBLE_TRACKS = 4
 

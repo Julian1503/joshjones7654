@@ -1,0 +1,1 @@
+export const THE_BETTER_DAY_SECTION = 'the-better-day'

@@ -9,7 +9,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'A kid with a disability who proves every day that limits are just the beginning.',
         cta: 'Read his story',
-        href: '#story',
+        href: '#about-me',
         image: '/thebetterday.png',
     },
     {
@@ -53,7 +53,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         description:
             'The team behind Joshua, how we show up for him every single day.',
         cta: 'About us',
-        href: '#about',
+        href: '#the-better-day',
         image: '/community.png',
     },
 ]

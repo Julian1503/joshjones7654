@@ -12,3 +12,5 @@ export const YOUTUBE_SECTION_COLORS = {
     textSecondary: BRAND_COLORS.textSecondary,
     textMuted: BRAND_COLORS.textMuted,
 } as const
+
+export const VIDEOS_SECTION_ID = 'videos'
