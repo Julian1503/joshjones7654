@@ -10,7 +10,7 @@ type ChapterProps = {
     title: string
     body: React.ReactNode
     align?: 'left' | 'right'
-    chapterRef?: React.RefCallback<HTMLDivElement>
+    chapterRefAction?: React.RefCallback<HTMLDivElement>
     platform?: PlatformType
     isMobile: boolean
     isTablet: boolean
@@ -21,7 +21,7 @@ export function Chapter({
                             title,
                             body,
                             align = 'left',
-                            chapterRef,
+                            chapterRefAction,
                             platform,
                             isMobile,
                             isTablet,
@@ -32,9 +32,9 @@ export function Chapter({
     const combinedRef = useCallback(
         (element: HTMLDivElement | null) => {
             innerRef.current = element
-            chapterRef?.(element)
+            chapterRefAction?.(element)
         },
-        [chapterRef]
+        [chapterRefAction]
     )
 
     const platformSide = isMobile? 'right' : isRightAligned ? 'left' : 'right';

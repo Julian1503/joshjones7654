@@ -5,13 +5,13 @@ import { BANNER_COLORS } from '@/components/live-banner/constants'
 
 type LiveBannerHeaderProps = {
     viewers: string | null
-    onDismiss: () => void
+    onDismissAction: () => void
     isMobile: boolean
 }
 
 export function LiveBannerHeader({
                                      viewers,
-                                     onDismiss,
+                                     onDismissAction,
                                      isMobile,
                                  }: LiveBannerHeaderProps) {
     return (
@@ -68,7 +68,7 @@ export function LiveBannerHeader({
                 )}
 
                 <button
-                    onClick={onDismiss}
+                    onClick={onDismissAction}
                     aria-label="Close"
                     style={{
                         display: 'flex',

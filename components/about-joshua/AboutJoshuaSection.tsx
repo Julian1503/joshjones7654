@@ -19,7 +19,7 @@ export default function AboutJoshuaSection() {
     const closingRef = useRef<HTMLDivElement>(null)
     const chapterRefs = useRef<HTMLDivElement[]>([])
 
-    const setChapterRef = (index: number) => (element: HTMLDivElement | null) => {
+    const setChapterRefAction = (index: number) => (element: HTMLDivElement | null) => {
         if (element) {
             chapterRefs.current[index] = element
         }
@@ -95,7 +95,7 @@ export default function AboutJoshuaSection() {
                             title={chapter.title}
                             body={chapter.body}
                             align={chapter.align}
-                            chapterRef={setChapterRef(index)}
+                            chapterRefAction={setChapterRefAction(index)}
                             platform={chapter.platform}
                             isMobile={isMobile}
                             isTablet={isTablet}

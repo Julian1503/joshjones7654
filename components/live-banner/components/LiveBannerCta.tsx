@@ -3,14 +3,14 @@
 import { BANNER_COLORS } from '@/components/live-banner/constants'
 
 type LiveBannerCtaProps = {
-    onClick: () => void
+    onClickAction: () => void
     isMobile: boolean
 }
 
-export function LiveBannerCta({ onClick, isMobile }: LiveBannerCtaProps) {
+export function LiveBannerCta({ onClickAction, isMobile }: LiveBannerCtaProps) {
     return (
         <button
-            onClick={onClick}
+            onClick={onClickAction}
             style={{
                 width: '100%',
                 display: 'flex',

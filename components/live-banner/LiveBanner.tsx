@@ -111,7 +111,7 @@ export default function LiveBanner() {
                 >
                     <LiveBannerHeader
                         viewers={viewers}
-                        onDismiss={() => setDismissed(true)}
+                        onDismissAction={() => setDismissed(true)}
                         isMobile={isMobile}
                     />
 
@@ -123,7 +123,7 @@ export default function LiveBanner() {
                         isMobile={isMobile}
                     />
 
-                    <LiveBannerCta onClick={handleJoinStream} isMobile={isMobile} />
+                    <LiveBannerCta onClickAction={handleJoinStream} isMobile={isMobile} />
                 </div>
             </div>
         </div>
