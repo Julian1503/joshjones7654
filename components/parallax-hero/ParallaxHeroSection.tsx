@@ -57,6 +57,7 @@ export default function ParallaxHero() {
             <div
                 id='hero'
                 role='region'
+                data-site-menu="false"
                 aria-label='Joshua hero'
                 ref={wrapperRef}
                 style={{
