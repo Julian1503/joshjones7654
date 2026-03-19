@@ -57,8 +57,6 @@ export function useGridAnimation(games: JoshGame[], visibleCount: number) {
         }, gridRef)
 
         return () => ctx.revert()
-        // visibleCount drives which cards to animate — games list identity matters too
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [visibleCount, games])
 
     return { gridRef }
