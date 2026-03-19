@@ -77,6 +77,7 @@ export async function getDetectedGamesFromYoutube(
 
     // Save new checkpoint = the most recent video seen in this scan
     await scanStateRepository.save({
+        ...scanState,                                              // ← carries schemaVersion
         checkpointVideoId: firstVideoId ?? scanState.checkpointVideoId,
         checkpointScannedAt: new Date().toISOString(),
         games: mergedGames,
