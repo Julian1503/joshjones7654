@@ -9,8 +9,8 @@ if (typeof window !== 'undefined') {
 }
 
 type UseSectionAnimationRefs = {
-    sectionRef: React.RefObject<HTMLElement>
-    bgGlowRef: React.RefObject<HTMLDivElement>
+    sectionRef: React.RefObject<HTMLElement | null>
+    bgGlowRef: React.RefObject<HTMLDivElement | null>
 }
 
 export function useSectionAnimation(): UseSectionAnimationRefs {
