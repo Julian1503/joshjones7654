@@ -84,16 +84,42 @@ export function useYoutubeSectionAnimations({
                 }
             )
 
+            const cards = cardRefs.current.filter((card): card is HTMLDivElement => Boolean(card?.isConnected))
+            if (cards.length === 0) return
+
+            gsap.set(cards, { willChange: 'transform, opacity', transformOrigin: '50% 80%' })
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            if (prefersReducedMotion) {
+                gsap.set(cards, {
+                    autoAlpha: 1,
+                    y: 0,
+                    scale: 1,
+                    rotateX: 0,
+                    clearProps: 'willChange,transform',
+                })
+                return
+            }
+
             gsap.fromTo(
-                cardRefs.current,
-                { y: 50, opacity: 0, filter: 'blur(8px)' },
+                cards,
+                { y: 46, autoAlpha: 0, scale: 0.96, rotateX: 6 },
                 {
                     y: 0,
-                    opacity: 1,
-                    filter: 'blur(0px)',
+                    autoAlpha: 1,
+                    scale: 1,
+                    rotateX: 0,
                     duration: 0.9,
-                    stagger: { amount: 0.4, from: 'start' },
-                    ease: 'power3.out',
+                    stagger: { each: 0.1, from: 'start' },
+                    ease: 'expo.out',
+                    force3D: true,
+                    overwrite: 'auto',
+                    clearProps: 'willChange,transform',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 76%',
+                        once: true,
+                    },
                 }
             )
         }, sectionRef)

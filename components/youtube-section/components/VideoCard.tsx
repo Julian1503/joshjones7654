@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { CategoryPill } from '@/components/youtube-section/components/CategoryPill'
 import { PlayIcon } from '@/components/youtube-section/components/PlayIcon'
+    import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type VideoCardVariant = 'featured' | 'medium' | 'small'
 
@@ -37,42 +38,51 @@ export function VideoCard({
 
     const isFeatured = variant === 'featured'
     const isSmall = variant === 'small'
+    const prefersReducedMotion = usePrefersReducedMotion()
 
     useEffect(() => {
         const card = innerRef.current
         if (!card) return
 
+        if (prefersReducedMotion) {
+            return
+        }
+
         const timeline = gsap.timeline({ paused: true })
 
         timeline
-            .to(thumbnailRef.current, { scale: 1.06, duration: 0.55, ease: 'power2.out' }, 0)
-            .to(glowRef.current, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0)
+            .to(thumbnailRef.current, { scale: 1.04, duration: 0.42, ease: 'power2.out' }, 0)
+            .to(glowRef.current, { opacity: 1, duration: 0.32, ease: 'power2.out' }, 0)
             .to(
                 playRef.current,
                 {
                     y: 0,
                     opacity: 1,
                     scale: 1,
-                    duration: 0.38,
-                    ease: 'back.out(1.4)',
+                    duration: 0.32,
+                    ease: 'back.out(1.2)',
                 },
-                0.05
+                0.04
             )
-            .to(overlayRef.current, { opacity: 1, duration: 0.35, ease: 'power2.out' }, 0)
-            .to(card, { borderColor: 'rgba(255,45,45,0.35)', duration: 0.3, ease: 'power2.out' }, 0)
+            .to(overlayRef.current, { opacity: 1, duration: 0.28, ease: 'power2.out' }, 0)
+            .to(card, { borderColor: 'rgba(255,45,45,0.35)', duration: 0.24, ease: 'power2.out' }, 0)
 
-        const handleEnter = () => timeline.play()
-        const handleLeave = () => timeline.reverse()
+        const playAnimation = () => timeline.play()
+        const reverseAnimation = () => timeline.reverse()
 
-        card.addEventListener('mouseenter', handleEnter)
-        card.addEventListener('mouseleave', handleLeave)
+        card.addEventListener('mouseenter', playAnimation)
+        card.addEventListener('mouseleave', reverseAnimation)
+        card.addEventListener('focusin', playAnimation)
+        card.addEventListener('focusout', reverseAnimation)
 
         return () => {
-            card.removeEventListener('mouseenter', handleEnter)
-            card.removeEventListener('mouseleave', handleLeave)
+            card.removeEventListener('mouseenter', playAnimation)
+            card.removeEventListener('mouseleave', reverseAnimation)
+            card.removeEventListener('focusin', playAnimation)
+            card.removeEventListener('focusout', reverseAnimation)
             timeline.kill()
         }
-    }, [])
+    }, [prefersReducedMotion])
 
     return (
         <div
@@ -87,7 +97,7 @@ export function VideoCard({
                 overflow: 'hidden',
                 cursor: 'pointer',
                 background: '#0c0e0f',
-                transition: 'box-shadow 0.3s ease',
+                transition: 'box-shadow 0.25s ease',
             }}
             onClick={() => onPlayAction(video)}
             onKeyDown={(event) => {
@@ -155,9 +165,9 @@ export function VideoCard({
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        opacity: 0,
-                        scale: '0.75',
-                        y: 12,
+                        opacity: prefersReducedMotion ? 1 : 0,
+                        scale: prefersReducedMotion ? '1' : '0.82',
+                        y: prefersReducedMotion ? 0 : 10,
                         pointerEvents: 'none',
                     } as React.CSSProperties}
                 >

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import gsap from 'gsap'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type UsePageIndexAnimationsParams = {
     cardsRef: React.RefObject<HTMLDivElement | null>
@@ -10,6 +11,8 @@ type UsePageIndexAnimationsParams = {
 export function usePageIndexAnimations({
                                            cardsRef,
                                        }: UsePageIndexAnimationsParams) {
+    const prefersReducedMotion = usePrefersReducedMotion()
+
     useEffect(() => {
         const cards = cardsRef.current
             ? Array.from(cardsRef.current.querySelectorAll('.index-card'))
@@ -17,13 +20,19 @@ export function usePageIndexAnimations({
 
         if (cards.length === 0) return
 
-        gsap.set(cards, { opacity: 0, y: 30 })
+        if (prefersReducedMotion) {
+            gsap.set(cards, { opacity: 1, y: 0, clearProps: 'all' })
+            return
+        }
+
+        gsap.set(cards, { opacity: 0, y: 24 })
         gsap.to(cards, {
             opacity: 1,
             y: 0,
-            duration: 0.55,
-            stagger: 0.1,
-            ease: 'power3.out',
+            duration: 0.66,
+            stagger: 0.08,
+            ease: 'power2.out',
+            overwrite: 'auto',
         })
-    }, [cardsRef])
+    }, [cardsRef, prefersReducedMotion])
 }

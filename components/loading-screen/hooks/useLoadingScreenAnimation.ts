@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import gsap from 'gsap'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type UseLoadingScreenAnimationParams = {
     overlayRef: React.RefObject<HTMLDivElement | null>
@@ -24,10 +25,24 @@ export function useLoadingScreenAnimation({
                                               glowRef,
                                               onCompleteAction,
                                           }: UseLoadingScreenAnimationParams) {
+    const prefersReducedMotion = usePrefersReducedMotion()
+
     useEffect(() => {
         const context = gsap.context(() => {
+            if (prefersReducedMotion) {
+                gsap.set([nameRef.current, labelRef.current, glowRef.current, scanLineRef.current, scanRef.current], {
+                    clearProps: 'all',
+                })
+                gsap.to(overlayRef.current, {
+                    opacity: 0,
+                    duration: 0.2,
+                    ease: 'power1.out',
+                    onComplete: onCompleteAction,
+                })
+                return
+            }
 
-            /* ── Estado inicial ──────────────────────────────────── */
+            /* ── Initial state ──────────────────────────────────── */
             gsap.set([nameRef.current, labelRef.current], {
                 opacity: 0,
                 y: 24,
@@ -52,7 +67,7 @@ export function useLoadingScreenAnimation({
                 opacity: 0,
             })
 
-            /* ── Timeline de entrada ─────────────────────────────── */
+            /* ── Entrance timeline ─────────────────────────────── */
             const timeline = gsap.timeline()
 
             // Scan line
@@ -62,14 +77,14 @@ export function useLoadingScreenAnimation({
                 ease: 'power2.inOut',
             }, 0)
 
-            // Glow de fondo
+            // Background glow
             timeline.to(glowRef.current, {
                 opacity: 1,
                 duration: 1.2,
                 ease: 'power2.out',
             }, 0.1)
 
-            // Wrapper del nombre (ghost + fill aparecen juntos)
+            // Name wrapper (ghost + fill appear together)
             timeline.to(nameRef.current, {
                 opacity: 1,
                 y: 0,
@@ -78,14 +93,14 @@ export function useLoadingScreenAnimation({
                 ease: 'power3.out',
             }, 0.5)
 
-            // Línea roja aparece cuando el nombre está visible
+            // Red line appears when the name is visible
             timeline.to(scanLineRef.current, {
                 opacity: 1,
                 duration: 0.25,
                 ease: 'power2.out',
             }, 1.2)
 
-            // Línea y fill bajan exactamente en sync — misma duración y ease
+            // Line and fill drop in sync — same duration and ease
             timeline.to(nameFillRef.current, {
                 clipPath: 'inset(0% 0% 0% 0%)',
                 duration: 3.2,
@@ -98,14 +113,14 @@ export function useLoadingScreenAnimation({
                 ease: 'power1.inOut',
             }, 1.3)
 
-            // Línea desaparece al terminar el fill
+            // Line disappears at the end of the fill
             timeline.to(scanLineRef.current, {
                 opacity: 0,
                 duration: 0.35,
                 ease: 'power2.in',
             }, 4.2)
 
-            /* ── Salida ──────────────────────────────────────────── */
+            /* ── Exit sequence ──────────────────────────────────────────── */
             timeline.to(nameRef.current, {
                 opacity: 0,
                 y: -50,
@@ -121,7 +136,7 @@ export function useLoadingScreenAnimation({
                 ease: 'power2.in',
             }, 4.6)
 
-            // Slide-up del overlay completo
+            // Slide-up of the complete overlay
             timeline.to(overlayRef.current, {
                 yPercent: -100,
                 duration: 0.85,
@@ -141,5 +156,6 @@ export function useLoadingScreenAnimation({
         labelRef,
         glowRef,
         onCompleteAction,
+        prefersReducedMotion,
     ])
 }

@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MUSIC_REST_HEIGHTS } from '@/components/music-section/constants'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,17 +29,31 @@ export function useMusicSectionAnimations({
                                               barRefs,
                                               isMobile,
                                           }: UseMusicSectionAnimationsParams) {
+    const prefersReducedMotion = usePrefersReducedMotion()
+
     useEffect(() => {
         const context = gsap.context(() => {
             const section = sectionRef.current
             if (!section) return
 
+            if (prefersReducedMotion) {
+                gsap.set([scanRef.current, headerRef.current, waveRef.current, playerRef.current], {
+                    opacity: 1,
+                    y: 0,
+                    scaleX: 1,
+                    clearProps: 'all',
+                })
+                gsap.set(barRefs.current.filter(Boolean), { scaleY: 1, clearProps: 'all' })
+                gsap.set(glowRef.current, { opacity: 0.45, scale: 1 })
+                return
+            }
+
             gsap.set([scanRef.current, headerRef.current, waveRef.current, playerRef.current], {
                 opacity: 0,
             })
             gsap.set(scanRef.current, { scaleX: 0, transformOrigin: 'left center' })
-            gsap.set(headerRef.current, { y: isMobile ? 24 : 40 })
-            gsap.set(playerRef.current, { y: isMobile ? 18 : 30 })
+            gsap.set(headerRef.current, { y: isMobile ? 20 : 34 })
+            gsap.set(playerRef.current, { y: isMobile ? 14 : 24 })
 
             ScrollTrigger.create({
                 trigger: section,
@@ -49,14 +64,14 @@ export function useMusicSectionAnimations({
 
                     timeline.to(
                         scanRef.current,
-                        { scaleX: 1, opacity: 1, duration: 1, ease: 'power2.inOut' },
+                        { scaleX: 1, opacity: 1, duration: 0.85, ease: 'power2.inOut' },
                         0
                     )
 
                     timeline.to(
                         headerRef.current,
-                        { opacity: 1, y: 0, duration: 0.7 },
-                        0.2
+                        { opacity: 1, y: 0, duration: 0.6 },
+                        0.12
                     )
 
                     const bars = barRefs.current.filter(Boolean) as HTMLElement[]
@@ -66,22 +81,22 @@ export function useMusicSectionAnimations({
                         bars,
                         {
                             scaleY: 1,
-                            duration: 0.6,
-                            stagger: { amount: 0.5, from: 'center' },
-                            ease: 'elastic.out(1, 0.55)',
+                            duration: 0.55,
+                            stagger: { amount: 0.34, from: 'center' },
+                            ease: 'back.out(1.25)',
                         },
-                        0.35
+                        0.24
                     )
 
-                    timeline.to(waveRef.current, { opacity: 1, duration: 0.3 }, 0.35)
-                    timeline.to(playerRef.current, { opacity: 1, y: 0, duration: 0.55 }, 0.65)
+                    timeline.to(waveRef.current, { opacity: 1, duration: 0.28 }, 0.22)
+                    timeline.to(playerRef.current, { opacity: 1, y: 0, duration: 0.48 }, 0.42)
                 },
             })
 
             gsap.to(glowRef.current, {
-                opacity: 0.6,
-                scale: 1.15,
-                duration: 4,
+                opacity: 0.56,
+                scale: 1.11,
+                duration: 5.5,
                 yoyo: true,
                 repeat: -1,
                 ease: 'sine.inOut',
@@ -94,11 +109,11 @@ export function useMusicSectionAnimations({
                 idleLoop.to(
                     bar,
                     {
-                        scaleY: MUSIC_REST_HEIGHTS[index] * 1.35,
-                        duration: 1.2 + Math.random() * 0.8,
+                        scaleY: MUSIC_REST_HEIGHTS[index] * 1.28,
+                        duration: 1 + index * 0.08,
                         ease: 'sine.inOut',
                     },
-                    index * 0.015
+                    index * 0.02
                 )
             })
 
@@ -117,5 +132,6 @@ export function useMusicSectionAnimations({
         glowRef,
         barRefs,
         isMobile,
+        prefersReducedMotion,
     ])
 }

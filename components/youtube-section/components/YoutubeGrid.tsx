@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { VideoCard } from '@/components/youtube-section/components/VideoCard'
 import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type YoutubeGridProps = {
     videos: YoutubeVideo[]
@@ -44,6 +45,7 @@ export function YoutubeGrid({
     const overlayRef   = useRef<HTMLDivElement>(null)
     const progressRef  = useRef<HTMLDivElement>(null)
     const prevPagingRef = useRef(false)
+    const prefersReducedMotion = usePrefersReducedMotion()
 
     useLayoutEffect(() => {
         const wasPaging = prevPagingRef.current
@@ -57,46 +59,66 @@ export function YoutubeGrid({
 
         const cards = Array.from(gridEl.children) as HTMLElement[]
 
+        if (prefersReducedMotion) {
+            gsap.killTweensOf([cards, overlayEl, progressEl].flat())
+
+            if (isPaging) {
+                gsap.set(cards, { opacity: 0.35, x: 0, clearProps: 'filter,scale' })
+                gsap.set(overlayEl, { display: 'flex', opacity: 1 })
+                if (progressEl) {
+                    gsap.set(progressEl, { scaleX: 0.6, transformOrigin: 'left center' })
+                }
+            } else {
+                gsap.set(cards, { opacity: 1, x: 0, clearProps: 'filter,scale' })
+                gsap.set(overlayEl, { display: 'none', opacity: 0 })
+                if (progressEl) {
+                    gsap.set(progressEl, { scaleX: 1, transformOrigin: 'left center' })
+                }
+            }
+            return
+        }
+
         /* ── Cards EXIT ──────────────────────────────────────────── */
         if (isPaging && !wasPaging) {
-            const xOut = direction === 'prev' ? 80 : -80
+            const xOut = direction === 'prev' ? 52 : -52
 
             gsap.killTweensOf(cards)
             gsap.to(cards, {
                 x:       xOut,
                 opacity: 0,
-                scale:   0.92,
-                filter:  'blur(5px)',
-                stagger: { amount: 0.22, from: direction === 'prev' ? 'end' : 'start' },
-                duration: 0.38,
+                scale:   0.97,
+                filter:  'blur(3px)',
+                stagger: { amount: 0.18, from: direction === 'prev' ? 'end' : 'start' },
+                duration: 0.3,
                 ease:    'power2.in',
             })
 
             // Show overlay
             gsap.set(overlayEl,  { display: 'flex', opacity: 0 })
-            gsap.to(overlayEl,   { opacity: 1, duration: 0.3, delay: 0.12 })
+            gsap.to(overlayEl,   { opacity: 1, duration: 0.24, delay: 0.08, ease: 'power1.out' })
 
             // Progress bar: crawl to ~72 % while loading
             if (progressEl) {
                 gsap.set(progressEl,  { scaleX: 0, transformOrigin: 'left center' })
-                gsap.to(progressEl,   { scaleX: 0.72, duration: 2, ease: 'power1.inOut' })
+                gsap.to(progressEl,   { scaleX: 0.72, duration: 1.8, ease: 'power1.inOut' })
             }
         }
 
         /* ── Cards ENTER ─────────────────────────────────────────── */
         if (!isPaging && wasPaging) {
-            const xIn = direction === 'prev' ? -80 : 80
+            const xIn = direction === 'prev' ? -52 : 52
 
             // Complete the progress bar, then fade overlay out
             if (progressEl) {
                 gsap.to(progressEl, {
                     scaleX:   1,
-                    duration: 0.25,
+                    duration: 0.2,
                     ease:     'power2.out',
                     onComplete: () => {
                         gsap.to(overlayEl, {
                             opacity:  0,
-                            duration: 1,
+                            duration: 0.34,
+                            ease: 'power2.out',
                             onComplete: () => {
                                 gsap.set(overlayEl, { display: 'none' })
                             },
@@ -106,19 +128,19 @@ export function YoutubeGrid({
             }
 
             // Animate new cards in
-            gsap.set(cards, { x: xIn, opacity: 0, scale: 0.92, filter: 'blur(5px)' })
+            gsap.set(cards, { x: xIn, opacity: 0, scale: 0.97, filter: 'blur(3px)' })
             gsap.to(cards, {
                 x:       0,
                 opacity: 1,
                 scale:   1,
                 filter:  'blur(0px)',
-                stagger: { amount: 0.28, from: direction === 'prev' ? 'end' : 'start' },
-                duration: 0.52,
+                stagger: { amount: 0.22, from: direction === 'prev' ? 'end' : 'start' },
+                duration: 0.44,
                 ease:    'power3.out',
-                delay:   0.08,
+                delay:   0.04,
             })
         }
-    }, [isPaging, direction])
+    }, [isPaging, direction, prefersReducedMotion])
 
     /* ── Grid layouts ─────────────────────────────────────────────── */
     const renderGrid = () => {

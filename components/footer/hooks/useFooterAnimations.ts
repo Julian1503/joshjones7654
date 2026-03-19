@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -29,10 +30,30 @@ export function useFooterAnimations({
                                         glowRef,
                                         isMobile,
                                     }: UseFooterAnimationsParams) {
+    const prefersReducedMotion = usePrefersReducedMotion()
+
     useEffect(() => {
         const context = gsap.context(() => {
             const footer = footerRef.current
             if (!footer) return
+
+            if (prefersReducedMotion) {
+                gsap.set([
+                    scanRef.current,
+                    wordOneRef.current,
+                    wordTwoRef.current,
+                    ctaRef.current,
+                    gridRef.current,
+                    bottomRef.current,
+                ], {
+                    opacity: 1,
+                    y: 0,
+                    scaleX: 1,
+                    clearProps: 'all',
+                })
+                gsap.set(glowRef.current, { opacity: 0.45, scale: 1 })
+                return
+            }
 
             gsap.set(scanRef.current, {
                 scaleX: 0,
@@ -52,16 +73,16 @@ export function useFooterAnimations({
                         scanRef.current,
                         {
                             scaleX: 1,
-                            duration: 0.9,
+                            duration: 0.78,
                             ease: 'power2.inOut',
                         },
                         0
                     )
 
                     gsap.set([wordOneRef.current, wordTwoRef.current], {
-                        y: isMobile ? 70 : 110,
+                        y: isMobile ? 60 : 96,
                         opacity: 0,
-                        skewY: 2,
+                        skewY: 1.6,
                     })
 
                     timeline.to(
@@ -70,9 +91,9 @@ export function useFooterAnimations({
                             y: 0,
                             opacity: 1,
                             skewY: 0,
-                            duration: 0.85,
+                            duration: 0.74,
                         },
-                        0.1
+                        0.08
                     )
 
                     timeline.to(
@@ -81,26 +102,26 @@ export function useFooterAnimations({
                             y: 0,
                             opacity: 1,
                             skewY: 0,
-                            duration: 0.85,
+                            duration: 0.74,
                         },
-                        0.22
+                        0.18
                     )
 
                     gsap.set([ctaRef.current, gridRef.current, bottomRef.current], {
                         opacity: 0,
-                        y: 20,
+                        y: 16,
                     })
 
-                    timeline.to(ctaRef.current, { opacity: 1, y: 0, duration: 0.6 }, 0.45)
-                    timeline.to(gridRef.current, { opacity: 1, y: 0, duration: 0.6 }, 0.56)
-                    timeline.to(bottomRef.current, { opacity: 1, y: 0, duration: 0.5 }, 0.68)
+                    timeline.to(ctaRef.current, { opacity: 1, y: 0, duration: 0.5 }, 0.38)
+                    timeline.to(gridRef.current, { opacity: 1, y: 0, duration: 0.52 }, 0.48)
+                    timeline.to(bottomRef.current, { opacity: 1, y: 0, duration: 0.44 }, 0.6)
                 },
             })
 
             gsap.to(glowRef.current, {
                 opacity: 0.5,
-                scale: 1.12,
-                duration: 5,
+                scale: 1.09,
+                duration: 6,
                 yoyo: true,
                 repeat: -1,
                 ease: 'sine.inOut',
@@ -118,5 +139,6 @@ export function useFooterAnimations({
         scanRef,
         glowRef,
         isMobile,
+        prefersReducedMotion,
     ])
 }

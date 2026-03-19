@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type NavArrowProps = {
     direction: 'prev' | 'next'
@@ -17,13 +18,14 @@ export function NavArrow({
                              isMobile,
                          }: NavArrowProps) {
     const buttonRef = useRef<HTMLButtonElement>(null)
+    const prefersReducedMotion = usePrefersReducedMotion()
 
     useEffect(() => {
         const element = buttonRef.current
-        if (!element || disabled) return
+        if (!element || disabled || prefersReducedMotion) return
 
         const timeline = gsap.timeline({ paused: true })
-        timeline.to(element, { scale: 1.08, duration: 0.18, ease: 'power2.out' })
+        timeline.to(element, { scale: 1.06, duration: 0.14, ease: 'power2.out' })
 
         const handleMouseEnter = () => timeline.play()
         const handleMouseLeave = () => timeline.reverse()
@@ -36,7 +38,7 @@ export function NavArrow({
             element.removeEventListener('mouseleave', handleMouseLeave)
             timeline.kill()
         }
-    }, [disabled])
+    }, [disabled, prefersReducedMotion])
 
     return (
         <button
@@ -57,7 +59,7 @@ export function NavArrow({
                 color: disabled ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.8)',
                 cursor: disabled ? 'default' : 'pointer',
                 outline: 'none',
-                transition: 'background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s',
+                transition: 'background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s',
                 boxShadow: disabled ? 'none' : '0 0 18px rgba(220,30,30,0.1)',
             }}
             onMouseEnter={(event) => {

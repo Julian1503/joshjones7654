@@ -2,6 +2,7 @@
 
 import { YOUTUBE_HANDLE } from '@/components/youtube-section/types'
 import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type YoutubeChannelLinkProps = {
     isLoading: boolean
@@ -12,6 +13,8 @@ export function YoutubeChannelLink({
                                        isLoading,
                                        isMobile,
                                    }: YoutubeChannelLinkProps) {
+    const prefersReducedMotion = usePrefersReducedMotion()
+
     if (isLoading) return null
 
     return (
@@ -51,7 +54,7 @@ export function YoutubeChannelLink({
                     fontSize: isMobile ? '0.66rem' : '0.68rem',
                     letterSpacing: isMobile ? '0.08em' : '0.15em',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
+                    transition: prefersReducedMotion ? 'none' : 'color 0.2s',
                     flexWrap: 'wrap',
                     justifyContent: 'center',
                 }}
@@ -59,6 +62,12 @@ export function YoutubeChannelLink({
                     event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.red
                 }}
                 onMouseLeave={(event) => {
+                    event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.textSecondary
+                }}
+                onFocus={(event) => {
+                    event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.red
+                }}
+                onBlur={(event) => {
                     event.currentTarget.style.color = YOUTUBE_SECTION_COLORS.textSecondary
                 }}
             >

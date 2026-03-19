@@ -48,13 +48,13 @@ export function useSiteMenuVisibility({
 
         scheduleVisibilityCheck()
 
-        window.addEventListener('scroll', updateVisibility, { passive: true })
+        window.addEventListener('scroll', scheduleVisibilityCheck, { passive: true })
         window.addEventListener('resize', scheduleVisibilityCheck)
         window.addEventListener('load', scheduleVisibilityCheck)
 
         return () => {
             cancelAnimationFrame(frameId)
-            window.removeEventListener('scroll', updateVisibility)
+            window.removeEventListener('scroll', scheduleVisibilityCheck)
             window.removeEventListener('resize', scheduleVisibilityCheck)
             window.removeEventListener('load', scheduleVisibilityCheck)
         }

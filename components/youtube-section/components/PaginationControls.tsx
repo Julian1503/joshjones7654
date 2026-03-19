@@ -3,6 +3,7 @@
 import { PAGE_SIZE } from '@/components/youtube-section/types'
 import { NavArrow } from '@/components/youtube-section/components/NavArrow'
 import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type PaginationControlsProps = {
     page: number
@@ -25,6 +26,7 @@ export function PaginationControls({
                                        onNextAction,
                                        isMobile,
                                    }: PaginationControlsProps) {
+    const prefersReducedMotion = usePrefersReducedMotion()
     const from = page * PAGE_SIZE + 1
     const to = Math.min((page + 1) * PAGE_SIZE, totalVideoCount)
 
@@ -94,7 +96,7 @@ export function PaginationControls({
                             width: totalVideoCount > 0 ? `${(to / totalVideoCount) * 100}%` : '0%',
                             background: `linear-gradient(90deg, ${YOUTUBE_SECTION_COLORS.red}, rgba(255,69,69,0.5))`,
                             borderRadius: 4,
-                            transition: 'width 0.5s ease',
+                            transition: prefersReducedMotion ? 'none' : 'width 0.5s ease',
                         }}
                     />
                 </div>

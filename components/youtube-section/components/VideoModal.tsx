@@ -6,6 +6,7 @@ import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { CategoryPill } from '@/components/youtube-section/components/CategoryPill'
 import { YOUTUBE_SECTION_COLORS } from '@/components/youtube-section/constants'
 import { getFocusableElements, trapFocusWithin } from '@/lib/a11y/focus'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type VideoModalProps = {
     video: YoutubeVideo
@@ -17,24 +18,31 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
     const panelRef = useRef<HTMLDivElement>(null)
     const closeButtonRef = useRef<HTMLButtonElement>(null)
     const titleId = `video-modal-title-${video.id}`
+    const prefersReducedMotion = usePrefersReducedMotion()
 
     const handleClose = useCallback(() => {
+        if (prefersReducedMotion) {
+            gsap.set([panelRef.current, backdropRef.current], { clearProps: 'all' })
+            onCloseAction()
+            return
+        }
+
         const timeline = gsap.timeline({ onComplete: onCloseAction })
 
         timeline.to(panelRef.current, {
-            y: 24,
+            y: 18,
             opacity: 0,
-            scale: 0.97,
-            duration: 0.3,
+            scale: 0.98,
+            duration: 0.22,
             ease: 'power2.in',
         })
 
         timeline.to(
             backdropRef.current,
-            { opacity: 0, duration: 0.25, ease: 'power2.in' },
-            '-=0.15'
+            { opacity: 0, duration: 0.2, ease: 'power2.in' },
+            '-=0.1'
         )
-    }, [onCloseAction])
+    }, [onCloseAction, prefersReducedMotion])
 
     useEffect(() => {
         const backdropElement = backdropRef.current
@@ -47,25 +55,30 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
 
         const timeline = gsap.timeline()
 
-        timeline.fromTo(
-            backdropRef.current,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.3, ease: 'power2.out' }
-        )
+        if (prefersReducedMotion) {
+            gsap.set(backdropRef.current, { opacity: 1 })
+            gsap.set(panelRef.current, { opacity: 1, y: 0, scale: 1, clearProps: 'filter' })
+        } else {
+            timeline.fromTo(
+                backdropRef.current,
+                { opacity: 0 },
+                { opacity: 1, duration: 0.24, ease: 'power2.out' }
+            )
 
-        timeline.fromTo(
-            panelRef.current,
-            { y: 40, opacity: 0, scale: 0.96, filter: 'blur(12px)' },
-            {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                filter: 'blur(0px)',
-                duration: 0.45,
-                ease: 'power3.out',
-            },
-            '-=0.15'
-        )
+            timeline.fromTo(
+                panelRef.current,
+                { y: 24, opacity: 0, scale: 0.98, filter: 'blur(8px)' },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    filter: 'blur(0px)',
+                    duration: 0.34,
+                    ease: 'power3.out',
+                },
+                '-=0.12'
+            )
+        }
 
         requestAnimationFrame(() => {
             const focusables = getFocusableElements(panelElement)
@@ -90,7 +103,7 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
             document.body.style.overflow = ''
             previouslyFocused?.focus()
         }
-    }, [handleClose])
+    }, [handleClose, prefersReducedMotion])
 
     return (
         <div
@@ -195,7 +208,7 @@ export function VideoModal({ video, onCloseAction }: VideoModalProps) {
                             color: 'rgba(255,255,255,0.6)',
                             cursor: 'pointer',
                             outline: 'none',
-                            transition: 'background 0.2s, color 0.2s',
+                            transition: prefersReducedMotion ? 'none' : 'background 0.2s, color 0.2s',
                         }}
                         onMouseEnter={(event) => {
                             event.currentTarget.style.background = 'rgba(255,69,69,0.15)'
