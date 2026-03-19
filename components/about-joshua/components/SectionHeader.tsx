@@ -24,15 +24,15 @@ export function SectionHeader({ headerRef, isMobile }: SectionHeaderProps) {
                     flexWrap: 'wrap',
                 }}
             >
-        <span
-            style={{
-                display: 'inline-block',
-                width: 28,
-                height: 1,
-                background: 'currentColor',
-                opacity: 0.5,
-            }}
-        />
+                <span
+                    style={{
+                        display: 'inline-block',
+                        width: 28,
+                        height: 1,
+                        background: 'currentColor',
+                        opacity: 0.5,
+                    }}
+                />
                 About Joshua
             </p>
 
@@ -50,9 +50,9 @@ export function SectionHeader({ headerRef, isMobile }: SectionHeaderProps) {
                     maxWidth: isMobile ? '100%' : '14ch',
                 }}
             >
-                More than
+                A creator
                 <br />
-                <span style={{ color: ABOUT_JOSHUA_COLORS.accent }}>a diagnosis</span>
+                <span style={{ color: ABOUT_JOSHUA_COLORS.accent }}>with his own voice</span>
             </h2>
 
             <p
@@ -64,10 +64,10 @@ export function SectionHeader({ headerRef, isMobile }: SectionHeaderProps) {
                     lineHeight: 1.85,
                 }}
             >
-                Joshua is a creator shaped by struggle, imagination, and ambition. He lives
-                with schizophrenia, but his story is not only about symptoms. It is about
-                being understood, finding identity, and holding onto a dream that still burns
-                very clearly.
+                Joshua is a creator driven by personality, imagination, and ambition. Through
+                gaming, videos, and music, he is building a space that feels true to who he
+                is. He lives with schizophrenia, but that is only part of the picture. What
+                matters here is his voice, his presence, and the future he is working toward.
             </p>
         </div>
     )

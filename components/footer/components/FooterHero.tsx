@@ -109,9 +109,8 @@ export function FooterHero({
                         paddingTop: isMobile ? 0 : 4,
                     }}
                 >
-                    Joshua is a kid who plays hard, laughs loud, and shows up every day,
-                    disability and all. Subscribe to catch every reaction, every session,
-                    and every real moment The Better Day captures.
+                    Joshua is a creator with his own energy, humour, and presence. He shows up fully, every day.
+                    Subscribe to catch every reaction, every gaming session, and every real moment captured through The Better Day.
                 </p>
             </div>
         </div>

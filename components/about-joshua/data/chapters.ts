@@ -3,26 +3,26 @@ import type { ChapterItem } from '@/components/about-joshua/types'
 export const ABOUT_JOSHUA_CHAPTERS: ChapterItem[] = [
     {
         num: '01',
-        title: 'A mind that feels everything deeply',
-        body: `Joshua lives with schizophrenia, and that shapes how he experiences the world. Some days feel louder, heavier, and harder to decode, but his sensitivity also gives him a unique way of seeing emotion, tension, and meaning that most people cannot access.`,
+        title: 'He sees the world in his own way',
+        body: `Joshua brings intensity, sensitivity, and a strong emotional instinct to everything he does. The way he experiences the world gives his perspective real depth, and that comes through in the way he plays, reacts, creates, and connects with people.`,
     },
     {
         num: '02',
-        title: 'Gaming became a place to breathe',
+        title: 'Gaming became his world',
         align: 'right',
         platform: 'ps5',
-        body: `Games gave Joshua structure, escape, challenge, and connection. In digital worlds he found rhythm and identity, a way to keep moving forward, level by level, day by day.`,
+        body: `Games gave Joshua more than entertainment. They gave him rhythm, focus, challenge, and a space where he could express himself naturally. Through gaming, he found something that feels both grounding and alive.`,
     },
     {
         num: '03',
-        title: 'YouTube became his voice',
+        title: 'YouTube gave him a platform',
         platform: 'youtube',
-        body: `Creating content gave Joshua something powerful: a way to be seen on his own terms. Through his channel, videos, ideas, reactions, and stories, he started turning his inner world into something people could actually feel and connect with.`,
+        body: `Creating content gave Joshua a way to be seen for who he is. Through videos, reactions, and moments on screen, he started shaping a presence that feels honest, engaging, and unmistakably his own.`,
     },
     {
         num: '04',
-        title: 'He wants more than attention',
+        title: 'He wants to build something real',
         align: 'right',
-        body: `Joshua wants to be known, but not just for fame. He wants to build a real presence, inspire people, and prove that someone living with a difficult condition can still create, entertain, and matter on a very big stage.`,
+        body: `Joshua is not chasing attention for the sake of it. He wants to grow a real creative presence, reach people through what he makes, and keep building a future around the things that matter most to him.`,
     },
-]
+    ]
