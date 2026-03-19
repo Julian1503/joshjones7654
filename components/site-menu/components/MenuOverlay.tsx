@@ -33,6 +33,7 @@ export function MenuOverlay({
     return (
         <div
             id={overlayId}
+            data-floating-social={!isOpen}
             ref={overlayRef}
             role='dialog'
             aria-modal='true'
