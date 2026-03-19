@@ -12,7 +12,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:03.109Z",
-      "updatedAt": "2026-03-19T03:41:07.406Z"
+      "updatedAt": "2026-03-19T03:10:03.109Z"
     },
     {
       "normalizedName": "grand theft auto v gameplayonline",
@@ -27,7 +27,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:03.680Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:03.680Z"
     },
     {
       "normalizedName": "a quiet place the road ahead",
@@ -42,7 +42,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:06.357Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:06.357Z"
     },
     {
       "normalizedName": "bronze",
@@ -56,12 +56,12 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:07.339Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:07.339Z"
     },
     {
       "normalizedName": "fortnite",
       "displayName": "Fortnite Battle Royale",
-      "slug": "fortnite-battle-royale",
+      "slug": "fornite-battle-royale",
       "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172620/library_600x900_2x.jpg",
       "provider": "rawg",
       "providerGameId": "47137",
@@ -71,12 +71,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:10.033Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:10.033Z"
     },
     {
       "normalizedName": "fortnite epicfail",
       "displayName": "Fortnite",
-      "slug": "fortnite",
+      "slug": "fortnite-3",
       "posterUrl": "https://media.rawg.io/media/screenshots/5cc/5cc1a3f085356345aa902a38af82345a.jpg",
       "provider": "rawg",
       "providerGameId": "583859",
@@ -86,7 +86,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:10.489Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:10.489Z"
     },
     {
       "normalizedName": "lego city undercover",
@@ -100,13 +100,13 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:11.488Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:11.488Z"
     },
     {
       "normalizedName": "need for speed heat",
       "displayName": "Need for Speed Heat",
       "slug": "need-for-speed-heat",
-      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/library_600x900_2x.jpg",
+      "posterUrl": "https://media.rawg.io/media/games/370/3703c683968a54f09630dcf03366ea35.jpg",
       "provider": "rawg",
       "providerGameId": "364806",
       "aliases": [
@@ -114,7 +114,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:12.533Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:12.533Z"
     },
     {
       "normalizedName": "need for speed heatgameplayonline",
@@ -129,7 +129,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:13.301Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:13.301Z"
     },
     {
       "normalizedName": "star wars outlaws demo",
@@ -144,7 +144,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:14.662Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:14.662Z"
     },
     {
       "normalizedName": "grand theft auto vgameplay",
@@ -159,12 +159,12 @@
       ],
       "confidence": 0.75,
       "createdAt": "2026-03-19T03:10:16.286Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:16.286Z"
     },
     {
       "normalizedName": "marathon server slam",
       "displayName": "Marathon",
-      "slug": "marathon",
+      "slug": "marathon-2",
       "posterUrl": "https://media.rawg.io/media/games/cab/cabc7cd14f1d9829c37d3bd2bec16c4a.jpg",
       "provider": "rawg",
       "providerGameId": "961202",
@@ -174,12 +174,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:20.837Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:20.837Z"
     },
     {
       "normalizedName": "marathon server slamgameplay",
       "displayName": "Marathon",
-      "slug": "marathon",
+      "slug": "marathon-2",
       "posterUrl": "https://media.rawg.io/media/games/cab/cabc7cd14f1d9829c37d3bd2bec16c4a.jpg",
       "provider": "rawg",
       "providerGameId": "961202",
@@ -189,7 +189,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:21.738Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:21.738Z"
     },
     {
       "normalizedName": "free style",
@@ -204,12 +204,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:23.273Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:23.273Z"
     },
     {
       "normalizedName": "gtav online 25 02 2026",
       "displayName": "25",
-      "slug": "25",
+      "slug": "25-game",
       "posterUrl": "https://media.rawg.io/media/screenshots/f2c/f2c40542116ce0a29b61f20d0aac0871.jpg",
       "provider": "rawg",
       "providerGameId": "230521",
@@ -219,12 +219,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:24.508Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:24.508Z"
     },
     {
       "normalizedName": "yakuza a dragon",
       "displayName": "Yakuza: Like a Dragon",
-      "slug": "yakuza-like-a-dragon",
+      "slug": "yakuza-7",
       "posterUrl": "https://media.rawg.io/media/games/a59/a5993b9f84944570a31cb6ad08bfe502.jpg",
       "provider": "rawg",
       "providerGameId": "369157",
@@ -234,7 +234,7 @@
       ],
       "confidence": 0.75,
       "createdAt": "2026-03-19T03:10:25.078Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:25.078Z"
     },
     {
       "normalizedName": "60k shared",
@@ -249,7 +249,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:28.825Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:28.825Z"
     },
     {
       "normalizedName": "film",
@@ -264,7 +264,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:30.491Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:30.491Z"
     },
     {
       "normalizedName": "watch dogs legion",
@@ -274,12 +274,25 @@
       "provider": "rawg",
       "providerGameId": "324992",
       "aliases": [
-        "Watch Dogs: Legion",
-        "Watch Dogs"
+        "Watch Dogs: Legion"
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:31.694Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:31.694Z"
+    },
+    {
+      "normalizedName": "watch dogs",
+      "displayName": "Watch Dogs",
+      "slug": "watch-dogs",
+      "posterUrl": "https://media.rawg.io/media/games/879/879c930f9c6787c920153fa2df452eb3.jpg",
+      "provider": "rawg",
+      "providerGameId": "3687",
+      "aliases": [
+        "Watch Dogs"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:32.221Z",
+      "updatedAt": "2026-03-19T03:10:32.221Z"
     },
     {
       "normalizedName": "lawn mowing simulator",
@@ -293,7 +306,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:34.019Z",
-      "updatedAt": "2026-03-19T03:41:07.407Z"
+      "updatedAt": "2026-03-19T03:10:34.019Z"
     },
     {
       "normalizedName": "grand theft auto v 20260203222318",
@@ -308,7 +321,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:34.511Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:34.511Z"
     },
     {
       "normalizedName": "lawn mowing simulator 2026",
@@ -323,7 +336,7 @@
       ],
       "confidence": 0.75,
       "createdAt": "2026-03-19T03:10:35.934Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:35.934Z"
     },
     {
       "normalizedName": "grand theft auto v rely",
@@ -338,7 +351,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:38.203Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:38.203Z"
     },
     {
       "normalizedName": "grand theft auto v 2026",
@@ -353,7 +366,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:39.022Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:39.022Z"
     },
     {
       "normalizedName": "session skate sim",
@@ -367,7 +380,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:39.983Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:39.983Z"
     },
     {
       "normalizedName": "rblox for kids",
@@ -382,7 +395,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:40.370Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:40.370Z"
     },
     {
       "normalizedName": "youtuber",
@@ -397,7 +410,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:42.971Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:42.971Z"
     },
     {
       "normalizedName": "fallout 76",
@@ -411,12 +424,12 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:43.790Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:43.790Z"
     },
     {
       "normalizedName": "silent hill 2",
       "displayName": "Silent Hill 2",
-      "slug": "silent-hill-2",
+      "slug": "silent-hill-2-remake",
       "posterUrl": "https://media.rawg.io/media/games/09b/09b41c1a2c5761c5b1772a4ae238bb0e.jpg",
       "provider": "rawg",
       "providerGameId": "868086",
@@ -425,7 +438,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:44.638Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:44.638Z"
     },
     {
       "normalizedName": "60millon likes hit button",
@@ -440,12 +453,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:46.180Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:46.180Z"
     },
     {
       "normalizedName": "battlefield 6",
       "displayName": "Battlefield 6",
-      "slug": "battlefield-6",
+      "slug": "battlefield-6-2",
       "posterUrl": "https://media.rawg.io/media/games/dcc/dcc38d78ab1f1a90fdc4ba1bea3a73ff.jpg",
       "provider": "rawg",
       "providerGameId": "1007483",
@@ -454,12 +467,12 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:47.464Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:47.464Z"
     },
     {
       "normalizedName": "battlefield 6 2026gameplay",
       "displayName": "Battlefield 6",
-      "slug": "battlefield-6",
+      "slug": "battlefield-6-2",
       "posterUrl": "https://media.rawg.io/media/games/dcc/dcc38d78ab1f1a90fdc4ba1bea3a73ff.jpg",
       "provider": "rawg",
       "providerGameId": "1007483",
@@ -469,7 +482,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:47.944Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:47.944Z"
     },
     {
       "normalizedName": "sniper elite 4",
@@ -483,7 +496,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:49.473Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:49.473Z"
     },
     {
       "normalizedName": "sniper elite 4 2026gameplay",
@@ -498,7 +511,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:50.017Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:50.017Z"
     },
     {
       "normalizedName": "need for speed payback",
@@ -512,7 +525,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:52.513Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:52.513Z"
     },
     {
       "normalizedName": "grand theft auto city vice",
@@ -527,7 +540,21 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:10:56.941Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:56.941Z"
+    },
+    {
+      "normalizedName": "call of duty warzone",
+      "displayName": "Call of Duty: Warzone",
+      "slug": "call-of-duty-warzone",
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962663/library_600x900_2x.jpg",
+      "provider": "rawg",
+      "providerGameId": "418467",
+      "aliases": [
+        "Call of Duty: Warzone"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:58.185Z",
+      "updatedAt": "2026-03-19T03:10:58.185Z"
     },
     {
       "normalizedName": "need for speed heatgameplay",
@@ -542,12 +569,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:10:58.690Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:10:58.690Z"
     },
     {
       "normalizedName": "marvel s spider man remastered",
       "displayName": "Marvel's Spider-Man Remastered",
-      "slug": "marvel-s-spider-man-remastered",
+      "slug": "marvels-spider-man-remastered",
       "posterUrl": "https://media.rawg.io/media/games/5f1/5f1399f755ed3a40b04a9195f4c06be5.jpg",
       "provider": "rawg",
       "providerGameId": "663742",
@@ -557,12 +584,12 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:00.410Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:00.410Z"
     },
     {
       "normalizedName": "marvel s spider",
       "displayName": "Marvel's Spider-Man Remastered",
-      "slug": "marvel-s-spider-man-remastered",
+      "slug": "marvels-spider-man-remastered",
       "posterUrl": "https://media.rawg.io/media/games/5f1/5f1399f755ed3a40b04a9195f4c06be5.jpg",
       "provider": "rawg",
       "providerGameId": "663742",
@@ -572,7 +599,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:00.886Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:00.886Z"
     },
     {
       "normalizedName": "man remastered 2025gameplay",
@@ -587,12 +614,12 @@
       ],
       "confidence": 0.6666666666666666,
       "createdAt": "2026-03-19T03:11:01.440Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:01.440Z"
     },
     {
       "normalizedName": "man remastered",
       "displayName": "Marvel's Spider-Man Remastered",
-      "slug": "marvel-s-spider-man-remastered",
+      "slug": "marvels-spider-man-remastered",
       "posterUrl": "https://media.rawg.io/media/games/5f1/5f1399f755ed3a40b04a9195f4c06be5.jpg",
       "provider": "rawg",
       "providerGameId": "663742",
@@ -602,7 +629,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:03.151Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:03.151Z"
     },
     {
       "normalizedName": "grand theft auto vgameonlinegameplay",
@@ -617,7 +644,7 @@
       ],
       "confidence": 0.75,
       "createdAt": "2026-03-19T03:11:05.347Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:05.347Z"
     },
     {
       "normalizedName": "grand theft auto v onlinegameplay",
@@ -632,7 +659,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:06.243Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:06.243Z"
     },
     {
       "normalizedName": "grand theft auto v 2025",
@@ -647,7 +674,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:07.159Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:07.159Z"
     },
     {
       "normalizedName": "roblox",
@@ -661,7 +688,21 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:07.607Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:07.607Z"
+    },
+    {
+      "normalizedName": "call of duty black ops 7",
+      "displayName": "Call of Duty: Black Ops 7",
+      "slug": "call-of-duty-black-ops-7",
+      "posterUrl": "https://media.rawg.io/media/games/4ca/4cabe38446288beb37fc73b2fe047b08.jpg",
+      "provider": "rawg",
+      "providerGameId": "1007995",
+      "aliases": [
+        "Call of Duty: Black Ops 7"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:08.570Z",
+      "updatedAt": "2026-03-19T03:11:08.570Z"
     },
     {
       "normalizedName": "the outlast trials",
@@ -675,7 +716,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:09.071Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:09.071Z"
     },
     {
       "normalizedName": "killing floor 3",
@@ -689,7 +730,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:09.523Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:09.523Z"
     },
     {
       "normalizedName": "sub 1000000 gtav online",
@@ -704,12 +745,12 @@
       ],
       "confidence": 0.875,
       "createdAt": "2026-03-19T03:11:15.210Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:15.210Z"
     },
     {
       "normalizedName": "fortnite 2025",
       "displayName": "Fortnite",
-      "slug": "fortnite",
+      "slug": "fortnite-3",
       "posterUrl": "https://media.rawg.io/media/screenshots/5cc/5cc1a3f085356345aa902a38af82345a.jpg",
       "provider": "rawg",
       "providerGameId": "583859",
@@ -719,7 +760,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:15.667Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:15.667Z"
     },
     {
       "normalizedName": "asphalt legends",
@@ -734,7 +775,7 @@
       ],
       "confidence": 0.6666666666666666,
       "createdAt": "2026-03-19T03:11:16.793Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:16.793Z"
     },
     {
       "normalizedName": "death stranding",
@@ -748,7 +789,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:21.193Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:21.193Z"
     },
     {
       "normalizedName": "monster hunter wilds",
@@ -762,7 +803,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:23.567Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:23.567Z"
     },
     {
       "normalizedName": "hashtag need for speed payback",
@@ -777,7 +818,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:27.282Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:27.282Z"
     },
     {
       "normalizedName": "hashtag forza horizon 5",
@@ -792,7 +833,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:27.830Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:27.830Z"
     },
     {
       "normalizedName": "skyrim",
@@ -807,7 +848,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:29.123Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:29.123Z"
     },
     {
       "normalizedName": "timesplitters",
@@ -821,7 +862,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:30.417Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:30.417Z"
     },
     {
       "normalizedName": "forza horizon 5 first love",
@@ -836,12 +877,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:30.926Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:30.926Z"
     },
     {
       "normalizedName": "hashtag spider man mars morales",
       "displayName": "SPIDER-MAN | Miles Morales",
-      "slug": "spider-man-miles-morales",
+      "slug": "spider-man-miles-morales-2",
       "posterUrl": "https://media.rawg.io/media/screenshots/784/78457774ec8418273b4e23eb7db35147.jpg",
       "provider": "rawg",
       "providerGameId": "746966",
@@ -851,12 +892,12 @@
       ],
       "confidence": 0.6,
       "createdAt": "2026-03-19T03:11:35.038Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:35.038Z"
     },
     {
       "normalizedName": "spider man marvel",
       "displayName": "Marvel's Spider-Man",
-      "slug": "marvel-s-spider-man",
+      "slug": "marvels-spider-man",
       "posterUrl": "https://media.rawg.io/media/games/9aa/9aa42d16d425fa6f179fc9dc2f763647.jpg",
       "provider": "rawg",
       "providerGameId": "58134",
@@ -866,7 +907,7 @@
       ],
       "confidence": 0.75,
       "createdAt": "2026-03-19T03:11:35.614Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:35.614Z"
     },
     {
       "normalizedName": "gta v online sniper way",
@@ -881,7 +922,7 @@
       ],
       "confidence": 0.6,
       "createdAt": "2026-03-19T03:11:39.056Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:39.056Z"
     },
     {
       "normalizedName": "xcom 2",
@@ -895,7 +936,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:39.936Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:39.936Z"
     },
     {
       "normalizedName": "subscriber",
@@ -910,7 +951,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:40.735Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:40.735Z"
     },
     {
       "normalizedName": "cyberpunk 2077",
@@ -924,7 +965,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:41.637Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:41.637Z"
     },
     {
       "normalizedName": "untitled m4a",
@@ -939,7 +980,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:45.001Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:45.001Z"
     },
     {
       "normalizedName": "hashtag need for speed heat tutorial",
@@ -954,7 +995,7 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:46.196Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:46.196Z"
     },
     {
       "normalizedName": "need speed heat",
@@ -969,12 +1010,12 @@
       ],
       "confidence": 0.75,
       "createdAt": "2026-03-19T03:11:48.009Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:48.009Z"
     },
     {
       "normalizedName": "watch dogs 2",
       "displayName": "Watch Dogs 2",
-      "slug": "watch-dogs-2",
+      "slug": "watch_dogs-2",
       "posterUrl": "https://media.rawg.io/media/games/f52/f52cf6ba08089cd5f1a9c8f7fcc93d1f.jpg",
       "provider": "rawg",
       "providerGameId": "10061",
@@ -983,7 +1024,7 @@
       ],
       "confidence": 1,
       "createdAt": "2026-03-19T03:11:48.819Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:48.819Z"
     },
     {
       "normalizedName": "we are running out of time",
@@ -998,7 +1039,7 @@
       ],
       "confidence": 0.6666666666666666,
       "createdAt": "2026-03-19T03:11:50.341Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:50.341Z"
     },
     {
       "normalizedName": "cev eray",
@@ -1013,12 +1054,12 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:51.808Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:51.808Z"
     },
     {
       "normalizedName": "reality graphics",
       "displayName": "REALITY",
-      "slug": "reality",
+      "slug": "reality-2",
       "posterUrl": "https://media.rawg.io/media/screenshots/12f/12fcf09680d9a1616d53f3a48f771c97.jpg",
       "provider": "rawg",
       "providerGameId": "15809",
@@ -1028,7 +1069,22 @@
       ],
       "confidence": 0.84,
       "createdAt": "2026-03-19T03:11:52.587Z",
-      "updatedAt": "2026-03-19T03:41:07.408Z"
+      "updatedAt": "2026-03-19T03:11:52.587Z"
+    },
+    {
+      "normalizedName": "4kcapture",
+      "displayName": "Capture.",
+      "slug": "capture-3",
+      "posterUrl": "https://media.rawg.io/media/screenshots/541/5419abf820f882f7691bdad5c8d405ff.jpg",
+      "provider": "rawg",
+      "providerGameId": "903243",
+      "aliases": [
+        "4kcapture",
+        "Capture."
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:53.162Z",
+      "updatedAt": "2026-03-19T03:11:53.162Z"
     }
   ]
 }

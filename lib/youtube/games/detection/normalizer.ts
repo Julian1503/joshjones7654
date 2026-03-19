@@ -13,11 +13,7 @@ export function normalizeCandidateGameName(candidate: string): NormalizedGameNam
     const displayName = mapped.replace(/\s+/g, ' ').trim()
     const normalizedName = normalizeName(displayName)
 
-    return {
-        alias,
-        normalizedName,
-        displayName,
-    }
+    return { alias, normalizedName, displayName }
 }
 
 export function normalizeName(value: string): string {
@@ -32,23 +28,27 @@ function sanitizeCandidate(value: string): string {
     const normalized = normalizeName(value)
     if (!normalized) return ''
 
-    const withoutTrailingId = normalized.replace(/\s+\d{6,}$/g, '')
-    const withoutGameplay = withoutTrailingId
-        .replace(/\b(gameplay|walkthrough|playthrough|reaction)\b/g, '')
-        .replace(/\b(like|comment|share|subscribe|Game Play)\b/g, '')
-        .replace(/\b(ps5live|ps5|Ps5share|playstation 5|sony interactive entertainment)\b/g, '')
+    // Reject pure-number strings ("25", "2024", etc.)
+    if (/^\d+$/.test(normalized.replace(/\s+/g, ''))) return ''
 
-    return withoutGameplay.replace(/\s+/g, ' ').trim()
+    const withoutTrailingId = normalized.replace(/\s+\d{6,}$/g, '')
+
+    // BUG FIX: All patterns must be lowercase — normalizeName() has already
+    // lowercased the string, so 'Game Play' and 'Ps5share' would never match.
+    const withoutNoise = withoutTrailingId
+        .replace(/\b(gameplay|walkthrough|playthrough|reaction)\b/g, '')
+        .replace(/\b(like|comment|share|subscribe|game play)\b/g, '')
+        .replace(/\b(ps5live|ps5share|ps5|playstation 5|sony interactive entertainment)\b/g, '')
+        .replace(/\b(episode|part|vol|volume|ft|feat)\b/g, '')
+        .replace(/\b(official|trailer|reveal|teaser)\b/g, '')
+
+    return withoutNoise.replace(/\s+/g, ' ').trim()
 }
 
 function toDisplayName(value: string): string {
     if (!value) return ''
-
     return value
         .split(' ')
-        .map((word) => {
-            if (/^\d+$/.test(word)) return word
-            return word.charAt(0).toUpperCase() + word.slice(1)
-        })
+        .map((word) => (/^\d+$/.test(word) ? word : word.charAt(0).toUpperCase() + word.slice(1)))
         .join(' ')
 }

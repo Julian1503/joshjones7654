@@ -4,13 +4,15 @@ import { useEffect, useState } from 'react'
 import type { JoshGame } from '@/components/games-josh-plays/types'
 import { fetchGamesJoshPlays } from '@/components/games-josh-plays/utils/fetchGamesJoshPlays'
 
-export function useGamesJoshPlaysData() {
+export function useGamesJoshPlaysData(enabled = true) {
     const [games, setGames] = useState<JoshGame[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [fetchError, setFetchError] = useState<string | null>(null)
     const [degradedNotice, setDegradedNotice] = useState<string | null>(null)
 
     useEffect(() => {
+        if (!enabled) return
+
         let mounted = true
 
         fetchGamesJoshPlays()
@@ -36,7 +38,7 @@ export function useGamesJoshPlaysData() {
         return () => {
             mounted = false
         }
-    }, [])
+    }, [enabled])
 
     return {
         games,

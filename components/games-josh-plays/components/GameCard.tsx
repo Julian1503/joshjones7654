@@ -2,6 +2,7 @@
 
 import type { JoshGame } from '@/components/games-josh-plays/types'
 import { GAMES_SECTION_COLORS } from '@/components/games-josh-plays/constants'
+import { useCardAnimation } from '@/components/games-josh-plays/hooks/useCardAnimation'
 
 type GameCardProps = {
     game: JoshGame
@@ -9,8 +10,12 @@ type GameCardProps = {
 }
 
 export function GameCard({ game, isMobile }: GameCardProps) {
+    const { cardRef, shimmerRef, contentRef, handlers } = useCardAnimation()
+
     return (
         <article
+            ref={cardRef}
+            data-game-card
             style={{
                 position: 'relative',
                 borderRadius: 16,
@@ -18,19 +23,14 @@ export function GameCard({ game, isMobile }: GameCardProps) {
                 overflow: 'hidden',
                 background: GAMES_SECTION_COLORS.surface,
                 minHeight: isMobile ? 280 : 360,
-                transition: 'transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
+                cursor: 'default',
+                willChange: 'transform',
             }}
-            onMouseEnter={(event) => {
-                event.currentTarget.style.transform = 'translateY(-4px)'
-                event.currentTarget.style.borderColor = 'rgba(255,69,69,0.4)'
-                event.currentTarget.style.boxShadow = '0 18px 42px rgba(0,0,0,0.4)'
-            }}
-            onMouseLeave={(event) => {
-                event.currentTarget.style.transform = 'translateY(0)'
-                event.currentTarget.style.borderColor = GAMES_SECTION_COLORS.border
-                event.currentTarget.style.boxShadow = 'none'
-            }}
+            onMouseEnter={handlers.onMouseEnter}
+            onMouseLeave={handlers.onMouseLeave}
+            onMouseMove={handlers.onMouseMove}
         >
+            {/* Poster / gradient background */}
             <div
                 style={{
                     position: 'absolute',
@@ -42,6 +42,7 @@ export function GameCard({ game, isMobile }: GameCardProps) {
                 aria-hidden
             />
 
+            {/* Noise texture */}
             <div
                 style={{
                     position: 'absolute',
@@ -54,7 +55,22 @@ export function GameCard({ game, isMobile }: GameCardProps) {
                 aria-hidden
             />
 
+            {/* Mouse-tracking shimmer */}
             <div
+                ref={shimmerRef}
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    opacity: 0,
+                    pointerEvents: 'none',
+                    zIndex: 1,
+                    transition: 'background 0.08s ease',
+                }}
+                aria-hidden
+            />
+
+            <div
+                ref={contentRef}
                 style={{
                     position: 'relative',
                     zIndex: 2,
