@@ -7,13 +7,11 @@ import { GAMES_SECTION_COLORS, GAMES_SECTION_ID } from '@/components/games-josh-
 import { GamesSectionHeader } from '@/components/games-josh-plays/components/GamesSectionHeader'
 import { GamesGrid } from '@/components/games-josh-plays/components/GamesGrid'
 import { GamesEmptyState } from '@/components/games-josh-plays/components/GamesEmptyState'
-import { useNearViewport } from '@/hooks/useNearViewport'
 
 export default function GamesJoshPlaysSection() {
     const { isMobile, isTablet } = useResponsiveSection()
     const { sectionRef, bgGlowRef } = useSectionAnimation()
-    const { isNearViewport } = useNearViewport({ ref: sectionRef, rootMargin: '320px 0px' })
-    const { games, isLoading, fetchError, degradedNotice } = useGamesJoshPlaysData(isNearViewport)
+    const { games, isLoading, fetchError, degradedNotice } = useGamesJoshPlaysData()
 
     return (
         <section
