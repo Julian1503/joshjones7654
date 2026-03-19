@@ -6,7 +6,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         id: 'story',
         index: '01',
         label: 'JOSHUA',
-        sublabel: 'Creative Journey',
+        sublabel: 'His World',
         description:
             'Get to know Joshua through his personality, interests, and the creative world he is building.',
         cta: 'Meet Joshua',
@@ -50,9 +50,9 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
         id: 'tbd',
         index: '05',
         label: 'THE BETTER DAY',
-        sublabel: 'Support Around Him',
+        sublabel: 'Behind the Scenes',
         description:
-            'See the people and support system helping Joshua keep growing, creating, and moving forward.',
+            'See the people and support around Joshua helping him keep growing, creating, and moving forward.',
         cta: 'See the support',
         href: SECTION_ANCHORS.theBetterDay,
         image: '/community.png',

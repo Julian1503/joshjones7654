@@ -22,6 +22,7 @@ export function MusicSectionHeader({
                 opacity: 0,
             }}
         >
+            {/* Left — label + title */}
             <div>
                 <div
                     style={{
@@ -46,8 +47,8 @@ export function MusicSectionHeader({
                             color: 'rgba(255,69,69,0.75)',
                         }}
                     >
-            Music by Joshua
-          </span>
+                        Music by Joshua
+                    </span>
                 </div>
 
                 <h2
@@ -68,45 +69,70 @@ export function MusicSectionHeader({
                             textShadow: '0 0 80px rgba(200,0,0,0.4)',
                         }}
                     >
-            SOUND
-          </span>
+                        SOUND
+                    </span>
                 </h2>
             </div>
 
-            <a
-                href="https://www.bandlab.com/joshua_jones_29"
-                target="_blank"
-                rel="noopener noreferrer"
+            {/* Right — description + link */}
+            <div
                 style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 9,
-                    padding: '8px 18px',
-                    borderRadius: 100,
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    fontFamily: 'monospace',
-                    fontSize: isMobile ? '0.58rem' : 'clamp(0.55rem,0.8vw,0.62rem)',
-                    letterSpacing: '0.22em',
-                    textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.45)',
-                    textDecoration: 'none',
-                    transition: 'background 0.2s,border-color 0.2s,color 0.2s',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 'clamp(1rem,2vw,1.5rem)',
+                    maxWidth: isMobile ? '100%' : '38ch',
                     flexShrink: 0,
-                }}
-                onMouseEnter={(event) => {
-                    event.currentTarget.style.background = 'rgba(255,255,255,0.08)'
-                    event.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
-                    event.currentTarget.style.color = 'rgba(255,255,255,0.8)'
-                }}
-                onMouseLeave={(event) => {
-                    event.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                    event.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-                    event.currentTarget.style.color = 'rgba(255,255,255,0.45)'
+                    paddingBottom: isMobile ? 0 : '0.4rem',
                 }}
             >
-                View on BandLab ↗
-            </a>
+                <p
+                    style={{
+                        margin: 0,
+                        color: 'rgba(255,255,255,0.52)',
+                        fontSize: isMobile ? '0.95rem' : 'clamp(0.92rem,1.1vw,1rem)',
+                        lineHeight: 1.75,
+                    }}
+                >
+                    Joshua loves to sing in his room and play his music through the speakers
+                    to show everyone how deeply he feels the rhythm.
+                </p>
+
+                <a
+                    href="https://www.bandlab.com/joshua_jones_29"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 9,
+                        padding: '8px 18px',
+                        borderRadius: 100,
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        fontFamily: 'monospace',
+                        fontSize: isMobile ? '0.58rem' : 'clamp(0.55rem,0.8vw,0.62rem)',
+                        letterSpacing: '0.22em',
+                        textTransform: 'uppercase',
+                        color: 'rgba(255,255,255,0.45)',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s,border-color 0.2s,color 0.2s',
+                        flexShrink: 0,
+                    }}
+                    onMouseEnter={(event) => {
+                        event.currentTarget.style.background = 'rgba(255,255,255,0.08)'
+                        event.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
+                        event.currentTarget.style.color = 'rgba(255,255,255,0.8)'
+                    }}
+                    onMouseLeave={(event) => {
+                        event.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                        event.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                        event.currentTarget.style.color = 'rgba(255,255,255,0.45)'
+                    }}
+                >
+                    View on BandLab ↗
+                </a>
+            </div>
         </div>
     )
 }
