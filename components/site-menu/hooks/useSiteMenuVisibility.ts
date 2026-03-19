@@ -2,15 +2,17 @@
 
 import { useEffect, useState } from 'react'
 
-const PROBE_OFFSET_RIGHT = 40
-const PROBE_OFFSET_TOP = 40
+type UseSiteMenuVisibilityParams = {
+    buttonRef: React.RefObject<HTMLButtonElement | null>
+}
 
-export function useSiteMenuVisibility() {
+export function useSiteMenuVisibility({
+                                          buttonRef,
+                                      }: UseSiteMenuVisibilityParams) {
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
-        let frameA = 0
-        let frameB = 0
+        let frameId = 0
 
         const updateVisibility = () => {
             const blockingSections = document.querySelectorAll('[data-site-menu="false"]')
@@ -20,8 +22,15 @@ export function useSiteMenuVisibility() {
                 return
             }
 
-            const probeX = Math.max(0, window.innerWidth - PROBE_OFFSET_RIGHT)
-            const probeY = Math.min(window.innerHeight - 1, PROBE_OFFSET_TOP)
+            const buttonRect = buttonRef.current?.getBoundingClientRect()
+
+            const probeX = buttonRect
+                ? buttonRect.left + buttonRect.width / 2
+                : window.innerWidth - 40
+
+            const probeY = buttonRect
+                ? buttonRect.top + buttonRect.height / 2
+                : 40
 
             const stack = document.elementsFromPoint(probeX, probeY)
 
@@ -33,11 +42,8 @@ export function useSiteMenuVisibility() {
         }
 
         const scheduleVisibilityCheck = () => {
-            updateVisibility()
-            frameA = requestAnimationFrame(updateVisibility)
-            frameB = requestAnimationFrame(() => {
-                requestAnimationFrame(updateVisibility)
-            })
+            cancelAnimationFrame(frameId)
+            frameId = requestAnimationFrame(updateVisibility)
         }
 
         scheduleVisibilityCheck()
@@ -47,13 +53,12 @@ export function useSiteMenuVisibility() {
         window.addEventListener('load', scheduleVisibilityCheck)
 
         return () => {
-            cancelAnimationFrame(frameA)
-            cancelAnimationFrame(frameB)
+            cancelAnimationFrame(frameId)
             window.removeEventListener('scroll', updateVisibility)
             window.removeEventListener('resize', scheduleVisibilityCheck)
             window.removeEventListener('load', scheduleVisibilityCheck)
         }
-    }, [])
+    }, [buttonRef])
 
     return { isVisible }
 }

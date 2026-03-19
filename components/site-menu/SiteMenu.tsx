@@ -7,7 +7,6 @@ import { useSiteMenuVisibility } from '@/components/site-menu/hooks/useSiteMenuV
 import { useSiteMenuAnimations } from '@/components/site-menu/hooks/useSiteMenuAnimations'
 import { FloatingMenuButton } from '@/components/site-menu/components/FloatingMenuButton'
 import { MenuOverlay } from '@/components/site-menu/components/MenuOverlay'
-import { getFocusableElements, trapFocusWithin } from '@/lib/a11y/focus'
 
 const SITE_MENU_OVERLAY_ID = 'site-menu-overlay'
 
@@ -22,9 +21,10 @@ export function SiteMenu() {
     const line1Ref = useRef<HTMLSpanElement>(null)
     const line2Ref = useRef<HTMLSpanElement>(null)
     const line3Ref = useRef<HTMLSpanElement>(null)
+    const previousFocusedElementRef = useRef<HTMLElement | null>(null)
 
-    const { isVisible } = useSiteMenuVisibility()
     const { isMobile } = useResponsiveSection()
+    const { isVisible } = useSiteMenuVisibility({ buttonRef })
 
     useSiteMenuAnimations({
         buttonRef,
@@ -39,25 +39,44 @@ export function SiteMenu() {
         isMenuOpen,
     })
 
-    const toggleMenu = useCallback(() => {
-        setIsMenuOpen((previous) => !previous)
+    const openMenu = useCallback(() => {
+        setIsMenuOpen(true)
     }, [])
 
     const closeMenu = useCallback(() => {
         setIsMenuOpen(false)
     }, [])
 
+    const toggleMenu = useCallback(() => {
+        setIsMenuOpen((previous) => !previous)
+    }, [])
+
     useEffect(() => {
-        if (!isMenuOpen) return
-
         const overlayElement = overlayRef.current
-        if (!overlayElement) return
+        const buttonElement = buttonRef.current
 
-        const previouslyFocused = document.activeElement as HTMLElement | null
-        requestAnimationFrame(() => {
-            const focusables = getFocusableElements(overlayElement)
-            ;(focusables[0] ?? overlayElement).focus()
-        })
+        if (!overlayElement || !buttonElement) return
+
+        if (isMenuOpen) {
+            previousFocusedElementRef.current = document.activeElement as HTMLElement | null
+
+            requestAnimationFrame(() => {
+                const firstFocusableElement = overlayElement.querySelector<HTMLElement>(
+                    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                )
+
+                firstFocusableElement?.focus() ?? overlayElement.focus()
+            })
+
+            return
+        }
+
+        previousFocusedElementRef.current?.focus?.() ?? buttonElement.focus()
+    }, [isMenuOpen])
+
+    useEffect(() => {
+        const overlayElement = overlayRef.current
+        if (!isMenuOpen || !overlayElement) return
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
@@ -66,16 +85,53 @@ export function SiteMenu() {
                 return
             }
 
-            trapFocusWithin(event, overlayElement)
+            if (event.key !== 'Tab') return
+
+            const focusableElements = Array.from(
+                overlayElement.querySelectorAll<HTMLElement>(
+                    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                )
+            ).filter(
+                (element) =>
+                    !element.hasAttribute('disabled') &&
+                    element.getAttribute('aria-hidden') !== 'true'
+            )
+
+            if (focusableElements.length === 0) {
+                event.preventDefault()
+                overlayElement.focus()
+                return
+            }
+
+            const firstElement = focusableElements[0]
+            const lastElement = focusableElements[focusableElements.length - 1]
+            const activeElement = document.activeElement as HTMLElement | null
+
+            if (event.shiftKey && activeElement === firstElement) {
+                event.preventDefault()
+                lastElement.focus()
+                return
+            }
+
+            if (!event.shiftKey && activeElement === lastElement) {
+                event.preventDefault()
+                firstElement.focus()
+            }
         }
 
-        window.addEventListener('keydown', handleKeyDown)
+        document.addEventListener('keydown', handleKeyDown)
 
         return () => {
-            window.removeEventListener('keydown', handleKeyDown)
-            previouslyFocused?.focus()
+            document.removeEventListener('keydown', handleKeyDown)
         }
     }, [isMenuOpen, closeMenu])
+
+    useEffect(() => {
+        if (isVisible) return
+        if (!isMenuOpen) return
+
+        closeMenu()
+    }, [isVisible, isMenuOpen, closeMenu])
 
     return (
         <>
@@ -98,6 +154,7 @@ export function SiteMenu() {
                 line2Ref={line2Ref}
                 line3Ref={line3Ref}
                 isMenuOpen={isMenuOpen}
+                isVisible={isVisible}
                 onToggleAction={toggleMenu}
                 controlsId={SITE_MENU_OVERLAY_ID}
             />

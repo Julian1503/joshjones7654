@@ -8,6 +8,7 @@ type FloatingMenuButtonProps = {
     line2Ref: React.RefObject<HTMLSpanElement | null>
     line3Ref: React.RefObject<HTMLSpanElement | null>
     isMenuOpen: boolean
+    isVisible: boolean
     onToggleAction: () => void
     controlsId: string
 }
@@ -18,6 +19,7 @@ export function FloatingMenuButton({
                                        line2Ref,
                                        line3Ref,
                                        isMenuOpen,
+                                       isVisible,
                                        onToggleAction,
                                        controlsId,
                                    }: FloatingMenuButtonProps) {
@@ -26,6 +28,9 @@ export function FloatingMenuButton({
             ref={buttonRef}
             type="button"
             onClick={onToggleAction}
+            disabled={!isVisible}
+            tabIndex={isVisible ? 0 : -1}
+            aria-hidden={!isVisible}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-haspopup="dialog"
             aria-expanded={isMenuOpen}

@@ -96,6 +96,8 @@ export function MenuLink({
                 onClick={onClickAction}
                 onMouseEnter={handleEnter}
                 onMouseLeave={handleLeave}
+                onFocus={handleEnter}
+                onBlur={handleLeave}
                 style={{
                     position: 'relative',
                     display: 'flex',
@@ -178,6 +180,7 @@ export function MenuLink({
                     ref={arrowRef}
                     style={{
                         fontFamily: 'monospace',
+                        paddingRight: '2rem',
                         fontSize: 'clamp(0.8rem, 1.2vw, 1.1rem)',
                         color: 'rgba(255,255,255,0.6)',
                         opacity: 0,

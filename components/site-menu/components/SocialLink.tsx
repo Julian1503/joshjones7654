@@ -1,18 +1,21 @@
 'use client'
 
-import { useRef } from 'react'
-
 type SocialLinkProps = {
     label: string
     href: string
 }
 
 export function SocialLink({ label, href }: SocialLinkProps) {
-    const linkRef = useRef<HTMLAnchorElement>(null)
+    const handleEnter = (element: HTMLAnchorElement) => {
+        element.style.color = 'rgba(255,255,255,0.7)'
+    }
+
+    const handleLeave = (element: HTMLAnchorElement) => {
+        element.style.color = 'rgba(255,255,255,0.25)'
+    }
 
     return (
         <a
-            ref={linkRef}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
@@ -26,12 +29,10 @@ export function SocialLink({ label, href }: SocialLinkProps) {
                 textDecoration: 'none',
                 transition: 'color 0.2s',
             }}
-            onMouseEnter={(event) => {
-                event.currentTarget.style.color = 'rgba(255,255,255,0.7)'
-            }}
-            onMouseLeave={(event) => {
-                event.currentTarget.style.color = 'rgba(255,255,255,0.25)'
-            }}
+            onMouseEnter={(event) => handleEnter(event.currentTarget)}
+            onMouseLeave={(event) => handleLeave(event.currentTarget)}
+            onFocus={(event) => handleEnter(event.currentTarget)}
+            onBlur={(event) => handleLeave(event.currentTarget)}
         >
             {label}
         </a>

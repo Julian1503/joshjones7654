@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type UseSiteMenuAnimationsParams = {
     buttonRef: React.RefObject<HTMLButtonElement | null>
@@ -29,9 +30,7 @@ export function useSiteMenuAnimations({
                                           isMenuOpen,
                                       }: UseSiteMenuAnimationsParams) {
     const timelineRef = useRef<gsap.core.Timeline | null>(null)
-    const prefersReducedMotion =
-        typeof window !== 'undefined' &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const prefersReducedMotion = usePrefersReducedMotion()
 
     useEffect(() => {
         const buttonElement = buttonRef.current
@@ -73,21 +72,9 @@ export function useSiteMenuAnimations({
             !bottomElement ||
             !line1Element ||
             !line2Element ||
-            !line3Element
+            !line3Element ||
+            prefersReducedMotion
         ) {
-            return
-        }
-
-        if (prefersReducedMotion) {
-            gsap.set(overlayElement, {
-                display: isMenuOpen ? 'flex' : 'none',
-                pointerEvents: isMenuOpen ? 'auto' : 'none',
-                opacity: 1,
-                clipPath: 'none',
-            })
-            gsap.set([line1Element, line2Element, line3Element], {
-                clearProps: 'all',
-            })
             return
         }
 
@@ -149,16 +136,8 @@ export function useSiteMenuAnimations({
 
         timeline.to([line1Element, line3Element], { width: '100%', duration: 0.2 }, 0)
         timeline.to(line2Element, { scaleX: 0, duration: 0.15 }, 0)
-        timeline.to(
-            line1Element,
-            { rotate: 45, y: 8, duration: 0.3, ease: 'back.out(1.5)' },
-            0.15
-        )
-        timeline.to(
-            line3Element,
-            { rotate: -45, y: -8, duration: 0.3, ease: 'back.out(1.5)' },
-            0.15
-        )
+        timeline.to(line1Element, { rotate: 45, y: 8, duration: 0.3 }, 0.15)
+        timeline.to(line3Element, { rotate: -45, y: -8, duration: 0.3 }, 0.15)
 
         gsap.set(menuLinkWrappers, {
             y: 80,
@@ -174,7 +153,6 @@ export function useSiteMenuAnimations({
                 skewY: 0,
                 duration: 0.65,
                 stagger: 0.08,
-                ease: 'power3.out',
             },
             0.3
         )
@@ -209,13 +187,35 @@ export function useSiteMenuAnimations({
         line2Ref,
         line3Ref,
         prefersReducedMotion,
-        isMenuOpen,
     ])
 
     useEffect(() => {
+        const overlayElement = overlayRef.current
+        const line1Element = line1Ref.current
+        const line2Element = line2Ref.current
+        const line3Element = line3Ref.current
         const timeline = timelineRef.current
 
+        if (!overlayElement || !line1Element || !line2Element || !line3Element) return
+
         if (prefersReducedMotion) {
+            gsap.set(overlayElement, {
+                display: isMenuOpen ? 'flex' : 'none',
+                pointerEvents: isMenuOpen ? 'auto' : 'none',
+                opacity: 1,
+                clipPath: 'none',
+            })
+
+            if (isMenuOpen) {
+                gsap.set(line1Element, { rotate: 45, y: 8, width: '100%' })
+                gsap.set(line2Element, { scaleX: 0 })
+                gsap.set(line3Element, { rotate: -45, y: -8, width: '100%' })
+            } else {
+                gsap.set(line1Element, { rotate: 0, y: 0, width: 20 })
+                gsap.set(line2Element, { scaleX: 1 })
+                gsap.set(line3Element, { rotate: 0, y: 0, width: 20 })
+            }
+
             document.body.style.overflow = isMenuOpen ? 'hidden' : ''
             return () => {
                 document.body.style.overflow = ''
@@ -235,5 +235,5 @@ export function useSiteMenuAnimations({
         return () => {
             document.body.style.overflow = ''
         }
-    }, [isMenuOpen, prefersReducedMotion])
+    }, [isMenuOpen, prefersReducedMotion, overlayRef, line1Ref, line2Ref, line3Ref])
 }
