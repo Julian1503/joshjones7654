@@ -37,7 +37,7 @@ export const COLORS = {
     background: BRAND_COLORS.background,
     accent: BRAND_COLORS.accent,
     titleStroke: 'rgba(255,255,255,0.08)',
-    ghostStroke: 'rgba(255,255,255,0.10)',
+    ghostStroke: 'rgba(255, 255, 255, 0.15)',
 } as const
 
 export const ROLE_TAGS = ['GAMER', 'CREATOR', 'YOUTUBER'] as const

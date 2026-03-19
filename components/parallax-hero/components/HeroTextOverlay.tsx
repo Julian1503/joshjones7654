@@ -107,11 +107,9 @@ export function HeroTextOverlay({
                                 : 'clamp(4.5rem, 13vw, 12rem)',
                         lineHeight: 0.9,
                         letterSpacing: isMobile ? '0.03em' : '0.06em',
-                        background: 'linear-gradient(180deg, #ffffff 15%, #ffb3b3 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        WebkitTextStroke: `1px ${COLORS.titleStroke}`,
+                        WebkitTextStroke: `5px ${COLORS.titleStroke}`,
                         textShadow:
                             '0 0 32px rgba(255,69,69,0.2), 0 4px 16px rgba(0,0,0,0.8)',
                         willChange: 'transform, opacity, filter',

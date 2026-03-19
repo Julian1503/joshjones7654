@@ -53,13 +53,12 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src="/parallax_bg.png"
-                    alt=""
+                    src={isMobile ? '/parallax_bg_mobile.png' : '/parallax_bg.png'}                    alt=""
                     fill
                     priority
                     style={{
                         objectFit: 'cover',
-                        objectPosition: isMobile ? '58% center' : 'center center',
+                        objectPosition: 'center center',
                         pointerEvents: 'none',
                     }}
                 />
@@ -84,8 +83,9 @@ export function HeroStage({
                     priority
                     style={{
                         objectFit: 'contain',
-                        objectPosition: isMobile ? 'center bottom' : 'center bottom',
+                        objectPosition: isMobile ? 'center 30%' : 'center bottom',
                         pointerEvents: 'none',
+                        transform: isMobile ? 'translateX(-2%) translateX(40px)' : 'none',
                     }}
                 />
             </div>
@@ -115,13 +115,13 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src="/parallax_table.png"
+                    src={isMobile ? '/parallax_table_mobile_v2.png' : '/parallax_table.png'}
                     alt=""
                     fill
                     priority
                     style={{
                         objectFit: 'cover',
-                        objectPosition: isMobile ? '60% bottom' : 'center bottom',
+                        objectPosition: isMobile ? 'center bottom' : 'center bottom',
                         pointerEvents: 'none',
                     }}
                 />
@@ -145,7 +145,7 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src="/parallax_joshua.png"
+                    src={isMobile ? '/parallax_joshua_mobile.png' : '/parallax_joshua.png'}
                     alt="Joshua"
                     fill
                     priority
