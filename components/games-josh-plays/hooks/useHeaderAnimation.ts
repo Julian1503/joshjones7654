@@ -9,19 +9,19 @@ if (typeof window !== 'undefined') {
 }
 
 type UseHeaderAnimationRefs = {
-    containerRef: React.RefObject<HTMLDivElement>
-    labelRef: React.RefObject<HTMLParagraphElement>
-    line1Ref: React.RefObject<HTMLSpanElement>
-    line2Ref: React.RefObject<HTMLSpanElement>
-    descRef: React.RefObject<HTMLParagraphElement>
+    containerRef: React.RefObject<HTMLDivElement | null>
+    labelRef: React.RefObject<HTMLParagraphElement | null>
+    line1Ref: React.RefObject<HTMLSpanElement | null>
+    line2Ref: React.RefObject<HTMLSpanElement | null>
+    descRef: React.RefObject<HTMLParagraphElement | null>
 }
 
 export function useHeaderAnimation(): UseHeaderAnimationRefs {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const labelRef = useRef<HTMLParagraphElement>(null)
-    const line1Ref = useRef<HTMLSpanElement>(null)
-    const line2Ref = useRef<HTMLSpanElement>(null)
-    const descRef = useRef<HTMLParagraphElement>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
+    const labelRef = useRef<HTMLParagraphElement | null>(null)
+    const line1Ref = useRef<HTMLSpanElement | null>(null)
+    const line2Ref = useRef<HTMLSpanElement | null>(null)
+    const descRef = useRef<HTMLParagraphElement | null>(null)
 
     useEffect(() => {
         const ctx = gsap.context(() => {
