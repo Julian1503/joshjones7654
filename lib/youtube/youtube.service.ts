@@ -160,7 +160,7 @@ async function buildVideos({
 
 export async function fetchYoutube<T>(url: string): Promise<T> {
     const response = await fetch(url, {
-        next: { revalidate: 1800 },
+        next: { revalidate: 600 },
     })
     if (response.ok) return (await response.json()) as T
 

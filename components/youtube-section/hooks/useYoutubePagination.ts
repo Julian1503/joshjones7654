@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { fetchYoutubePage } from '@/components/youtube-section/utils/fetchYoutubePage'
 
@@ -10,7 +10,8 @@ import { fetchYoutubePage } from '@/components/youtube-section/utils/fetchYoutub
 // the initial page load where a network/API failure leaves the section empty.
 
 const CACHE_KEY = 'josh_youtube_videos_cache'
-const CACHE_MAX_AGE_MS = 3 * 60 * 60 * 1000 // 3 hours
+const CACHE_MAX_AGE_MS = 60 * 60 * 1000 // 1 hour
+const YOUTUBE_REFRESH_INTERVAL_MS = 10 * 60 * 1000
 
 type CachedVideos = {
     videos: YoutubeVideo[]
@@ -53,14 +54,27 @@ export function useYoutubePagination() {
     const [tokenStack, setTokenStack] = useState<(string | undefined)[]>([undefined])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [nextToken, setNextToken] = useState<string | null>(null)
+    const currentIndexRef = useRef(0)
+    const isPagingRef = useRef(false)
+
+    useEffect(() => {
+        currentIndexRef.current = currentIndex
+    }, [currentIndex])
+
+    useEffect(() => {
+        isPagingRef.current = isPaging
+    }, [isPaging])
 
     useEffect(() => {
         let mounted = true
 
-        setIsLoading(true)
+        const loadFirstPage = async (isBackgroundRefresh: boolean) => {
+            if (!isBackgroundRefresh) {
+                setIsLoading(true)
+            }
 
-        fetchYoutubePage(undefined)
-            .then((data) => {
+            try {
+                const data = await fetchYoutubePage(undefined)
                 if (!mounted) return
 
                 setVideos(data.videos)
@@ -73,7 +87,6 @@ export function useYoutubePagination() {
                         : null
                 )
 
-                // Persist fresh data locally for client-side fallback
                 if (!data.isDegraded && data.videos.length > 0) {
                     saveToCache({
                         videos: data.videos,
@@ -81,8 +94,7 @@ export function useYoutubePagination() {
                         nextPageToken: data.nextPageToken,
                     })
                 }
-            })
-            .catch((error) => {
+            } catch (error) {
                 if (!mounted) return
 
                 const cached = loadFromCache()
@@ -95,13 +107,24 @@ export function useYoutubePagination() {
                 } else {
                     setFetchError(error instanceof Error ? error.message : 'Unexpected error')
                 }
-            })
-            .finally(() => {
-                if (mounted) setIsLoading(false)
-            })
+            } finally {
+                if (mounted && !isBackgroundRefresh) {
+                    setIsLoading(false)
+                }
+            }
+        }
+
+        void loadFirstPage(false)
+
+        const intervalId = window.setInterval(() => {
+            if (document.visibilityState !== 'visible') return
+            if (currentIndexRef.current !== 0 || isPagingRef.current) return
+            void loadFirstPage(true)
+        }, YOUTUBE_REFRESH_INTERVAL_MS)
 
         return () => {
             mounted = false
+            window.clearInterval(intervalId)
         }
     }, [])
 

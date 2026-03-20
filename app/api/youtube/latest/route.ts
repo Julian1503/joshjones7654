@@ -6,10 +6,10 @@ import {
     DEFAULT_YOUTUBE_HANDLE,
 } from '@/lib/youtube/youtube.types'
 
-export const revalidate = 1800
+export const revalidate = 600
 
 const QUOTA_COOLDOWN_MS = 15 * 60 * 1000
-const FALLBACK_MAX_AGE_MS = 3 * 60 * 60 * 1000
+const FALLBACK_MAX_AGE_MS = 90 * 60 * 1000
 
 const latestCache = new Map<string, { payload: YoutubeLatestResponse; cachedAt: number }>()
 const quotaCooldownByHandle = new Map<string, number>()
@@ -143,7 +143,7 @@ function jsonOk(payload: YoutubeLatestResponse) {
     return NextResponse.json(payload, {
         status: 200,
         headers: {
-            'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=600',
+            'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=300',
         },
     })
 }

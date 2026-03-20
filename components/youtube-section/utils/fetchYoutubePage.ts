@@ -14,6 +14,7 @@ export async function fetchYoutubePage(
 
     const response = await fetch(`/api/youtube/latest?${params.toString()}`, {
         method: 'GET',
+        cache: 'no-store',
     })
 
     const payload = (await response.json()) as YoutubeLatestResponse | { message?: string }

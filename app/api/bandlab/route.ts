@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 
 const BANDLAB_USER_ID = '62a08e0b-bdca-4979-afd5-5272be187725'
+export const revalidate = 120
 
 type BandLabTrackSample = {
     duration?: number
@@ -29,7 +30,7 @@ type BandLabApiResponse = {
 
 export async function GET() {
     try {
-        const url = `https://www.bandlab.com/api/v1.3/users/${BANDLAB_USER_ID}/track-posts?limit=20&sort=popular`
+        const url = `https://www.bandlab.com/api/v1.3/users/${BANDLAB_USER_ID}/track-posts?limit=20&sort=latest`
 
         const res = await fetch(url, {
             headers: {
@@ -73,7 +74,14 @@ export async function GET() {
             }
         })
 
-        return NextResponse.json({ tracks, paging: data?.paging ?? null })
+        return NextResponse.json(
+            { tracks, paging: data?.paging ?? null },
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
+                },
+            }
+        )
     } catch (error) {
         console.error('[BandLab API]', error)
         return NextResponse.json(
