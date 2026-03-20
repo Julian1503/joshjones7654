@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { fetchYoutubePage } from '@/components/youtube-section/utils/fetchYoutubePage'
+import { createLocalStorageCache } from '@/lib/browser/local-storage-cache'
 
 // ─── localStorage cache ───────────────────────────────────────────────────────
 // Only the first page is cached — subsequent pages are navigation and
@@ -17,29 +18,9 @@ type CachedVideos = {
     videos: YoutubeVideo[]
     totalVideoCount: number
     nextPageToken: string | null
-    cachedAt: number
 }
 
-function loadFromCache(): CachedVideos | null {
-    try {
-        const raw = localStorage.getItem(CACHE_KEY)
-        if (!raw) return null
-        const parsed = JSON.parse(raw) as CachedVideos
-        if (Date.now() - parsed.cachedAt > CACHE_MAX_AGE_MS) return null
-        return parsed
-    } catch {
-        return null
-    }
-}
-
-function saveToCache(data: Omit<CachedVideos, 'cachedAt'>) {
-    try {
-        const payload: CachedVideos = { ...data, cachedAt: Date.now() }
-        localStorage.setItem(CACHE_KEY, JSON.stringify(payload))
-    } catch {
-        // localStorage may be unavailable
-    }
-}
+const videosCache = createLocalStorageCache<CachedVideos>(CACHE_KEY, CACHE_MAX_AGE_MS)
 
 // ─── Hook ─────────────────────────────────────────────────────────────────────
 
@@ -185,4 +166,12 @@ export function useYoutubePagination() {
         handlePrev,
         handleNext,
     }
+}
+
+function loadFromCache(): CachedVideos | null {
+    return videosCache.load()
+}
+
+function saveToCache(data: CachedVideos) {
+    videosCache.save(data)
 }

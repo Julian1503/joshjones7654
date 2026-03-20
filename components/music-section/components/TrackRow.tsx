@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import type { BandLabTrack } from '@/components/music-section/types'
-import { formatPlayCount } from '@/components/music-section/constants'
+import { formatViews } from '@/lib/youtube/youtube.utils'
 import { EqBars } from '@/components/music-section/components/EqBars'
 
 type TrackRowProps = {
@@ -152,7 +152,7 @@ export function TrackRow({
                         color: 'rgba(255,255,255,0.2)',
                     }}
                 >
-          {track.duration} · ▶ {formatPlayCount(track.plays)}
+          {track.duration} · ▶ {formatViews(track.plays)}
         </span>
             </div>
         </button>

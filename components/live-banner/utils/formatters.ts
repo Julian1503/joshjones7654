@@ -1,14 +1,12 @@
+import { formatViews } from '@/lib/youtube/youtube.utils'
+
 export function formatViewerCount(raw: string | null): string | null {
     if (!raw) return null
 
     const value = Number(raw)
     if (!Number.isFinite(value)) return null
 
-    if (value >= 1000) {
-        return `${(value / 1000).toFixed(1).replace(/\.0$/, '')}K`
-    }
-
-    return String(value)
+    return formatViews(value)
 }
 
 export function formatElapsedLiveTime(startedAt: string | null): string {

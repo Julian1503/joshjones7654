@@ -30,7 +30,7 @@ type BandLabApiResponse = {
 
 export async function GET() {
     try {
-        const url = `https://www.bandlab.com/api/v1.3/users/${BANDLAB_USER_ID}/track-posts?limit=20&sort=latest`
+        const url = `https://www.bandlab.com/api/v1.3/users/${BANDLAB_USER_ID}/track-posts?limit=20`
 
         const res = await fetch(url, {
             headers: {

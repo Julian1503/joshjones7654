@@ -1,7 +1,7 @@
 'use client'
 
 import type { BandLabTrack } from '@/components/music-section/types'
-import { formatPlayCount } from '@/components/music-section/constants'
+import { formatViews } from '@/lib/youtube/youtube.utils'
 
 type MusicPlayerPanelProps = {
     playerRef: React.RefObject<HTMLDivElement | null>
@@ -99,7 +99,7 @@ export function MusicPlayerPanel({
                   color: 'rgba(255,255,255,0.22)',
               }}
           >
-            ▶ {formatPlayCount(activeTrack.plays)}
+            ▶ {formatViews(activeTrack.plays)}
           </span>
 
                     <span

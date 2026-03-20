@@ -1,4 +1,5 @@
 import { VideoCategory } from '@/lib/youtube/youtube.types'
+import { formatCompactNumber } from '@/lib/format/number'
 
 export function assertEnv(value: string | undefined, name: string): string {
     if (!value) {
@@ -34,22 +35,8 @@ export function pickBestThumbnail(
     )
 }
 
-export function formatViews(viewCount: string | undefined): string {
-    const value = Number(viewCount ?? 0)
-
-    if (value >= 1_000_000) {
-        return `${trimTrailingZero((value / 1_000_000).toFixed(1))}M`
-    }
-
-    if (value >= 1_000) {
-        return `${trimTrailingZero((value / 1_000).toFixed(1))}K`
-    }
-
-    return String(value)
-}
-
-function trimTrailingZero(value: string): string {
-    return value.replace(/\.0$/, '')
+export function formatViews(viewCount: number | string | null | undefined): string {
+    return formatCompactNumber(viewCount)
 }
 
 export function formatYoutubeDuration(isoDuration: string | undefined): string {

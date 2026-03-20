@@ -4,10 +4,15 @@ import {
     DEFAULT_YOUTUBE_HANDLE,
     type YoutubeGamesResponse,
 } from '@/lib/youtube/youtube.types'
+import {
+    getFreshCachedPayload,
+    isQuotaExceededError,
+    jsonOkWithCacheControl,
+    QUOTA_COOLDOWN_MS,
+} from '@/lib/api/youtube-route-cache'
 
 export const revalidate = 1800
 
-const QUOTA_COOLDOWN_MS = 15 * 60 * 1000
 const FALLBACK_MAX_AGE_MS = 3 * 60 * 60 * 1000
 
 const gamesCache = new Map<string, { payload: YoutubeGamesResponse; cachedAt: number }>()
@@ -80,25 +85,14 @@ export async function GET(request: NextRequest) {
 }
 
 function getFreshFallback(handle: string): YoutubeGamesResponse | null {
-    const cached = gamesCache.get(handle)
-    if (!cached) return null
-
-    const ageMs = Date.now() - cached.cachedAt
-    if (ageMs > FALLBACK_MAX_AGE_MS) return null
-
-    return cached.payload
-}
-
-function isQuotaExceededError(error: unknown): boolean {
-    return error instanceof Error && /quota/i.test(error.message)
+    return getFreshCachedPayload({
+        cache: gamesCache,
+        maxAgeMs: FALLBACK_MAX_AGE_MS,
+        primaryKey: handle,
+    })
 }
 
 function jsonOk(payload: YoutubeGamesResponse) {
-    return NextResponse.json(payload, {
-        status: 200,
-        headers: {
-            'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=600',
-        },
-    })
+    return jsonOkWithCacheControl(payload, 'public, s-maxage=120, stale-while-revalidate=600')
 }
 

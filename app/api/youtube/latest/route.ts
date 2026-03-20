@@ -5,10 +5,15 @@ import {
     DEFAULT_MAX_RESULTS,
     DEFAULT_YOUTUBE_HANDLE,
 } from '@/lib/youtube/youtube.types'
+import {
+    getFreshCachedPayload,
+    isQuotaExceededError,
+    jsonOkWithCacheControl,
+    QUOTA_COOLDOWN_MS,
+} from '@/lib/api/youtube-route-cache'
 
 export const revalidate = 600
 
-const QUOTA_COOLDOWN_MS = 15 * 60 * 1000
 const FALLBACK_MAX_AGE_MS = 90 * 60 * 1000
 
 const latestCache = new Map<string, { payload: YoutubeLatestResponse; cachedAt: number }>()
@@ -123,33 +128,16 @@ function getFallbackPayload({
     handle: string
     cacheKey: string
 }): YoutubeLatestResponse | null {
-    const now = Date.now()
-
-    const primary = latestCache.get(cacheKey)
-    if (primary && now - primary.cachedAt <= FALLBACK_MAX_AGE_MS) {
-        return primary.payload
-    }
-
-    for (const [key, value] of latestCache.entries()) {
-        if (!key.startsWith(`${handle}:`)) continue
-        if (now - value.cachedAt > FALLBACK_MAX_AGE_MS) continue
-        return value.payload
-    }
-
-    return null
-}
-
-function jsonOk(payload: YoutubeLatestResponse) {
-    return NextResponse.json(payload, {
-        status: 200,
-        headers: {
-            'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=300',
-        },
+    return getFreshCachedPayload({
+        cache: latestCache,
+        maxAgeMs: FALLBACK_MAX_AGE_MS,
+        primaryKey: cacheKey,
+        predicate: (key) => key.startsWith(`${handle}:`),
     })
 }
 
-function isQuotaExceededError(error: unknown): boolean {
-    return error instanceof Error && /quota/i.test(error.message)
+function jsonOk(payload: YoutubeLatestResponse) {
+    return jsonOkWithCacheControl(payload, 'public, s-maxage=300, stale-while-revalidate=300')
 }
 
 function parseMaxResults(value: string | null): number {

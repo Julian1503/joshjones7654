@@ -3,34 +3,23 @@
 import { useEffect, useState } from 'react'
 import type { JoshGame } from '@/components/games-josh-plays/types'
 import { fetchGamesJoshPlays } from '@/components/games-josh-plays/utils/fetchGamesJoshPlays'
+import { createLocalStorageCache } from '@/lib/browser/local-storage-cache'
 
 const CACHE_KEY = 'josh_games_cache'
 const CACHE_MAX_AGE_MS = 3 * 60 * 60 * 1000 // 3 hours
 
 type CachedGames = {
     games: JoshGame[]
-    cachedAt: number
 }
 
+const gamesCache = createLocalStorageCache<CachedGames>(CACHE_KEY, CACHE_MAX_AGE_MS)
+
 function loadFromCache(): JoshGame[] | null {
-    try {
-        const raw = localStorage.getItem(CACHE_KEY)
-        if (!raw) return null
-        const parsed = JSON.parse(raw) as CachedGames
-        if (Date.now() - parsed.cachedAt > CACHE_MAX_AGE_MS) return null
-        return parsed.games
-    } catch {
-        return null
-    }
+    return gamesCache.load()?.games ?? null
 }
 
 function saveToCache(games: JoshGame[]) {
-    try {
-        const payload: CachedGames = { games, cachedAt: Date.now() }
-        localStorage.setItem(CACHE_KEY, JSON.stringify(payload))
-    } catch {
-        // localStorage may be unavailable (private browsing, quota exceeded)
-    }
+    gamesCache.save({ games })
 }
 
 export function useGamesJoshPlaysData() {
