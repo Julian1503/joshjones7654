@@ -1,0 +1,1034 @@
+{
+  "entries": [
+    {
+      "normalizedName": "grand theft auto v",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:03.109Z",
+      "updatedAt": "2026-03-19T03:41:07.406Z"
+    },
+    {
+      "normalizedName": "grand theft auto v gameplayonline",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V Gameplayonline",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:03.680Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "a quiet place the road ahead",
+      "displayName": "A Quiet Place: The Road Ahead",
+      "slug": "a-quiet-place-the-road-ahead",
+      "posterUrl": "https://media.rawg.io/media/games/fff/fff66fcc5922c2d6db60b5fbb7a466da.jpg",
+      "provider": "rawg",
+      "providerGameId": "989330",
+      "aliases": [
+        "A Quiet Place The Road Ahead",
+        "A Quiet Place: The Road Ahead"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:06.357Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "bronze",
+      "displayName": "Bronze",
+      "slug": "bronze",
+      "posterUrl": "https://media.rawg.io/media/screenshots/117/117c466a65dbb2b2c1e4685576a08b41.jpg",
+      "provider": "rawg",
+      "providerGameId": "40474",
+      "aliases": [
+        "Bronze"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:07.339Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "fortnite",
+      "displayName": "Fortnite Battle Royale",
+      "slug": "fortnite-battle-royale",
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172620/library_600x900_2x.jpg",
+      "provider": "rawg",
+      "providerGameId": "47137",
+      "aliases": [
+        "Fortnite",
+        "Fortnite Battle Royale"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:10.033Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "fortnite epicfail",
+      "displayName": "Fortnite",
+      "slug": "fortnite",
+      "posterUrl": "https://media.rawg.io/media/screenshots/5cc/5cc1a3f085356345aa902a38af82345a.jpg",
+      "provider": "rawg",
+      "providerGameId": "583859",
+      "aliases": [
+        "Fortnite Epicfail",
+        "Fortnite"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:10.489Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "lego city undercover",
+      "displayName": "Lego City Undercover",
+      "slug": "lego-city-undercover",
+      "posterUrl": "https://media.rawg.io/media/games/1fa/1fa173b8507cab48b755eebfabeb9930.jpg",
+      "provider": "rawg",
+      "providerGameId": "959",
+      "aliases": [
+        "Lego City Undercover"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:11.488Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "need for speed heat",
+      "displayName": "Need for Speed Heat",
+      "slug": "need-for-speed-heat",
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/library_600x900_2x.jpg",
+      "provider": "rawg",
+      "providerGameId": "364806",
+      "aliases": [
+        "Need For Speed Heat"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:12.533Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "need for speed heatgameplayonline",
+      "displayName": "Need for Speed",
+      "slug": "need-for-speed",
+      "posterUrl": "https://media.rawg.io/media/games/19a/19a512a8c1293c22894b7364e1405ec1.jpg",
+      "provider": "rawg",
+      "providerGameId": "3090",
+      "aliases": [
+        "Need For Speed Heatgameplayonline",
+        "Need for Speed"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:13.301Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "star wars outlaws demo",
+      "displayName": "Star Wars Outlaws",
+      "slug": "star-wars-outlaws",
+      "posterUrl": "https://media.rawg.io/media/games/853/853aa2b76ae85fcf2782ace58cf7479f.jpg",
+      "provider": "rawg",
+      "providerGameId": "962020",
+      "aliases": [
+        "Star Wars Outlaws Demo",
+        "Star Wars Outlaws"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:14.662Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "grand theft auto vgameplay",
+      "displayName": "Grand Theft Auto IV",
+      "slug": "grand-theft-auto-iv",
+      "posterUrl": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
+      "provider": "rawg",
+      "providerGameId": "4459",
+      "aliases": [
+        "Grand Theft Auto Vgameplay",
+        "Grand Theft Auto IV"
+      ],
+      "confidence": 0.75,
+      "createdAt": "2026-03-19T03:10:16.286Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "marathon server slam",
+      "displayName": "Marathon",
+      "slug": "marathon",
+      "posterUrl": "https://media.rawg.io/media/games/cab/cabc7cd14f1d9829c37d3bd2bec16c4a.jpg",
+      "provider": "rawg",
+      "providerGameId": "961202",
+      "aliases": [
+        "Marathon Server Slam",
+        "Marathon"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:20.837Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "marathon server slamgameplay",
+      "displayName": "Marathon",
+      "slug": "marathon",
+      "posterUrl": "https://media.rawg.io/media/games/cab/cabc7cd14f1d9829c37d3bd2bec16c4a.jpg",
+      "provider": "rawg",
+      "providerGameId": "961202",
+      "aliases": [
+        "Marathon Server Slamgameplay",
+        "Marathon"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:21.738Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "free style",
+      "displayName": "FUNKY PUNCH: Free Style",
+      "slug": "funky-punch-free-style",
+      "posterUrl": "https://media.rawg.io/media/screenshots/48b/48b09ddbb4356c1c62f4f877ac75d90d.jpg",
+      "provider": "rawg",
+      "providerGameId": "256193",
+      "aliases": [
+        "Free Style",
+        "FUNKY PUNCH: Free Style"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:23.273Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "gtav online 25 02 2026",
+      "displayName": "25",
+      "slug": "25",
+      "posterUrl": "https://media.rawg.io/media/screenshots/f2c/f2c40542116ce0a29b61f20d0aac0871.jpg",
+      "provider": "rawg",
+      "providerGameId": "230521",
+      "aliases": [
+        "Gtav Online 25 02 2026",
+        "25"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:24.508Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "yakuza a dragon",
+      "displayName": "Yakuza: Like a Dragon",
+      "slug": "yakuza-like-a-dragon",
+      "posterUrl": "https://media.rawg.io/media/games/a59/a5993b9f84944570a31cb6ad08bfe502.jpg",
+      "provider": "rawg",
+      "providerGameId": "369157",
+      "aliases": [
+        "Yakuza A Dragon",
+        "Yakuza: Like a Dragon"
+      ],
+      "confidence": 0.75,
+      "createdAt": "2026-03-19T03:10:25.078Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "60k shared",
+      "displayName": "Share",
+      "slug": "share",
+      "posterUrl": "https://media.rawg.io/media/screenshots/c4f/c4fcce392e7fc965c797620da234c4e4.jpg",
+      "provider": "rawg",
+      "providerGameId": "18206",
+      "aliases": [
+        "60k Shared",
+        "Share"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:28.825Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "film",
+      "displayName": "Please State Your Name: A VR Animated Film",
+      "slug": "please-state-your-name-a-vr-animated-film",
+      "posterUrl": "https://media.rawg.io/media/screenshots/635/63567c8f027836f1200803c52ec11991.jpg",
+      "provider": "rawg",
+      "providerGameId": "16364",
+      "aliases": [
+        "Film",
+        "Please State Your Name: A VR Animated Film"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:30.491Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "watch dogs legion",
+      "displayName": "Watch Dogs: Legion",
+      "slug": "watch-dogs-legion",
+      "posterUrl": "https://media.rawg.io/media/games/415/41563ce6cb061a210160687a4e5d39f6.jpg",
+      "provider": "rawg",
+      "providerGameId": "324992",
+      "aliases": [
+        "Watch Dogs: Legion",
+        "Watch Dogs"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:31.694Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "lawn mowing simulator",
+      "displayName": "Lawn Mowing Simulator",
+      "slug": "lawn-mowing-simulator",
+      "posterUrl": "https://media.rawg.io/media/screenshots/643/643a3dd6aba644d35f2c6476ce10ef60.jpg",
+      "provider": "rawg",
+      "providerGameId": "647611",
+      "aliases": [
+        "Lawn Mowing Simulator"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:34.019Z",
+      "updatedAt": "2026-03-19T03:41:07.407Z"
+    },
+    {
+      "normalizedName": "grand theft auto v 20260203222318",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V 20260203222318",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:34.511Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "lawn mowing simulator 2026",
+      "displayName": "Mowing Simulator - Lawn Mower",
+      "slug": "mowing-simulator-lawn-mower",
+      "posterUrl": "https://media.rawg.io/media/screenshots/b58/b58e00ff65c517f01d575927be6cc34f_f8b2mAN.jpg",
+      "provider": "rawg",
+      "providerGameId": "667793",
+      "aliases": [
+        "Lawn Mowing Simulator 2026",
+        "Mowing Simulator - Lawn Mower"
+      ],
+      "confidence": 0.75,
+      "createdAt": "2026-03-19T03:10:35.934Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "grand theft auto v rely",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V Rely",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:38.203Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "grand theft auto v 2026",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V 2026",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:39.022Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "session skate sim",
+      "displayName": "Session: Skate Sim",
+      "slug": "session-skate-sim",
+      "posterUrl": "https://media.rawg.io/media/games/3ce/3ce8ab12ad7711634e699dc815ba6649.jpg",
+      "provider": "rawg",
+      "providerGameId": "854739",
+      "aliases": [
+        "Session: Skate Sim"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:39.983Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "rblox for kids",
+      "displayName": "KIDS",
+      "slug": "kids",
+      "posterUrl": "https://media.rawg.io/media/screenshots/bf5/bf5ecc8bdd7dc05c67f91f5321067804.jpg",
+      "provider": "rawg",
+      "providerGameId": "64111",
+      "aliases": [
+        "Rblox For Kids",
+        "KIDS"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:40.370Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "youtuber",
+      "displayName": "Youtubers Life",
+      "slug": "youtubers-life",
+      "posterUrl": "https://media.rawg.io/media/screenshots/9b5/9b500837b7dbd289ccec169fe102d1c0.jpg",
+      "provider": "rawg",
+      "providerGameId": "10450",
+      "aliases": [
+        "Youtuber",
+        "Youtubers Life"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:42.971Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "fallout 76",
+      "displayName": "Fallout 76",
+      "slug": "fallout-76",
+      "posterUrl": "https://media.rawg.io/media/games/151/151e79f397328419c64aabe93d9d5a31.jpg",
+      "provider": "rawg",
+      "providerGameId": "58585",
+      "aliases": [
+        "Fallout 76"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:43.790Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "silent hill 2",
+      "displayName": "Silent Hill 2",
+      "slug": "silent-hill-2",
+      "posterUrl": "https://media.rawg.io/media/games/09b/09b41c1a2c5761c5b1772a4ae238bb0e.jpg",
+      "provider": "rawg",
+      "providerGameId": "868086",
+      "aliases": [
+        "Silent Hill 2"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:44.638Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "60millon likes hit button",
+      "displayName": "HIT",
+      "slug": "hit",
+      "posterUrl": "https://media.rawg.io/media/screenshots/52b/52b77ecb1d9b8b15e88d525085093320.jpg",
+      "provider": "rawg",
+      "providerGameId": "20089",
+      "aliases": [
+        "60millon Likes Hit Button",
+        "HIT"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:46.180Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "battlefield 6",
+      "displayName": "Battlefield 6",
+      "slug": "battlefield-6",
+      "posterUrl": "https://media.rawg.io/media/games/dcc/dcc38d78ab1f1a90fdc4ba1bea3a73ff.jpg",
+      "provider": "rawg",
+      "providerGameId": "1007483",
+      "aliases": [
+        "Battlefield 6"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:47.464Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "battlefield 6 2026gameplay",
+      "displayName": "Battlefield 6",
+      "slug": "battlefield-6",
+      "posterUrl": "https://media.rawg.io/media/games/dcc/dcc38d78ab1f1a90fdc4ba1bea3a73ff.jpg",
+      "provider": "rawg",
+      "providerGameId": "1007483",
+      "aliases": [
+        "Battlefield 6 2026gameplay",
+        "Battlefield 6"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:47.944Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "sniper elite 4",
+      "displayName": "Sniper Elite 4",
+      "slug": "sniper-elite-4",
+      "posterUrl": "https://media.rawg.io/media/games/2fe/2feec1ba840f467a2280061b9e665c6e.jpg",
+      "provider": "rawg",
+      "providerGameId": "382",
+      "aliases": [
+        "Sniper Elite 4"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:49.473Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "sniper elite 4 2026gameplay",
+      "displayName": "Sniper Elite 4",
+      "slug": "sniper-elite-4",
+      "posterUrl": "https://media.rawg.io/media/games/2fe/2feec1ba840f467a2280061b9e665c6e.jpg",
+      "provider": "rawg",
+      "providerGameId": "382",
+      "aliases": [
+        "Sniper Elite 4 2026gameplay",
+        "Sniper Elite 4"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:50.017Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "need for speed payback",
+      "displayName": "Need for Speed Payback",
+      "slug": "need-for-speed-payback",
+      "posterUrl": "https://media.rawg.io/media/games/a57/a57e3c73ca46cbf55b526c828e3545c0.jpg",
+      "provider": "rawg",
+      "providerGameId": "23702",
+      "aliases": [
+        "Need For Speed Payback"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:52.513Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "grand theft auto city vice",
+      "displayName": "Grand Theft Auto: Vice City",
+      "slug": "grand-theft-auto-vice-city",
+      "posterUrl": "https://media.rawg.io/media/games/13a/13a528ac9cf48bbb6be5d35fe029336d.jpg",
+      "provider": "rawg",
+      "providerGameId": "430",
+      "aliases": [
+        "Grand Theft Auto City Vice",
+        "Grand Theft Auto: Vice City"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:10:56.941Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "need for speed heatgameplay",
+      "displayName": "Need for Speed",
+      "slug": "need-for-speed",
+      "posterUrl": "https://media.rawg.io/media/games/19a/19a512a8c1293c22894b7364e1405ec1.jpg",
+      "provider": "rawg",
+      "providerGameId": "3090",
+      "aliases": [
+        "Need For Speed Heatgameplay",
+        "Need for Speed"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:10:58.690Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "marvel s spider man remastered",
+      "displayName": "Marvel's Spider-Man Remastered",
+      "slug": "marvel-s-spider-man-remastered",
+      "posterUrl": "https://media.rawg.io/media/games/5f1/5f1399f755ed3a40b04a9195f4c06be5.jpg",
+      "provider": "rawg",
+      "providerGameId": "663742",
+      "aliases": [
+        "Marvel S Spider Man Remastered",
+        "Marvel's Spider-Man Remastered"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:00.410Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "marvel s spider",
+      "displayName": "Marvel's Spider-Man Remastered",
+      "slug": "marvel-s-spider-man-remastered",
+      "posterUrl": "https://media.rawg.io/media/games/5f1/5f1399f755ed3a40b04a9195f4c06be5.jpg",
+      "provider": "rawg",
+      "providerGameId": "663742",
+      "aliases": [
+        "Marvel S Spider",
+        "Marvel's Spider-Man Remastered"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:00.886Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "man remastered 2025gameplay",
+      "displayName": "Shadow Man Remastered",
+      "slug": "shadow-man-remastered",
+      "posterUrl": "https://media.rawg.io/media/games/118/118febc46aaedb9a2a8179d7258e1556.jpg",
+      "provider": "rawg",
+      "providerGameId": "586185",
+      "aliases": [
+        "Man Remastered 2025gameplay",
+        "Shadow Man Remastered"
+      ],
+      "confidence": 0.6666666666666666,
+      "createdAt": "2026-03-19T03:11:01.440Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "man remastered",
+      "displayName": "Marvel's Spider-Man Remastered",
+      "slug": "marvel-s-spider-man-remastered",
+      "posterUrl": "https://media.rawg.io/media/games/5f1/5f1399f755ed3a40b04a9195f4c06be5.jpg",
+      "provider": "rawg",
+      "providerGameId": "663742",
+      "aliases": [
+        "Man Remastered",
+        "Marvel's Spider-Man Remastered"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:03.151Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "grand theft auto vgameonlinegameplay",
+      "displayName": "Grand Theft Auto IV",
+      "slug": "grand-theft-auto-iv",
+      "posterUrl": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
+      "provider": "rawg",
+      "providerGameId": "4459",
+      "aliases": [
+        "Grand Theft Auto Vgameonlinegameplay",
+        "Grand Theft Auto IV"
+      ],
+      "confidence": 0.75,
+      "createdAt": "2026-03-19T03:11:05.347Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "grand theft auto v onlinegameplay",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V Onlinegameplay",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:06.243Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "grand theft auto v 2025",
+      "displayName": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "posterUrl": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+      "provider": "rawg",
+      "providerGameId": "3498",
+      "aliases": [
+        "Grand Theft Auto V 2025",
+        "Grand Theft Auto V"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:07.159Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "roblox",
+      "displayName": "ROBLOX",
+      "slug": "roblox",
+      "posterUrl": "https://media.rawg.io/media/games/3af/3af386b6e26be6741b711ae6215ef42f.jpg",
+      "provider": "rawg",
+      "providerGameId": "779",
+      "aliases": [
+        "Roblox"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:07.607Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "the outlast trials",
+      "displayName": "The Outlast Trials",
+      "slug": "the-outlast-trials",
+      "posterUrl": "https://media.rawg.io/media/games/cb7/cb79272fea3ffdba3fd48d44cc78d132.jpg",
+      "provider": "rawg",
+      "providerGameId": "485138",
+      "aliases": [
+        "The Outlast Trials"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:09.071Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "killing floor 3",
+      "displayName": "Killing Floor 3",
+      "slug": "killing-floor-3",
+      "posterUrl": "https://media.rawg.io/media/screenshots/295/2959907ac9aefa3657fcdc36c7e3bcf9.jpg",
+      "provider": "rawg",
+      "providerGameId": "1007437",
+      "aliases": [
+        "Killing Floor 3"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:09.523Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "sub 1000000 gtav online",
+      "displayName": "Sub Sub Sub 2: Sub Sub Sub Sub",
+      "slug": "sub-sub-sub-2-sub-sub-sub-sub",
+      "posterUrl": "https://media.rawg.io/media/screenshots/70d/70d2b0478ce073e454db9aad06bd4f81.jpg",
+      "provider": "rawg",
+      "providerGameId": "444784",
+      "aliases": [
+        "Sub 1000000 Gtav Online",
+        "Sub Sub Sub 2: Sub Sub Sub Sub"
+      ],
+      "confidence": 0.875,
+      "createdAt": "2026-03-19T03:11:15.210Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "fortnite 2025",
+      "displayName": "Fortnite",
+      "slug": "fortnite",
+      "posterUrl": "https://media.rawg.io/media/screenshots/5cc/5cc1a3f085356345aa902a38af82345a.jpg",
+      "provider": "rawg",
+      "providerGameId": "583859",
+      "aliases": [
+        "Fortnite 2025",
+        "Fortnite"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:15.667Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "asphalt legends",
+      "displayName": "Asphalt 9: Legends",
+      "slug": "asphalt-9-legends",
+      "posterUrl": "https://media.rawg.io/media/games/e96/e96d3582bf1bd6dbe6edae5319dcdb83.jpg",
+      "provider": "rawg",
+      "providerGameId": "59317",
+      "aliases": [
+        "Asphalt Legends",
+        "Asphalt 9: Legends"
+      ],
+      "confidence": 0.6666666666666666,
+      "createdAt": "2026-03-19T03:11:16.793Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "death stranding",
+      "displayName": "Death Stranding",
+      "slug": "death-stranding",
+      "posterUrl": "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg",
+      "provider": "rawg",
+      "providerGameId": "50738",
+      "aliases": [
+        "Death Stranding"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:21.193Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "monster hunter wilds",
+      "displayName": "Monster Hunter Wilds",
+      "slug": "monster-hunter-wilds",
+      "posterUrl": "https://media.rawg.io/media/games/91b/91b4edd8fecf88b2b5ca0752321382ee.jpg",
+      "provider": "rawg",
+      "providerGameId": "973391",
+      "aliases": [
+        "Monster Hunter Wilds"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:23.567Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "hashtag need for speed payback",
+      "displayName": "Need for Speed Payback",
+      "slug": "need-for-speed-payback",
+      "posterUrl": "https://media.rawg.io/media/games/a57/a57e3c73ca46cbf55b526c828e3545c0.jpg",
+      "provider": "rawg",
+      "providerGameId": "23702",
+      "aliases": [
+        "Hashtag Need For Speed Payback",
+        "Need for Speed Payback"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:27.282Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "hashtag forza horizon 5",
+      "displayName": "Forza Horizon 5",
+      "slug": "forza-horizon-5",
+      "posterUrl": "https://media.rawg.io/media/games/082/082365507ff04d456c700157072d35db.jpg",
+      "provider": "rawg",
+      "providerGameId": "622492",
+      "aliases": [
+        "Hashtag Forza Horizon 5",
+        "Forza Horizon 5"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:27.830Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "skyrim",
+      "displayName": "The Elder Scrolls V: Skyrim",
+      "slug": "the-elder-scrolls-v-skyrim",
+      "posterUrl": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
+      "provider": "rawg",
+      "providerGameId": "5679",
+      "aliases": [
+        "Skyrim",
+        "The Elder Scrolls V: Skyrim"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:29.123Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "timesplitters",
+      "displayName": "TimeSplitters",
+      "slug": "timesplitters",
+      "posterUrl": "https://media.rawg.io/media/games/bba/bbaae65dc0f3f8c40b9e099c1248a252.jpg",
+      "provider": "rawg",
+      "providerGameId": "312621",
+      "aliases": [
+        "Timesplitters"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:30.417Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "forza horizon 5 first love",
+      "displayName": "Forza Horizon 5",
+      "slug": "forza-horizon-5",
+      "posterUrl": "https://media.rawg.io/media/games/082/082365507ff04d456c700157072d35db.jpg",
+      "provider": "rawg",
+      "providerGameId": "622492",
+      "aliases": [
+        "Forza Horizon 5 First Love",
+        "Forza Horizon 5"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:30.926Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "hashtag spider man mars morales",
+      "displayName": "SPIDER-MAN | Miles Morales",
+      "slug": "spider-man-miles-morales",
+      "posterUrl": "https://media.rawg.io/media/screenshots/784/78457774ec8418273b4e23eb7db35147.jpg",
+      "provider": "rawg",
+      "providerGameId": "746966",
+      "aliases": [
+        "Hashtag Spider Man Mars Morales",
+        "SPIDER-MAN | Miles Morales"
+      ],
+      "confidence": 0.6,
+      "createdAt": "2026-03-19T03:11:35.038Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "spider man marvel",
+      "displayName": "Marvel's Spider-Man",
+      "slug": "marvel-s-spider-man",
+      "posterUrl": "https://media.rawg.io/media/games/9aa/9aa42d16d425fa6f179fc9dc2f763647.jpg",
+      "provider": "rawg",
+      "providerGameId": "58134",
+      "aliases": [
+        "Spider Man Marvel",
+        "Marvel's Spider-Man"
+      ],
+      "confidence": 0.75,
+      "createdAt": "2026-03-19T03:11:35.614Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "gta v online sniper way",
+      "displayName": "Sniper Vs Sniper: Online Multiplayer",
+      "slug": "sniper-vs-sniper-online-multiplayer",
+      "posterUrl": "https://media.rawg.io/media/screenshots/450/4506205a80882be4b14f11190b66f83a_fdAl79c.jpg",
+      "provider": "rawg",
+      "providerGameId": "76905",
+      "aliases": [
+        "Gta V Online Sniper Way",
+        "Sniper Vs Sniper: Online Multiplayer"
+      ],
+      "confidence": 0.6,
+      "createdAt": "2026-03-19T03:11:39.056Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "xcom 2",
+      "displayName": "XCOM 2",
+      "slug": "xcom-2",
+      "posterUrl": "https://media.rawg.io/media/games/9bf/9bfac18ff678f41a4674250fa0e04a52.jpg",
+      "provider": "rawg",
+      "providerGameId": "1256",
+      "aliases": [
+        "Xcom 2"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:39.936Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "subscriber",
+      "displayName": "Subscriber clicker",
+      "slug": "subscriber-clicker",
+      "posterUrl": "https://media.rawg.io/media/screenshots/312/31286bc3959d26fc878d1aa2f734d614.jpg",
+      "provider": "rawg",
+      "providerGameId": "659175",
+      "aliases": [
+        "Subscriber",
+        "Subscriber clicker"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:40.735Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "cyberpunk 2077",
+      "displayName": "Cyberpunk 2077",
+      "slug": "cyberpunk-2077",
+      "posterUrl": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg",
+      "provider": "rawg",
+      "providerGameId": "41494",
+      "aliases": [
+        "Cyberpunk 2077"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:41.637Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "untitled m4a",
+      "displayName": "UNTITLED",
+      "slug": "untitled",
+      "posterUrl": "https://media.rawg.io/media/screenshots/802/802391c3675398399886923d6e31fd01.jpg",
+      "provider": "rawg",
+      "providerGameId": "23569",
+      "aliases": [
+        "Untitled M4a",
+        "UNTITLED"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:45.001Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "hashtag need for speed heat tutorial",
+      "displayName": "Need for Speed Heat",
+      "slug": "need-for-speed-heat",
+      "posterUrl": "https://media.rawg.io/media/games/370/3703c683968a54f09630dcf03366ea35.jpg",
+      "provider": "rawg",
+      "providerGameId": "364806",
+      "aliases": [
+        "Hashtag Need For Speed Heat Tutorial",
+        "Need for Speed Heat"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:46.196Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "need speed heat",
+      "displayName": "Need for Speed Heat",
+      "slug": "need-for-speed-heat",
+      "posterUrl": "https://media.rawg.io/media/games/370/3703c683968a54f09630dcf03366ea35.jpg",
+      "provider": "rawg",
+      "providerGameId": "364806",
+      "aliases": [
+        "Need Speed Heat",
+        "Need for Speed Heat"
+      ],
+      "confidence": 0.75,
+      "createdAt": "2026-03-19T03:11:48.009Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "watch dogs 2",
+      "displayName": "Watch Dogs 2",
+      "slug": "watch-dogs-2",
+      "posterUrl": "https://media.rawg.io/media/games/f52/f52cf6ba08089cd5f1a9c8f7fcc93d1f.jpg",
+      "provider": "rawg",
+      "providerGameId": "10061",
+      "aliases": [
+        "Watch Dogs 2"
+      ],
+      "confidence": 1,
+      "createdAt": "2026-03-19T03:11:48.819Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "we are running out of time",
+      "displayName": "Running out of Space-Time",
+      "slug": "running-out-of-space-time",
+      "posterUrl": "https://media.rawg.io/media/screenshots/04a/04af5ac16155f28fd19dc167bc7b9476.jpg",
+      "provider": "rawg",
+      "providerGameId": "652959",
+      "aliases": [
+        "We Are Running Out Of Time",
+        "Running out of Space-Time"
+      ],
+      "confidence": 0.6666666666666666,
+      "createdAt": "2026-03-19T03:11:50.341Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "cev eray",
+      "displayName": "CEV",
+      "slug": "cev",
+      "posterUrl": "https://media.rawg.io/media/screenshots/647/647a09d2fcad8b5f2e381fb52faf913e.jpg",
+      "provider": "rawg",
+      "providerGameId": "943997",
+      "aliases": [
+        "Cev Eray",
+        "CEV"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:51.808Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    },
+    {
+      "normalizedName": "reality graphics",
+      "displayName": "REALITY",
+      "slug": "reality",
+      "posterUrl": "https://media.rawg.io/media/screenshots/12f/12fcf09680d9a1616d53f3a48f771c97.jpg",
+      "provider": "rawg",
+      "providerGameId": "15809",
+      "aliases": [
+        "Reality Graphics",
+        "REALITY"
+      ],
+      "confidence": 0.84,
+      "createdAt": "2026-03-19T03:11:52.587Z",
+      "updatedAt": "2026-03-19T03:41:07.408Z"
+    }
+  ]
+}
