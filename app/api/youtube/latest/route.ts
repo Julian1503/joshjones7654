@@ -142,7 +142,7 @@ function getFallbackPayload({
 }
 
 function jsonOk(payload: YoutubeLatestResponse) {
-    return jsonOkWithCacheControl(payload, 'public, s-maxage=300, stale-while-revalidate=300')
+    return jsonOkWithCacheControl(payload, 'no-store, max-age=0')
 }
 
 function parseMaxResults(value: string | null): number {
