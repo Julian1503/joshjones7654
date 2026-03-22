@@ -13,6 +13,7 @@ import {
 } from '@/lib/api/youtube-route-cache'
 
 export const revalidate = 600
+export const dynamic = 'force-dynamic'
 
 const FALLBACK_MAX_AGE_MS = 90 * 60 * 1000
 
@@ -32,7 +33,7 @@ export async function GET(request: NextRequest) {
     const cooldownUntil = quotaCooldownByHandle.get(handle) ?? 0
 
     if (cooldownUntil > now) {
-        const fallback = getFallbackPayload({ handle, cacheKey })
+        const fallback = getFallbackPayload({ handle, cacheKey, pageToken })
         if (fallback) {
             return jsonOk({
                 ...fallback,
@@ -67,7 +68,7 @@ export async function GET(request: NextRequest) {
         if (isQuotaExceededError(error)) {
             quotaCooldownByHandle.set(handle, now + QUOTA_COOLDOWN_MS)
 
-            const fallback = getFallbackPayload({ handle, cacheKey })
+            const fallback = getFallbackPayload({ handle, cacheKey, pageToken })
             if (fallback) {
                 return jsonOk({
                     ...fallback,
@@ -90,7 +91,7 @@ export async function GET(request: NextRequest) {
             })
         }
 
-        const fallback = getFallbackPayload({ handle, cacheKey })
+        const fallback = getFallbackPayload({ handle, cacheKey, pageToken })
         if (fallback) {
             return jsonOk({
                 ...fallback,
@@ -124,15 +125,19 @@ function buildCacheKey({
 function getFallbackPayload({
     handle,
     cacheKey,
+    pageToken,
 }: {
     handle: string
     cacheKey: string
+    pageToken?: string
 }): YoutubeLatestResponse | null {
     return getFreshCachedPayload({
         cache: latestCache,
         maxAgeMs: FALLBACK_MAX_AGE_MS,
         primaryKey: cacheKey,
-        predicate: (key) => key.startsWith(`${handle}:`),
+        // For paginated views, never substitute another page from cache.
+        // This avoids replaying page 1 while navigating to page 2+.
+        predicate: pageToken ? undefined : (key) => key.startsWith(`${handle}:`),
     })
 }
 
