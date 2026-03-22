@@ -12,7 +12,7 @@ import {
     QUOTA_COOLDOWN_MS,
 } from '@/lib/api/youtube-route-cache'
 
-export const revalidate = 600
+export const revalidate = 0
 export const dynamic = 'force-dynamic'
 
 const FALLBACK_MAX_AGE_MS = 90 * 60 * 1000

@@ -2,13 +2,17 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import type { YoutubeDetectedGame } from '@/lib/youtube/youtube.types'
 import {
+    isReadOnlyFileSystemError,
+    resolveWritableDataPath,
+} from '@/lib/node/fs-write-safety'
+import {
     GAME_NAME_ALIASES,
     GAME_CANDIDATE_BLACKLIST,
     GAME_CANDIDATE_PHRASE_BLACKLIST,
     MANUAL_GAME_OVERRIDES,
 } from '@/lib/youtube/youtube-games.constants'
 
-const SCAN_STATE_PATH = path.join(process.cwd(), 'data', 'games-scan-state.json')
+const SCAN_STATE_PATH = resolveWritableDataPath('games-scan-state.json')
 
 export type AccumulatedGameEntry = {
     id: string
@@ -74,8 +78,14 @@ export class ScanStateRepository {
     }
 
     private async persist(state: ScanState): Promise<void> {
-        await fs.mkdir(path.dirname(SCAN_STATE_PATH), { recursive: true })
-        await fs.writeFile(SCAN_STATE_PATH, JSON.stringify(state, null, 2), 'utf8')
+        try {
+            await fs.mkdir(path.dirname(SCAN_STATE_PATH), { recursive: true })
+            await fs.writeFile(SCAN_STATE_PATH, JSON.stringify(state, null, 2), 'utf8')
+        } catch (error) {
+            // Netlify/serverless runtimes can be read-only. Keep serving from memory.
+            if (isReadOnlyFileSystemError(error)) return
+            throw error
+        }
     }
 
     static merge(

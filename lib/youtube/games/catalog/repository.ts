@@ -1,8 +1,12 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import type { GameCatalogRepository, StoredGameCatalogEntry } from '@/lib/youtube/games/catalog/types'
+import {
+    isReadOnlyFileSystemError,
+    resolveWritableDataPath,
+} from '@/lib/node/fs-write-safety'
 
-const CACHE_FILE_PATH = path.join(process.cwd(), 'data', 'game-catalog-cache.json')
+const CACHE_FILE_PATH = resolveWritableDataPath('game-catalog-cache.json')
 
 type CatalogCacheFile = {
     entries: StoredGameCatalogEntry[]
@@ -50,10 +54,16 @@ export class LocalGameCatalogRepository implements GameCatalogRepository {
 
     private async persist() {
         const entries = Array.from(this.memoryCache.values())
-        await fs.mkdir(path.dirname(CACHE_FILE_PATH), { recursive: true })
-
         const content: CatalogCacheFile = { entries }
-        await fs.writeFile(CACHE_FILE_PATH, JSON.stringify(content, null, 2), 'utf8')
+
+        try {
+            await fs.mkdir(path.dirname(CACHE_FILE_PATH), { recursive: true })
+            await fs.writeFile(CACHE_FILE_PATH, JSON.stringify(content, null, 2), 'utf8')
+        } catch (error) {
+            // Netlify/serverless runtimes can be read-only. Keep serving from memory.
+            if (isReadOnlyFileSystemError(error)) return
+            throw error
+        }
     }
 }
 
