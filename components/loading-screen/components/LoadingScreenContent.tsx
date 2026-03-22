@@ -16,7 +16,6 @@ export function LoadingScreenContent({
                                          nameFillRef,
                                          scanLineRef,
                                          labelRef,
-                                         dots,
                                          isMobile,
                                      }: LoadingScreenContentProps) {
     const fontSize = isMobile
