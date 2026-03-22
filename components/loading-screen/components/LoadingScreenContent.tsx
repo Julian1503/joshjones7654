@@ -45,7 +45,6 @@ export function LoadingScreenContent({
                 textAlign: 'center',
             }}
         >
-            {/* Stack de texto: LOADING atrás + JOSHUA en dos capas */}
             <div
                 ref={nameRef}
                 style={{
@@ -54,7 +53,6 @@ export function LoadingScreenContent({
                     filter: 'drop-shadow(0 0 60px rgba(255,69,69,0.15))',
                 }}
             >
-                {/* Capa 0 — "LOADING" muy tenue, alineado sobre el nombre */}
                 <div
                     aria-hidden
                     style={{
@@ -65,8 +63,7 @@ export function LoadingScreenContent({
                         alignItems: 'center',
                         justifyContent: 'center',
                         color: 'transparent',
-                        WebkitTextStroke: '1px rgba(255,69,69,0.13)',
-                        // Escalar para que "LOADING" ocupe el mismo ancho aprox
+                        WebkitTextStroke: '1px rgba(255,69,69,0.6)',
                         letterSpacing: '0.18em',
                         fontSize: isMobile
                             ? 'clamp(1.6rem, 9vw, 2.8rem)'
@@ -76,7 +73,6 @@ export function LoadingScreenContent({
                     {LOADING_SCREEN_COPY.titleBackground}
                 </div>
 
-                {/* Capa 1 — "JOSHUA" ghost (stroke, siempre visible) */}
                 <div
                     aria-hidden
                     style={{
@@ -88,7 +84,6 @@ export function LoadingScreenContent({
                     {LOADING_SCREEN_COPY.title}
                 </div>
 
-                {/* Capa 2 — "JOSHUA" sólido revelado de arriba hacia abajo */}
                 <div
                     ref={nameFillRef}
                     aria-hidden
@@ -108,7 +103,6 @@ export function LoadingScreenContent({
                     {LOADING_SCREEN_COPY.title}
                 </div>
 
-                {/* Línea roja que baja en sync con el fill — la "pincelada" */}
                 <div
                     ref={scanLineRef}
                     aria-hidden
@@ -127,7 +121,6 @@ export function LoadingScreenContent({
                 />
             </div>
 
-            {/* Label inferior — oculto, reemplazado por la línea */}
             <p
                 ref={labelRef}
                 aria-hidden
