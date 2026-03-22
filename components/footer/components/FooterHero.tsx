@@ -105,7 +105,7 @@ export function FooterHero({
                         fontSize: isMobile ? '0.68rem' : 'clamp(0.62rem, 0.9vw, 0.72rem)',
                         lineHeight: 1.75,
                         letterSpacing: '0.06em',
-                        color: 'rgba(255,255,255,0.28)',
+                        color: 'rgba(255,255,255,0.6)',
                         paddingTop: isMobile ? 0 : 4,
                     }}
                 >

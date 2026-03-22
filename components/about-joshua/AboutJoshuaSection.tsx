@@ -55,7 +55,7 @@ export default function AboutJoshuaSection() {
                     position: 'absolute',
                     inset: 0,
                     background:
-                        'radial-gradient(ellipse at center, transparent 28%, rgba(6,8,9,0.68) 100%)',
+                        'radial-gradient(ellipse at center, transparent 10%, rgba(6,8,9,0.68) 70%)',
                     pointerEvents: 'none',
                     zIndex: 1,
                 }}

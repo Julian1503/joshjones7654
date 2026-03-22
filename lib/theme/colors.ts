@@ -11,8 +11,8 @@ export const BRAND_COLORS = {
     accentRgb: '255,69,69',
     accentGlow: 'rgba(220,30,30,0.7)',
     textPrimary: 'rgba(255,255,255,0.94)',
-    textSecondary: 'rgba(255,255,255,0.58)',
-    textMuted: 'rgba(255,255,255,0.28)',
+    textSecondary: 'rgba(255,255,255,0.7)',
+    textMuted: 'rgba(255,255,255,0.6)',
     borderSoft: 'rgba(255,255,255,0.07)',
 } as const
 

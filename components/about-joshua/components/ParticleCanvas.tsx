@@ -30,6 +30,9 @@ export function ParticleCanvas() {
 
         let particles: Particle[] = []
 
+        const particleColor = '255,160,160'
+        const lineColor = '255,120,120'
+
         const initializeParticles = () => {
             const count = Math.floor((width * height) / 9000)
 
@@ -45,7 +48,7 @@ export function ParticleCanvas() {
                     vx: (Math.random() - 0.5) * 0.18,
                     vy: (Math.random() - 0.5) * 0.18,
                     r: Math.random() * 1.4 + 0.5,
-                    alpha: Math.random() * 0.45 + 0.1,
+                    alpha: Math.random() * 0.35 + 0.35,
                 }
             })
         }
@@ -100,8 +103,8 @@ export function ParticleCanvas() {
                         context.beginPath()
                         context.moveTo(a.x, a.y)
                         context.lineTo(b.x, b.y)
-                        context.strokeStyle = `rgba(255,69,69,${t * 0.16})`
-                        context.lineWidth = t * 0.8
+                        context.strokeStyle = `rgba(${lineColor},${t * 0.45})`
+                        context.lineWidth = Math.max(t, 0.35)
                         context.stroke()
                     }
                 }
@@ -110,7 +113,7 @@ export function ParticleCanvas() {
             for (const particle of particles) {
                 context.beginPath()
                 context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2)
-                context.fillStyle = `rgba(255,107,107,${particle.alpha})`
+                context.fillStyle = `rgba(${particleColor},${particle.alpha})`
                 context.fill()
             }
 

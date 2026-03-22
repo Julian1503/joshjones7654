@@ -44,7 +44,7 @@ export function FooterNavGrid({
                   fontFamily: '"Bebas Neue", sans-serif',
                   fontSize: 'clamp(0.85rem, 1.2vw, 1.1rem)',
                   letterSpacing: '0.14em',
-                  color: 'rgba(255,255,255,0.28)',
+                  color: 'rgba(255,255,255,0.8)',
               }}
           >
             {group.group}

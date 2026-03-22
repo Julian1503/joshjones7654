@@ -31,7 +31,7 @@ export function FooterBottomBar({
               fontSize: '0.5rem',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.14)',
+              color: 'rgba(255,255,255,0.6)',
               marginLeft: 'auto',
           }}
       >

@@ -102,7 +102,7 @@ export function IntroPanel({
                                     : 'clamp(0.58rem, 0.85vw, 0.72rem)',
                             letterSpacing: isMobile ? '0.22em' : '0.35em',
                             textTransform: 'uppercase',
-                            color: 'rgba(255,255,255,0.3)',
+                            color: 'rgba(255,255,255,0.6)',
                         }}
                     >
                         Queensland, Australia · Support organisation
@@ -121,7 +121,7 @@ export function IntroPanel({
                                     : 'clamp(0.58rem, 0.85vw, 0.72rem)',
                             letterSpacing: isMobile ? '0.22em' : '0.38em',
                             textTransform: 'uppercase',
-                            color: 'rgba(255,255,255,0.28)',
+                            color: 'rgba(255,255,255,0.6)',
                             display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: isDesktop ? 'flex-start' : 'center',
@@ -211,11 +211,11 @@ export function IntroPanel({
                                 fontSize: isMobile ? '0.56rem' : '0.6rem',
                                 letterSpacing: isMobile ? '0.2em' : '0.3em',
                                 textTransform: 'uppercase',
-                                color: 'rgba(255,255,255,0.22)',
+                                color: 'rgba(255,255,255,0.6)',
                             }}
                         >
-              Scroll to explore
-            </span>
+                          Scroll to explore
+                        </span>
                     </div>
                 </div>
             </div>

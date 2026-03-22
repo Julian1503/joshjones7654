@@ -63,7 +63,7 @@ export function OutroPanel({
                             : 'clamp(0.58rem, 0.88vw, 0.74rem)',
                     letterSpacing: isMobile ? '0.22em' : '0.38em',
                     textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.28)',
+                    color: 'rgba(255,255,255,0.8)',
                 }}
             >
                 The Better Day

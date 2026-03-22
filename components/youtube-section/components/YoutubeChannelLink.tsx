@@ -34,7 +34,7 @@ export function YoutubeChannelLink({
                     fontFamily: 'monospace',
                     fontSize: isMobile ? '0.58rem' : '0.62rem',
                     letterSpacing: isMobile ? '0.18em' : '0.25em',
-                    color: 'rgba(255,255,255,0.2)',
+                    color: 'rgba(255,255,255,0.4)',
                     textTransform: 'uppercase',
                 }}
             >

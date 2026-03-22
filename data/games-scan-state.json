@@ -1,6 +1,6 @@
 {
-  "checkpointVideoId": "_t0EhHiUrGA",
-  "checkpointScannedAt": "2026-03-20T09:45:05.836Z",
+  "checkpointVideoId": "hfTQ6KeuEEw",
+  "checkpointScannedAt": "2026-03-22T00:24:28.436Z",
   "schemaVersion": 2,
   "games": {
     "grand theft auto v": {
@@ -2130,6 +2130,39 @@
           "videoUrl": "https://www.youtube.com/watch?v=YpjoQLBUjPY",
           "thumbnail": "https://i.ytimg.com/vi/YpjoQLBUjPY/hqdefault.jpg",
           "matchedAlias": "watch dogs 2"
+        }
+      ]
+    },
+    "grand-theft-auto-v": {
+      "id": "grand-theft-auto-v",
+      "gameName": "Grand Theft Auto V",
+      "mentionCount": 2,
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg",
+      "posterSource": "catalog",
+      "latestMention": {
+        "videoId": "hfTQ6KeuEEw",
+        "videoTitle": "gta v online gameplay",
+        "videoDate": "Today",
+        "videoUrl": "https://www.youtube.com/watch?v=hfTQ6KeuEEw",
+        "thumbnail": "https://i.ytimg.com/vi/hfTQ6KeuEEw/maxresdefault.jpg",
+        "matchedAlias": "gta v online"
+      },
+      "mentions": [
+        {
+          "videoId": "hfTQ6KeuEEw",
+          "videoTitle": "gta v online gameplay",
+          "videoDate": "Today",
+          "videoUrl": "https://www.youtube.com/watch?v=hfTQ6KeuEEw",
+          "thumbnail": "https://i.ytimg.com/vi/hfTQ6KeuEEw/maxresdefault.jpg",
+          "matchedAlias": "gta v online"
+        },
+        {
+          "videoId": "MKB91ZQdY7k",
+          "videoTitle": "Grand Theft Auto v gameplay online",
+          "videoDate": "1 day ago",
+          "videoUrl": "https://www.youtube.com/watch?v=MKB91ZQdY7k",
+          "thumbnail": "https://i.ytimg.com/vi/MKB91ZQdY7k/maxresdefault.jpg",
+          "matchedAlias": "grand theft auto v online"
         }
       ]
     }

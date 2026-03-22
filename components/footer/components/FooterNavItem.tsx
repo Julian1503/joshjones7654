@@ -53,7 +53,7 @@ export function FooterNavItem({
         fontSize: 'clamp(0.58rem, 0.82vw, 0.68rem)',
         letterSpacing: '0.14em',
         textTransform: 'uppercase',
-        color: 'rgba(255,255,255,0.3)',
+        color: 'rgba(255,255,255,0.4)',
         textDecoration: 'none',
         cursor: 'pointer',
     }
@@ -67,7 +67,7 @@ export function FooterNavItem({
               width: 4,
               height: 1,
               borderRadius: 2,
-              background: 'rgba(255,255,255,0.2)',
+              background: 'rgba(255,255,255,0.4)',
               flexShrink: 0,
               transformOrigin: 'left center',
           }}

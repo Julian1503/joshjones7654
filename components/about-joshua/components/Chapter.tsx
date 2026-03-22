@@ -89,7 +89,7 @@ export function Chapter({
                             : 'clamp(5rem, 10vw, 9rem)',
                         lineHeight: 0.85,
                         color: 'transparent',
-                        WebkitTextStroke: '1px rgba(255,69,69,0.24)',
+                        WebkitTextStroke: '1px rgba(255,69,69,0.6)',
                         userSelect: 'none',
                     }}
                 >
