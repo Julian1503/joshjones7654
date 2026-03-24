@@ -12,51 +12,82 @@ export function useSiteMenuVisibility({
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
-        let frameId = 0
+        const blockingSections = Array.from(
+            document.querySelectorAll<HTMLElement>('[data-site-menu="false"]')
+        )
 
-        const updateVisibility = () => {
-            const blockingSections = document.querySelectorAll('[data-site-menu="false"]')
+        if (blockingSections.length === 0) {
+            const onScroll = () => setIsVisible(window.scrollY > window.innerHeight * 0.9)
+            onScroll()
+            window.addEventListener('scroll', onScroll, { passive: true })
 
-            if (blockingSections.length === 0) {
-                setIsVisible(window.scrollY > window.innerHeight * 0.9)
-                return
+            return () => {
+                window.removeEventListener('scroll', onScroll)
             }
+        }
 
+        const activeBlocked = new Set<Element>()
+
+        const computeRootMargin = () => {
             const buttonRect = buttonRef.current?.getBoundingClientRect()
-
-            const probeX = buttonRect
-                ? buttonRect.left + buttonRect.width / 2
-                : window.innerWidth - 40
-
-            const probeY = buttonRect
-                ? buttonRect.top + buttonRect.height / 2
-                : 40
-
-            const stack = document.elementsFromPoint(probeX, probeY)
-
-            const isBlocked = stack.some((element) => {
-                return element instanceof HTMLElement && !!element.closest('[data-site-menu="false"]')
-            })
-
-            setIsVisible(!isBlocked)
+            const probeY = buttonRect ? buttonRect.top + buttonRect.height / 2 : 40
+            const topMargin = -Math.max(0, Math.round(probeY))
+            const bottomMargin = -Math.max(0, Math.round(window.innerHeight - probeY - 1))
+            return `${topMargin}px 0px ${bottomMargin}px 0px`
         }
 
-        const scheduleVisibilityCheck = () => {
-            cancelAnimationFrame(frameId)
-            frameId = requestAnimationFrame(updateVisibility)
+        let observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        activeBlocked.add(entry.target)
+                    } else {
+                        activeBlocked.delete(entry.target)
+                    }
+                }
+
+                setIsVisible(activeBlocked.size === 0)
+            },
+            {
+                root: null,
+                threshold: 0,
+                rootMargin: computeRootMargin(),
+            }
+        )
+
+        blockingSections.forEach((section) => observer.observe(section))
+
+        const onResize = () => {
+            observer.disconnect()
+            activeBlocked.clear()
+
+            observer = new IntersectionObserver(
+                (entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting) {
+                            activeBlocked.add(entry.target)
+                        } else {
+                            activeBlocked.delete(entry.target)
+                        }
+                    }
+
+                    setIsVisible(activeBlocked.size === 0)
+                },
+                {
+                    root: null,
+                    threshold: 0,
+                    rootMargin: computeRootMargin(),
+                }
+            )
+
+            blockingSections.forEach((section) => observer.observe(section))
         }
 
-        scheduleVisibilityCheck()
-
-        window.addEventListener('scroll', scheduleVisibilityCheck, { passive: true })
-        window.addEventListener('resize', scheduleVisibilityCheck)
-        window.addEventListener('load', scheduleVisibilityCheck)
+        window.addEventListener('resize', onResize)
 
         return () => {
-            cancelAnimationFrame(frameId)
-            window.removeEventListener('scroll', scheduleVisibilityCheck)
-            window.removeEventListener('resize', scheduleVisibilityCheck)
-            window.removeEventListener('load', scheduleVisibilityCheck)
+            observer.disconnect()
+            window.removeEventListener('resize', onResize)
         }
     }, [buttonRef])
 

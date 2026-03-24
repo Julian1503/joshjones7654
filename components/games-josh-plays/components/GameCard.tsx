@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import type { JoshGame } from '@/components/games-josh-plays/types'
 import { GAMES_SECTION_COLORS } from '@/components/games-josh-plays/constants'
 import { useCardAnimation } from '@/components/games-josh-plays/hooks/useCardAnimation'
@@ -11,6 +12,7 @@ type GameCardProps = {
 
 export function GameCard({ game, isMobile }: GameCardProps) {
     const { cardRef, shimmerRef, contentRef, handlers } = useCardAnimation()
+    const posterSrc = toSafeRemoteImageUrl(game.posterUrl)
 
     return (
         <article
@@ -36,8 +38,34 @@ export function GameCard({ game, isMobile }: GameCardProps) {
                     position: 'absolute',
                     inset: 0,
                     background: game.posterUrl
-                        ? `linear-gradient(to top, rgba(7,8,9,0.95) 22%, rgba(7,8,9,0.45) 62%, rgba(7,8,9,0.12) 100%), url(${game.posterUrl}) center/cover no-repeat`
+                        ? 'linear-gradient(135deg, rgba(30,12,12,0.6), rgba(7,8,9,0.92))'
                         : 'linear-gradient(135deg, rgba(255,69,69,0.18), rgba(255,122,80,0.08) 55%, rgba(7,8,9,0.9))',
+                }}
+                aria-hidden
+            />
+
+            {posterSrc && (
+                <Image
+                    src={posterSrc}
+                    alt=''
+                    fill
+                    loading='lazy'
+                    unoptimized
+                    sizes={isMobile ? '100vw' : '33vw'}
+                    referrerPolicy='no-referrer'
+                    style={{
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                    }}
+                />
+            )}
+
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background:
+                        'linear-gradient(to top, rgba(7,8,9,0.95) 22%, rgba(7,8,9,0.45) 62%, rgba(7,8,9,0.12) 100%)',
                 }}
                 aria-hidden
             />
@@ -127,3 +155,19 @@ export function GameCard({ game, isMobile }: GameCardProps) {
         </article>
     )
 }
+
+function toSafeRemoteImageUrl(value: string | null | undefined): string | null {
+    if (!value) return null
+
+    try {
+        const parsed = new URL(value)
+        if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') {
+            return null
+        }
+
+        return parsed.toString()
+    } catch {
+        return null
+    }
+}
+

@@ -10,7 +10,7 @@ export const MUSIC_SECTION_COLORS = {
 
 export const MUSIC_SECTION_ID = 'music'
 
-export const MUSIC_WAVEFORM_BAR_COUNT = 52
+export const MUSIC_WAVEFORM_BAR_COUNT = 40
 export const MUSIC_VISIBLE_TRACKS = 4
 
 export const MUSIC_REST_HEIGHTS = Array.from(

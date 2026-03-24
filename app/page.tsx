@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import ParallaxHeroSection from '@/components/parallax-hero/ParallaxHeroSection';
-import AboutJoshuaSection from '@/components/about-joshua/AboutJoshuaSection';
 import { Footer } from '@/components/footer/Footer';
-import { PageIndex } from '@/components/page-index/PageIndex';
 import { FloatingSocials } from '@/components/floating-socials/FloatingSocials';
 import { SITE_DEFAULT_TITLE } from '@/lib/seo/site';
 import {SiteMenu} from "@/components/site-menu/SiteMenu";
 
+const PageIndexDeferred = dynamic(() => import('@/components/page-index/PageIndex').then((module) => module.PageIndex))
+const AboutJoshuaSectionDeferred = dynamic(() => import('@/components/about-joshua/AboutJoshuaSection'))
 const YoutubeSectionDeferred = dynamic(() => import('@/components/youtube-section/YoutubeSection'))
 const GamesJoshPlaysSectionDeferred = dynamic(() => import('@/components/games-josh-plays/GamesJoshPlaysSection'))
 const MusicSectionDeferred = dynamic(() => import('@/components/music-section/MusicSection').then((module) => module.MusicSection))
@@ -47,8 +47,8 @@ export default function Home() {
 
       <main id='main-content'>
         <ParallaxHeroSection />
-        <PageIndex />
-        <AboutJoshuaSection />
+        <PageIndexDeferred />
+        <AboutJoshuaSectionDeferred />
         <YoutubeSectionDeferred />
         <GamesJoshPlaysSectionDeferred />
         <MusicSectionDeferred />

@@ -60,6 +60,8 @@ export function HeroStage({
                     src={isMobile ? '/parallax_bg_mobile.webp' : '/parallax_bg.webp'}
                     alt=""
                     fill
+                    priority
+                    fetchPriority="high"
                     sizes="100vw"
                     onLoad={onBackgroundReadyAction}
                     onError={onBackgroundReadyAction}
@@ -155,8 +157,7 @@ export function HeroStage({
                     src={isMobile ? '/parallax_joshua_mobile.webp' : '/parallax_joshua.webp'}
                     alt="Joshua"
                     fill
-                    priority
-                    fetchPriority="high"
+                    loading="eager"
                     sizes={isMobile ? '80vw' : isTablet ? '52vw' : '42vw'}
                     onLoad={onPersonReadyAction}
                     onError={onPersonReadyAction}

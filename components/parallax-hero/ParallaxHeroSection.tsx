@@ -97,7 +97,8 @@ export default function ParallaxHero() {
                         position: 'sticky',
                         top: 0,
                         width: '100%',
-                        height: '100vh',
+                        height: '100svh',
+                        minHeight: '100svh',
                         overflow: 'hidden',
                         background: COLORS.background,
                     }}

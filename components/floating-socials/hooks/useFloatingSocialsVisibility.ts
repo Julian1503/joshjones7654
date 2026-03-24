@@ -1,34 +1,46 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 
 export function useFloatingSocialsVisibility() {
     const [isVisible, setIsVisible] = useState(true)
 
-    const updateVisibility = useCallback(() => {
+    useEffect(() => {
         const blockedSections = Array.from(
             document.querySelectorAll<HTMLElement>('[data-floating-social="false"]')
         )
 
-        const viewportCenterY = window.innerHeight / 2
+        if (blockedSections.length === 0) {
+            return
+        }
 
-        const isInsideBlockedSection = blockedSections.some((section) => {
-            const rect = section.getBoundingClientRect()
-            return rect.top <= viewportCenterY && rect.bottom >= viewportCenterY
-        })
+        const activeBlocked = new Set<Element>()
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        activeBlocked.add(entry.target)
+                    } else {
+                        activeBlocked.delete(entry.target)
+                    }
+                }
 
-        setIsVisible(!isInsideBlockedSection)
-    }, [])
+                setIsVisible(activeBlocked.size === 0)
+            },
+            {
+                root: null,
+                // Create a 1px horizontal probe around viewport center.
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0,
+            }
+        )
 
-    useEffect(() => {
-        window.addEventListener('scroll', updateVisibility, { passive: true })
-        window.addEventListener('resize', updateVisibility)
+        blockedSections.forEach((section) => observer.observe(section))
 
         return () => {
-            window.removeEventListener('scroll', updateVisibility)
-            window.removeEventListener('resize', updateVisibility)
+            observer.disconnect()
         }
-    }, [updateVisibility])
+    }, [])
 
     return {
         isVisible,
