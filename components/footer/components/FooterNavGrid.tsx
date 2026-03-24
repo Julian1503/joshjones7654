@@ -26,8 +26,10 @@ export function FooterNavGrid({
                 zIndex: 2,
                 display: 'grid',
                 gridTemplateColumns: columns,
-                gap: 'clamp(2rem, 5vw, 4rem)',
-                padding: 'clamp(2.5rem, 4vw, 4rem) clamp(1.4rem, 4vw, 3.5rem)',
+                gap: isMobile ? '1.5rem' : 'clamp(2rem, 5vw, 4rem)',
+                padding: isMobile
+                    ? '2rem 1.25rem'
+                    : 'clamp(2.5rem, 4vw, 4rem) clamp(1.4rem, 4vw, 3.5rem)',
             }}
         >
             {groups.map((group) => (
@@ -36,7 +38,7 @@ export function FooterNavGrid({
                     style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 14,
+                        gap: isMobile ? 10 : 14,
                     }}
                 >
           <span
@@ -56,8 +58,8 @@ export function FooterNavGrid({
                             margin: 0,
                             padding: 0,
                             display: 'flex',
+                            gap: isMobile ? 6 : 8,
                             flexDirection: 'column',
-                            gap: 8,
                         }}
                     >
                         {group.links.map((link) => (

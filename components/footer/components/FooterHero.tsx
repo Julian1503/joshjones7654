@@ -20,7 +20,9 @@ export function FooterHero({
             style={{
                 position: 'relative',
                 zIndex: 2,
-                padding: 'clamp(4rem, 8vw, 8rem) clamp(1.4rem, 4vw, 3.5rem) 0',
+                padding: isMobile
+                    ? '2.2rem 1.25rem 0'
+                    : 'clamp(4rem, 8vw, 8rem) clamp(1.4rem, 4vw, 3.5rem) 0',
             }}
         >
             <div
@@ -56,7 +58,9 @@ export function FooterHero({
                     ref={wordOneRef}
                     style={{
                         fontFamily: '"Bebas Neue", sans-serif',
-                        fontSize: isMobile ? 'clamp(3.5rem, 18vw, 5.6rem)' : 'clamp(4.5rem, 13vw, 12rem)',
+                        fontSize: isMobile
+                            ? 'clamp(2.9rem, 15vw, 4.6rem)'
+                            : 'clamp(4.5rem, 13vw, 12rem)',
                         letterSpacing: '0.03em',
                         lineHeight: 0.88,
                         color: 'rgba(255,255,255,0.92)',
@@ -72,7 +76,9 @@ export function FooterHero({
                     ref={wordTwoRef}
                     style={{
                         fontFamily: '"Bebas Neue", sans-serif',
-                        fontSize: isMobile ? 'clamp(3.5rem, 18vw, 5.6rem)' : 'clamp(4.5rem, 13vw, 12rem)',
+                        fontSize: isMobile
+                            ? 'clamp(2.9rem, 15vw, 4.6rem)'
+                            : 'clamp(4.5rem, 13vw, 12rem)',
                         letterSpacing: '0.03em',
                         lineHeight: 0.88,
                         color: '#cc0000',
@@ -90,8 +96,8 @@ export function FooterHero({
                     display: 'flex',
                     alignItems: isMobile ? 'stretch' : 'flex-start',
                     flexDirection: isMobile ? 'column' : 'row',
-                    gap: 'clamp(1.2rem, 4vw, 3rem)',
-                    marginTop: 'clamp(2rem, 4vw, 3.5rem)',
+                    marginTop: isMobile ? '1.5rem' : 'clamp(2rem, 4vw, 3.5rem)',
+                    gap: isMobile ? '1rem' : 'clamp(1.2rem, 4vw, 3rem)',
                     flexWrap: 'wrap',
                 }}
             >
@@ -100,17 +106,17 @@ export function FooterHero({
                 <p
                     style={{
                         margin: 0,
-                        maxWidth: isMobile ? '100%' : 380,
                         fontFamily: 'monospace',
-                        fontSize: isMobile ? '0.68rem' : 'clamp(0.62rem, 0.9vw, 0.72rem)',
-                        lineHeight: 1.75,
-                        letterSpacing: '0.06em',
+                        fontSize: isMobile ? '0.78rem' : 'clamp(0.62rem, 0.9vw, 0.72rem)',
+                        lineHeight: isMobile ? 1.6 : 1.75,
+                        letterSpacing: isMobile ? '0.03em' : '0.06em',
+                        maxWidth: isMobile ? '26rem' : 380,
                         color: 'rgba(255,255,255,0.6)',
                         paddingTop: isMobile ? 0 : 4,
                     }}
                 >
-                    Joshua is a creator with his own energy, humour, and presence. He shows up fully, every day.
-                    Subscribe to catch every reaction, every gaming session, and every real moment captured through The Better Day.
+                    Joshua brings his own energy to every stream, reaction, and gaming session.
+                    Follow to catch the real moments behind The Better Day.
                 </p>
             </div>
         </div>

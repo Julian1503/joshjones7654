@@ -3,116 +3,45 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { SOCIAL_LINKS } from '@/lib/navigation/site-navigation'
+import ActionButton from "@/components/footer/components/ActionButton";
+import PaypalSvg from "@/components/footer/components/PaypalSvg";
+import YouTubeSvg from "@/components/footer/components/YoutubeSvg";
 
 export function SubscribeButton({ isMobile }: { isMobile: boolean }) {
-    const buttonRef = useRef<HTMLAnchorElement>(null)
-    const arrowRef = useRef<HTMLSpanElement>(null)
-    const glowRef = useRef<HTMLDivElement>(null)
-
-    const handleEnter = () => {
-        gsap.to(buttonRef.current, {
-            scale: 1.04,
-            duration: 0.3,
-            ease: 'back.out(2)',
-        })
-        gsap.to(glowRef.current, {
-            opacity: 1,
-            duration: 0.3,
-        })
-        gsap.to(arrowRef.current, {
-            x: 4,
-            y: -4,
-            duration: 0.25,
-            ease: 'power2.out',
-        })
-    }
-
-    const handleLeave = () => {
-        gsap.to(buttonRef.current, {
-            scale: 1,
-            duration: 0.35,
-            ease: 'power2.out',
-        })
-        gsap.to(glowRef.current, {
-            opacity: 0,
-            duration: 0.3,
-        })
-        gsap.to(arrowRef.current, {
-            x: 0,
-            y: 0,
-            duration: 0.3,
-        })
-    }
-
     return (
-        <div style={{ position: 'relative', flexShrink: 0 }}>
+        <div style={{ position: 'relative', flexShrink: 0, width: isMobile ? '100%' : 'auto' }}>
             <div
-                ref={glowRef}
                 style={{
-                    position: 'absolute',
-                    inset: -12,
-                    borderRadius: 100,
-                    background: 'radial-gradient(ellipse, rgba(200,0,0,0.35) 0%, transparent 70%)',
-                    filter: 'blur(16px)',
-                    opacity: 0,
-                    pointerEvents: 'none',
-                }}
-            />
-
-            <a
-                ref={buttonRef}
-                href={SOCIAL_LINKS.youtubeJoshua.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Subscribe to Joshua on YouTube (opens in a new tab)"
-                onMouseEnter={handleEnter}
-                onMouseLeave={handleLeave}
-                style={{
-                    position: 'relative',
-                    display: 'inline-flex',
+                    display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    gap: 12,
-                    padding: isMobile
-                        ? '0.85rem 1.25rem'
-                        : 'clamp(0.9rem, 1.5vw, 1.1rem) clamp(1.6rem, 2.5vw, 2.2rem)',
-                    borderRadius: 100,
-                    background: 'rgba(200,0,0,0.12)',
-                    border: '1px solid rgba(255,69,69,0.35)',
-                    textDecoration: 'none',
-                    cursor: 'pointer',
-                    outline: 'none',
-                    width: isMobile ? '100%' : 'auto',
                     justifyContent: 'center',
-                }}
+                    width: isMobile ? '100%' : 'auto',
+                    rowGap: '1em'
+            }}
             >
-                <svg width="18" height="13" viewBox="0 0 18 13" fill="none">
-                    <rect width="18" height="13" rx="3" fill="#FF0000" />
-                    <path d="M7.5 9.1V3.9L12.5 6.5L7.5 9.1Z" fill="white" />
-                </svg>
+                <ActionButton
+                    href={SOCIAL_LINKS.youtubeJoshua.href}
+                    label="Subscribe on YouTube"
+                    ariaLabel="Subscribe to Joshua on YouTube (opens in a new tab)"
+                    isMobile={isMobile}
+                    variant="youtube"
+                    icon={
+                        <YouTubeSvg width={20} height={14} />
+                    }
+                />
 
-                <span
-                    style={{
-                        fontFamily: '"Bebas Neue", sans-serif',
-                        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.4vw, 1.25rem)',
-                        letterSpacing: '0.14em',
-                        color: 'rgba(255,255,255,0.88)',
-                        lineHeight: 1,
-                    }}
-                >
-          Subscribe on YouTube
-        </span>
-
-                <span
-                    ref={arrowRef}
-                    style={{
-                        fontFamily: 'monospace',
-                        fontSize: '0.65rem',
-                        color: 'rgba(255,255,255,0.4)',
-                    }}
-                >
-          ↗
-        </span>
-            </a>
+                <ActionButton
+                    href="https://www.paypal.com/donate?hosted_button_id=LU5JV4MX2S746"
+                    label="Donate with PayPal"
+                    ariaLabel="Donate with PayPal"
+                    isMobile={isMobile}
+                    variant="paypal"
+                    icon={
+                        <PaypalSvg width={20} height={14} />
+                    }
+                />
+            </div>
         </div>
     )
 }

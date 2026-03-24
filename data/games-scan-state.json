@@ -1,6 +1,6 @@
 {
-  "checkpointVideoId": "2LmrLR2CClg",
-  "checkpointScannedAt": "2026-03-24T01:28:49.295Z",
+  "checkpointVideoId": "FJh71BSWqQM",
+  "checkpointScannedAt": "2026-03-24T06:56:52.889Z",
   "schemaVersion": 2,
   "games": {
     "grand theft auto v": {
@@ -2177,18 +2177,26 @@
     "need-for-speed-heat": {
       "id": "need-for-speed-heat",
       "gameName": "Need for Speed Heat",
-      "mentionCount": 2,
+      "mentionCount": 3,
       "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/library_600x900_2x.jpg",
       "posterSource": "catalog",
       "latestMention": {
-        "videoId": "q3FXwcIUN8I",
-        "videoTitle": "Need for Speed Heat_gameplaymisson",
+        "videoId": "FJh71BSWqQM",
+        "videoTitle": "need for speed heat gameplay",
         "videoDate": "Today",
-        "videoUrl": "https://www.youtube.com/watch?v=q3FXwcIUN8I",
-        "thumbnail": "https://i.ytimg.com/vi/q3FXwcIUN8I/sddefault.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=FJh71BSWqQM",
+        "thumbnail": "https://i.ytimg.com/vi/FJh71BSWqQM/sddefault.jpg",
         "matchedAlias": "need for speed heat"
       },
       "mentions": [
+        {
+          "videoId": "FJh71BSWqQM",
+          "videoTitle": "need for speed heat gameplay",
+          "videoDate": "Today",
+          "videoUrl": "https://www.youtube.com/watch?v=FJh71BSWqQM",
+          "thumbnail": "https://i.ytimg.com/vi/FJh71BSWqQM/sddefault.jpg",
+          "matchedAlias": "need for speed heat"
+        },
         {
           "videoId": "q3FXwcIUN8I",
           "videoTitle": "Need for Speed Heat_gameplaymisson",
