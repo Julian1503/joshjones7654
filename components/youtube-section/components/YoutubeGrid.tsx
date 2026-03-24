@@ -12,7 +12,7 @@ type YoutubeGridProps = {
     isPaging: boolean
     isMobile: boolean
     isTablet: boolean
-    setCardRefAction: (index: number) => (element: HTMLDivElement | null) => void
+    setCardRefAction: (index: number) => (element: HTMLElement | null) => void
     onPlayAction: (video: YoutubeVideo) => void
     direction?: 'next' | 'prev' | null
 }
@@ -25,10 +25,6 @@ const OVERLAY_KEYFRAMES = `
     @keyframes yt-pulse {
         0%, 100% { opacity: 0.75; transform: scale(1);    }
         50%       { opacity: 1;    transform: scale(1.1); }
-    }
-    @keyframes yt-bar-shimmer {
-        0%   { background-position: 0%   0%; }
-        100% { background-position: 200% 0%; }
     }
 `
 
@@ -264,8 +260,6 @@ export function YoutubeGrid({
                             height:         '100%',
                             width:          '100%',
                             background:     `linear-gradient(90deg, ${YOUTUBE_SECTION_COLORS.redStrong} 0%, ${YOUTUBE_SECTION_COLORS.red} 40%, ${YOUTUBE_SECTION_COLORS.redSoft} 60%, ${YOUTUBE_SECTION_COLORS.redStrong} 100%)`,
-                            backgroundSize: '200% 100%',
-                            animation:      'yt-bar-shimmer 1.4s linear infinite',
                         }}
                     />
                 </div>
@@ -332,7 +326,7 @@ export function YoutubeGrid({
                         color:         'rgba(255,255,255,0.22)',
                     }}
                 >
-                    cargando videos
+                    loading videos
                 </span>
             </div>
         </div>

@@ -14,6 +14,8 @@ type HeroStageProps = {
     fullLayerStyle: CSSProperties
     stageLayerStyle: CSSProperties
     viewport: HeroViewport
+    onBackgroundReadyAction: () => void
+    onPersonReadyAction: () => void
 }
 
 export function HeroStage({
@@ -26,6 +28,8 @@ export function HeroStage({
                               fullLayerStyle,
                               stageLayerStyle,
                               viewport,
+                              onBackgroundReadyAction,
+                              onPersonReadyAction,
                           }: HeroStageProps) {
     const isMobile = viewport === 'mobile'
     const isTablet = viewport === 'tablet'
@@ -53,9 +57,12 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src={isMobile ? '/parallax_bg_mobile.webp' : '/parallax_bg.webp'}                    alt=""
+                    src={isMobile ? '/parallax_bg_mobile.webp' : '/parallax_bg.webp'}
+                    alt=""
                     fill
-                    priority
+                    sizes="100vw"
+                    onLoad={onBackgroundReadyAction}
+                    onError={onBackgroundReadyAction}
                     style={{
                         objectFit: 'cover',
                         objectPosition: 'center center',
@@ -80,7 +87,7 @@ export function HeroStage({
                     src="/parallax_pc.webp"
                     alt=""
                     fill
-                    priority
+                    sizes={isMobile ? '100vw' : isTablet ? '90vw' : '80vw'}
                     style={{
                         objectFit: 'contain',
                         objectPosition: isMobile ? 'center 30%' : 'center bottom',
@@ -118,7 +125,7 @@ export function HeroStage({
                     src={isMobile ? '/parallax_table_mobile_v2.webp' : '/parallax_table.webp'}
                     alt=""
                     fill
-                    priority
+                    sizes="100vw"
                     style={{
                         objectFit: 'cover',
                         objectPosition: isMobile ? 'center bottom' : 'center bottom',
@@ -149,6 +156,10 @@ export function HeroStage({
                     alt="Joshua"
                     fill
                     priority
+                    fetchPriority="high"
+                    sizes={isMobile ? '80vw' : isTablet ? '52vw' : '42vw'}
+                    onLoad={onPersonReadyAction}
+                    onError={onPersonReadyAction}
                     style={{
                         objectFit: 'contain',
                         objectPosition: 'center bottom',

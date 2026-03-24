@@ -1,19 +1,18 @@
 import type { Metadata } from 'next';
-import TheBetterDaySection from '@/components/the-better-day/TheBetterDaySection';
+import dynamic from 'next/dynamic';
 import ParallaxHeroSection from '@/components/parallax-hero/ParallaxHeroSection';
-import LiveBanner from '@/components/live-banner/LiveBanner';
-import YoutubeSection from '@/components/youtube-section/YoutubeSection';
 import AboutJoshuaSection from '@/components/about-joshua/AboutJoshuaSection';
 import { Footer } from '@/components/footer/Footer';
 import { PageIndex } from '@/components/page-index/PageIndex';
 import { FloatingSocials } from '@/components/floating-socials/FloatingSocials';
-import GamesJoshPlaysSection from '@/components/games-josh-plays/GamesJoshPlaysSection';
-import { MusicSection } from '@/components/music-section/MusicSection';
 import { SITE_DEFAULT_TITLE } from '@/lib/seo/site';
 import {SiteMenu} from "@/components/site-menu/SiteMenu";
-import {useLoadingScreen} from "@/components/loading-screen/hooks/useLoadingScreen";
-import {LoadingScreen} from "@/components/loading-screen/LoadingScreen";
-import {LoadingScreenWrapper} from "@/components/loading-screen/LoadingScreenWrapper";
+
+const YoutubeSectionDeferred = dynamic(() => import('@/components/youtube-section/YoutubeSection'))
+const GamesJoshPlaysSectionDeferred = dynamic(() => import('@/components/games-josh-plays/GamesJoshPlaysSection'))
+const MusicSectionDeferred = dynamic(() => import('@/components/music-section/MusicSection').then((module) => module.MusicSection))
+const LiveBannerDeferred = dynamic(() => import('@/components/live-banner/LiveBanner'))
+const TheBetterDaySectionDeferred = dynamic(() => import('@/components/the-better-day/TheBetterDaySection'))
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -38,8 +37,6 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
     <>
-        <LoadingScreenWrapper/>
-
         <nav aria-label='Primary site menu'>
         <SiteMenu />
       </nav>
@@ -52,11 +49,11 @@ export default function Home() {
         <ParallaxHeroSection />
         <PageIndex />
         <AboutJoshuaSection />
-        <YoutubeSection />
-        <GamesJoshPlaysSection />
-        <MusicSection />
-        <LiveBanner />
-        <TheBetterDaySection />
+        <YoutubeSectionDeferred />
+        <GamesJoshPlaysSectionDeferred />
+        <MusicSectionDeferred />
+        <LiveBannerDeferred />
+        <TheBetterDaySectionDeferred />
       </main>
 
       <Footer />

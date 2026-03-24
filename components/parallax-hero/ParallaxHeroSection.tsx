@@ -1,6 +1,6 @@
 'use client'
 
-import { CSSProperties, useRef } from 'react'
+import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react'
 import { COLORS, FLICKER_KEYFRAMES, SECTION_HEIGHT } from '@/components/parallax-hero/constants'
 import { useParallaxHeroAnimations } from '@/components/parallax-hero/hooks/useParallaxHeroAnimations'
 import { GhostName } from '@/components/parallax-hero/components/GhostName'
@@ -9,6 +9,12 @@ import { HeroTextOverlay } from '@/components/parallax-hero/components/HeroTextO
 import {useResponsiveSection} from "@/hooks/useResponsiveSection";
 
 export default function ParallaxHero() {
+    const [criticalAssetsReady, setCriticalAssetsReady] = useState({
+        background: false,
+        person: false,
+    })
+    const [forceShowText, setForceShowText] = useState(false)
+
     const wrapperRef = useRef<HTMLDivElement>(null)
     const stageRef = useRef<HTMLDivElement>(null)
     const bgRef = useRef<HTMLDivElement>(null)
@@ -23,6 +29,26 @@ export default function ParallaxHero() {
     const rolesRef = useRef<HTMLDivElement>(null)
 
     const { viewport } = useResponsiveSection()
+
+    const markAssetReady = useCallback((asset: 'background' | 'person') => {
+        setCriticalAssetsReady((previous) => {
+            if (previous[asset]) return previous
+            return { ...previous, [asset]: true }
+        })
+    }, [])
+
+    useEffect(() => {
+        const timeoutId = window.setTimeout(() => {
+            setForceShowText(true)
+        }, 1500)
+
+        return () => {
+            window.clearTimeout(timeoutId)
+        }
+    }, [])
+
+    const isHeroTextVisible =
+        forceShowText || (criticalAssetsReady.background && criticalAssetsReady.person)
 
     useParallaxHeroAnimations({
         wrapperRef,
@@ -92,6 +118,8 @@ export default function ParallaxHero() {
                         fullLayerStyle={fullLayerStyle}
                         stageLayerStyle={stageLayerStyle}
                         viewport={viewport}
+                        onBackgroundReadyAction={() => markAssetReady('background')}
+                        onPersonReadyAction={() => markAssetReady('person')}
                     />
 
                     <HeroTextOverlay
@@ -101,6 +129,7 @@ export default function ParallaxHero() {
                         titleRef={titleRef}
                         rolesRef={rolesRef}
                         viewport={viewport}
+                        isVisible={isHeroTextVisible}
                     />
                 </section>
             </div>

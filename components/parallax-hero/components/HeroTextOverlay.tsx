@@ -12,6 +12,7 @@ type HeroTextOverlayProps = {
     titleRef: RefObject<HTMLHeadingElement | null>
     rolesRef: RefObject<HTMLDivElement | null>
     viewport: HeroViewport
+    isVisible: boolean
 }
 
 export function HeroTextOverlay({
@@ -21,6 +22,7 @@ export function HeroTextOverlay({
                                     titleRef,
                                     rolesRef,
                                     viewport,
+                                    isVisible,
                                 }: HeroTextOverlayProps) {
     const isMobile = viewport === 'mobile'
     const isTablet = viewport === 'tablet'
@@ -36,6 +38,8 @@ export function HeroTextOverlay({
                 pointerEvents: 'none',
                 paddingTop: isMobile ? '5.5rem' : 0,
                 paddingInline: isMobile ? '1rem' : isTablet ? '2rem' : 0,
+                opacity: isVisible ? 1 : 0,
+                transition: 'opacity 220ms ease-out',
             }}
         >
             <div

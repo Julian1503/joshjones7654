@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { GAMES_SECTION_COLORS } from '@/components/games-josh-plays/constants'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
@@ -17,8 +17,37 @@ export function useCardAnimation() {
     const contentRef = useRef<HTMLDivElement>(null)
     const prefersReducedMotion = usePrefersReducedMotion()
 
+    const rectRef = useRef<DOMRect | null>(null)
+    const pointerRef = useRef({ x: 0, y: 0 })
+    const rafIdRef = useRef<number | null>(null)
+
+    const updateShimmer = () => {
+        rafIdRef.current = null
+        if (!rectRef.current || !shimmerRef.current) return
+
+        const x = ((pointerRef.current.x - rectRef.current.left) / rectRef.current.width) * 100
+        const y = ((pointerRef.current.y - rectRef.current.top) / rectRef.current.height) * 100
+
+        shimmerRef.current.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,69,69,0.16) 0%, transparent 62%)`
+    }
+
+    const ensureRect = () => {
+        if (!cardRef.current) return
+        rectRef.current = cardRef.current.getBoundingClientRect()
+    }
+
+    useEffect(() => {
+        return () => {
+            if (rafIdRef.current !== null) {
+                cancelAnimationFrame(rafIdRef.current)
+            }
+        }
+    }, [])
+
     const onMouseEnter = () => {
         if (prefersReducedMotion) return
+
+        ensureRect()
 
         gsap.to(cardRef.current, {
             y: -4,
@@ -35,6 +64,12 @@ export function useCardAnimation() {
     const onMouseLeave = () => {
         if (prefersReducedMotion) return
 
+        rectRef.current = null
+        if (rafIdRef.current !== null) {
+            cancelAnimationFrame(rafIdRef.current)
+            rafIdRef.current = null
+        }
+
         gsap.to(cardRef.current, {
             y: 0,
             scale: 1,
@@ -49,10 +84,17 @@ export function useCardAnimation() {
 
     const onMouseMove = (event: React.MouseEvent<HTMLElement>) => {
         if (prefersReducedMotion || !cardRef.current || !shimmerRef.current) return
-        const rect = cardRef.current.getBoundingClientRect()
-        const x = ((event.clientX - rect.left) / rect.width) * 100
-        const y = ((event.clientY - rect.top) / rect.height) * 100
-        shimmerRef.current.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,69,69,0.16) 0%, transparent 62%)`
+
+        if (!rectRef.current) {
+            ensureRect()
+        }
+
+        pointerRef.current.x = event.clientX
+        pointerRef.current.y = event.clientY
+
+        if (rafIdRef.current === null) {
+            rafIdRef.current = requestAnimationFrame(updateShimmer)
+        }
     }
 
     const handlers: CardAnimationHandlers = { onMouseEnter, onMouseLeave, onMouseMove }

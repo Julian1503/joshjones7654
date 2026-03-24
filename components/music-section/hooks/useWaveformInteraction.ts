@@ -21,10 +21,41 @@ export function useWaveformInteraction({
         let mouseX = -9999
         let mouseY = -9999
 
+        const barStates: Array<{
+            centerX: number
+            centerY: number
+            setScale: ((value: number) => void) | null
+        }> = []
+
+        const recomputeGeometry = () => {
+            const waveRect = waveElement.getBoundingClientRect()
+
+            barStates.length = 0
+            barRefs.current.forEach((bar, index) => {
+                if (!bar) return
+
+                const centerX = bar.offsetLeft + bar.offsetWidth / 2
+                const centerY = bar.offsetTop + bar.offsetHeight
+
+                barStates[index] = {
+                    centerX,
+                    centerY,
+                    setScale: gsap.quickTo(bar, 'scaleY', {
+                        duration: 0.25,
+                        ease: 'power2.out',
+                        overwrite: 'auto',
+                    }),
+                }
+            })
+
+            return waveRect
+        }
+
+        let cachedWaveRect = recomputeGeometry()
+
         const handleMouseMove = (event: MouseEvent) => {
-            const rect = waveElement.getBoundingClientRect()
-            mouseX = event.clientX - rect.left
-            mouseY = event.clientY - rect.top
+            mouseX = event.clientX - cachedWaveRect.left
+            mouseY = event.clientY - cachedWaveRect.top
         }
 
         const handleMouseLeave = () => {
@@ -32,33 +63,31 @@ export function useWaveformInteraction({
             mouseY = -9999
         }
 
+        const handleResize = () => {
+            cachedWaveRect = recomputeGeometry()
+        }
+
         waveElement.addEventListener('mousemove', handleMouseMove)
         waveElement.addEventListener('mouseleave', handleMouseLeave)
+        window.addEventListener('resize', handleResize)
+
+        const resizeObserver = new ResizeObserver(() => {
+            handleResize()
+        })
+        resizeObserver.observe(waveElement)
 
         const radius = 140
         const strength = 1.8
 
         const tick = () => {
-            barRefs.current.forEach((bar, index) => {
-                if (!bar) return
-
-                const waveRect = waveElement.getBoundingClientRect()
-                const barRect = bar.getBoundingClientRect()
-
-                const barX = barRect.left - waveRect.left + barRect.width / 2
-                const barY = barRect.bottom - waveRect.top
+            barStates.forEach((state, index) => {
+                if (!state?.setScale) return
 
                 const pull =
-                    Math.max(0, 1 - Math.hypot(mouseX - barX, mouseY - barY) / radius) ** 2 *
+                    Math.max(0, 1 - Math.hypot(mouseX - state.centerX, mouseY - state.centerY) / radius) ** 2 *
                     strength
 
-                gsap.to(bar, {
-                    scaleY: Math.min(1, MUSIC_REST_HEIGHTS[index] + pull),
-                    duration: 0.25,
-                    ease: 'power2.out',
-                    overwrite: 'auto',
-                    transformOrigin: 'bottom center',
-                })
+                state.setScale(Math.min(1, MUSIC_REST_HEIGHTS[index] + pull))
             })
 
             animationFrameId = requestAnimationFrame(tick)
@@ -70,6 +99,8 @@ export function useWaveformInteraction({
             cancelAnimationFrame(animationFrameId)
             waveElement.removeEventListener('mousemove', handleMouseMove)
             waveElement.removeEventListener('mouseleave', handleMouseLeave)
+            window.removeEventListener('resize', handleResize)
+            resizeObserver.disconnect()
         }
     }, [waveRef, barRefs])
 }

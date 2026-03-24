@@ -2,17 +2,18 @@
 
 import { useCallback, useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import Image from 'next/image'
 import type { YoutubeVideo } from '@/components/youtube-section/types'
 import { CategoryPill } from '@/components/youtube-section/components/CategoryPill'
 import { PlayIcon } from '@/components/youtube-section/components/PlayIcon'
-    import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type VideoCardVariant = 'featured' | 'medium' | 'small'
 
 type VideoCardProps = {
     video: YoutubeVideo
     variant: VideoCardVariant
-    cardRefAction?: (element: HTMLDivElement | null) => void
+    cardRefAction?: (element: HTMLElement | null) => void
     onPlayAction: (video: YoutubeVideo) => void
 }
 
@@ -22,14 +23,14 @@ export function VideoCard({
                               cardRefAction,
                               onPlayAction,
                           }: VideoCardProps) {
-    const innerRef = useRef<HTMLDivElement>(null)
+    const innerRef = useRef<HTMLElement>(null)
     const thumbnailRef = useRef<HTMLDivElement>(null)
     const glowRef = useRef<HTMLDivElement>(null)
     const playRef = useRef<HTMLDivElement>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
 
     const combinedRef = useCallback(
-        (element: HTMLDivElement | null) => {
+        (element: HTMLElement | null) => {
             innerRef.current = element
             cardRefAction?.(element)
         },
@@ -85,40 +86,42 @@ export function VideoCard({
     }, [prefersReducedMotion])
 
     return (
-        <div
+        <button
             ref={combinedRef}
-            role='button'
-            tabIndex={0}
+            type='button'
             aria-label={`Play video: ${video.title}`}
             style={{
                 position: 'relative',
+                display: 'block',
+                width: '100%',
                 borderRadius: isFeatured ? 20 : 14,
                 border: '1px solid rgba(255,255,255,0.07)',
                 overflow: 'hidden',
                 cursor: 'pointer',
                 background: '#0c0e0f',
                 transition: 'box-shadow 0.25s ease',
+                padding: 0,
+                textAlign: 'left',
             }}
             onClick={() => onPlayAction(video)}
-            onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault()
-                    onPlayAction(video)
-                }
-            }}
         >
             <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                 <div
                     ref={thumbnailRef}
                     style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: `url(${video.thumbnail})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        position: 'absolute',
+                        inset: 0,
                         willChange: 'transform',
                     }}
-                />
+                >
+                    <Image
+                        src={video.thumbnail}
+                        alt=''
+                        fill
+                        sizes={isFeatured ? '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 66vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+                        style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    />
+                </div>
 
                 <div
                     style={{
@@ -251,6 +254,6 @@ export function VideoCard({
           </span>
                 </div>
             </div>
-        </div>
+        </button>
     )
 }

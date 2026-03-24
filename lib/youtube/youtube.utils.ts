@@ -26,12 +26,12 @@ export function pickBestThumbnail(
     videoId: string
 ): string {
     return (
-        thumbnails?.maxres?.url ??
         thumbnails?.standard?.url ??
         thumbnails?.high?.url ??
         thumbnails?.medium?.url ??
+        thumbnails?.maxres?.url ??
         thumbnails?.default?.url ??
-        `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+        `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
     )
 }
 

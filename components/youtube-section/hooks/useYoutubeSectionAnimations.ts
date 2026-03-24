@@ -13,7 +13,7 @@ type UseYoutubeSectionAnimationsParams = {
     headerRef: React.RefObject<HTMLDivElement | null>
     countRef: React.RefObject<HTMLSpanElement | null>
     scanRef: React.RefObject<HTMLDivElement | null>
-    cardRefs: React.RefObject<HTMLDivElement[]>
+    cardRefs: React.RefObject<HTMLElement[]>
 }
 
 export function useYoutubeSectionAnimations({
@@ -84,7 +84,7 @@ export function useYoutubeSectionAnimations({
                 }
             )
 
-            const cards = cardRefs.current.filter((card): card is HTMLDivElement => Boolean(card?.isConnected))
+            const cards = cardRefs.current.filter((card): card is HTMLElement => Boolean(card?.isConnected))
             if (cards.length === 0) return
 
             gsap.set(cards, { willChange: 'transform, opacity', transformOrigin: '50% 80%' })

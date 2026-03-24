@@ -41,7 +41,7 @@ export function CardContent({
                         style={{
                             fontFamily: 'monospace',
                             fontSize: '0.65rem',
-                            opacity: 0.3,
+                            opacity: 0.55,
                         }}
                     >
             ↗
@@ -98,7 +98,7 @@ export function CardContent({
                     fontSize: '0.52rem',
                     letterSpacing: '0.2em',
                     textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.28)',
+                    color: 'rgba(255,255,255,0.56)',
                 }}
             >
                 {section.cta} →

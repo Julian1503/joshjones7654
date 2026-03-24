@@ -1,6 +1,6 @@
 {
-  "checkpointVideoId": "hfTQ6KeuEEw",
-  "checkpointScannedAt": "2026-03-22T00:24:28.436Z",
+  "checkpointVideoId": "2LmrLR2CClg",
+  "checkpointScannedAt": "2026-03-24T01:28:49.295Z",
   "schemaVersion": 2,
   "games": {
     "grand theft auto v": {
@@ -2136,18 +2136,26 @@
     "grand-theft-auto-v": {
       "id": "grand-theft-auto-v",
       "gameName": "Grand Theft Auto V",
-      "mentionCount": 2,
+      "mentionCount": 3,
       "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg",
       "posterSource": "catalog",
       "latestMention": {
-        "videoId": "hfTQ6KeuEEw",
-        "videoTitle": "gta v online gameplay",
-        "videoDate": "Today",
-        "videoUrl": "https://www.youtube.com/watch?v=hfTQ6KeuEEw",
-        "thumbnail": "https://i.ytimg.com/vi/hfTQ6KeuEEw/maxresdefault.jpg",
-        "matchedAlias": "gta v online"
+        "videoId": "sCFKsbOOfZs",
+        "videoTitle": "grand Theft Auto v gameplay online",
+        "videoDate": "1 day ago",
+        "videoUrl": "https://www.youtube.com/watch?v=sCFKsbOOfZs",
+        "thumbnail": "https://i.ytimg.com/vi/sCFKsbOOfZs/sddefault.jpg",
+        "matchedAlias": "grand theft auto v online"
       },
       "mentions": [
+        {
+          "videoId": "sCFKsbOOfZs",
+          "videoTitle": "grand Theft Auto v gameplay online",
+          "videoDate": "1 day ago",
+          "videoUrl": "https://www.youtube.com/watch?v=sCFKsbOOfZs",
+          "thumbnail": "https://i.ytimg.com/vi/sCFKsbOOfZs/sddefault.jpg",
+          "matchedAlias": "grand theft auto v online"
+        },
         {
           "videoId": "hfTQ6KeuEEw",
           "videoTitle": "gta v online gameplay",
@@ -2163,6 +2171,122 @@
           "videoUrl": "https://www.youtube.com/watch?v=MKB91ZQdY7k",
           "thumbnail": "https://i.ytimg.com/vi/MKB91ZQdY7k/maxresdefault.jpg",
           "matchedAlias": "grand theft auto v online"
+        }
+      ]
+    },
+    "need-for-speed-heat": {
+      "id": "need-for-speed-heat",
+      "gameName": "Need for Speed Heat",
+      "mentionCount": 2,
+      "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/library_600x900_2x.jpg",
+      "posterSource": "catalog",
+      "latestMention": {
+        "videoId": "q3FXwcIUN8I",
+        "videoTitle": "Need for Speed Heat_gameplaymisson",
+        "videoDate": "Today",
+        "videoUrl": "https://www.youtube.com/watch?v=q3FXwcIUN8I",
+        "thumbnail": "https://i.ytimg.com/vi/q3FXwcIUN8I/sddefault.jpg",
+        "matchedAlias": "need for speed heat"
+      },
+      "mentions": [
+        {
+          "videoId": "q3FXwcIUN8I",
+          "videoTitle": "Need for Speed Heat_gameplaymisson",
+          "videoDate": "Today",
+          "videoUrl": "https://www.youtube.com/watch?v=q3FXwcIUN8I",
+          "thumbnail": "https://i.ytimg.com/vi/q3FXwcIUN8I/sddefault.jpg",
+          "matchedAlias": "need for speed heat"
+        },
+        {
+          "videoId": "Oe_dC3BuxbA",
+          "videoTitle": "Need for Speed Heat_20260322123650",
+          "videoDate": "1 day ago",
+          "videoUrl": "https://www.youtube.com/watch?v=Oe_dC3BuxbA",
+          "thumbnail": "https://i.ytimg.com/vi/Oe_dC3BuxbA/sddefault.jpg",
+          "matchedAlias": "need for speed heat"
+        }
+      ]
+    },
+    "https": {
+      "id": "https",
+      "gameName": "https://fallout4london.com/",
+      "mentionCount": 2,
+      "posterUrl": "https://media.rawg.io/media/screenshots/536/5364836a1b156d67f1b1628af3a5ec87.jpg",
+      "posterSource": "catalog",
+      "latestMention": {
+        "videoId": "iz69mGuw2Yk",
+        "videoTitle": "Need for speed heat gameplay online",
+        "videoDate": "1 day ago",
+        "videoUrl": "https://www.youtube.com/watch?v=iz69mGuw2Yk",
+        "thumbnail": "https://i.ytimg.com/vi/iz69mGuw2Yk/sddefault.jpg",
+        "matchedAlias": "https"
+      },
+      "mentions": [
+        {
+          "videoId": "iz69mGuw2Yk",
+          "videoTitle": "Need for speed heat gameplay online",
+          "videoDate": "1 day ago",
+          "videoUrl": "https://www.youtube.com/watch?v=iz69mGuw2Yk",
+          "thumbnail": "https://i.ytimg.com/vi/iz69mGuw2Yk/sddefault.jpg",
+          "matchedAlias": "https"
+        },
+        {
+          "videoId": "Oe_dC3BuxbA",
+          "videoTitle": "Need for Speed Heat_20260322123650",
+          "videoDate": "1 day ago",
+          "videoUrl": "https://www.youtube.com/watch?v=Oe_dC3BuxbA",
+          "thumbnail": "https://i.ytimg.com/vi/Oe_dC3BuxbA/sddefault.jpg",
+          "matchedAlias": "https"
+        }
+      ]
+    },
+    "need-for-speed-heat-gameplaymisson": {
+      "id": "need-for-speed-heat-gameplaymisson",
+      "gameName": "Need for Speed Heat",
+      "mentionCount": 1,
+      "posterUrl": "https://media.rawg.io/media/games/370/3703c683968a54f09630dcf03366ea35.jpg",
+      "posterSource": "catalog",
+      "latestMention": {
+        "videoId": "q3FXwcIUN8I",
+        "videoTitle": "Need for Speed Heat_gameplaymisson",
+        "videoDate": "Today",
+        "videoUrl": "https://www.youtube.com/watch?v=q3FXwcIUN8I",
+        "thumbnail": "https://i.ytimg.com/vi/q3FXwcIUN8I/sddefault.jpg",
+        "matchedAlias": "need for speed heat gameplaymisson"
+      },
+      "mentions": [
+        {
+          "videoId": "q3FXwcIUN8I",
+          "videoTitle": "Need for Speed Heat_gameplaymisson",
+          "videoDate": "Today",
+          "videoUrl": "https://www.youtube.com/watch?v=q3FXwcIUN8I",
+          "thumbnail": "https://i.ytimg.com/vi/q3FXwcIUN8I/sddefault.jpg",
+          "matchedAlias": "need for speed heat gameplaymisson"
+        }
+      ]
+    },
+    "need-for-speed-heat-online": {
+      "id": "need-for-speed-heat-online",
+      "gameName": "Need for Speed Heat",
+      "mentionCount": 1,
+      "posterUrl": "https://media.rawg.io/media/games/370/3703c683968a54f09630dcf03366ea35.jpg",
+      "posterSource": "catalog",
+      "latestMention": {
+        "videoId": "iz69mGuw2Yk",
+        "videoTitle": "Need for speed heat gameplay online",
+        "videoDate": "1 day ago",
+        "videoUrl": "https://www.youtube.com/watch?v=iz69mGuw2Yk",
+        "thumbnail": "https://i.ytimg.com/vi/iz69mGuw2Yk/sddefault.jpg",
+        "matchedAlias": "need for speed heat online"
+      },
+      "mentions": [
+        {
+          "videoId": "iz69mGuw2Yk",
+          "videoTitle": "Need for speed heat gameplay online",
+          "videoDate": "1 day ago",
+          "videoUrl": "https://www.youtube.com/watch?v=iz69mGuw2Yk",
+          "thumbnail": "https://i.ytimg.com/vi/iz69mGuw2Yk/sddefault.jpg",
+          "matchedAlias": "need for speed heat online"
         }
       ]
     }

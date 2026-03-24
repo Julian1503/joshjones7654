@@ -19,9 +19,9 @@ export default function YoutubeSection() {
     const countRef   = useRef<HTMLSpanElement>(null)
     const scanRef    = useRef<HTMLDivElement>(null)
 
-    const cardRefs = useRef<HTMLDivElement[]>([])
+    const cardRefs = useRef<HTMLElement[]>([])
 
-    const setCardRefAction = (index: number) => (element: HTMLDivElement | null) => {
+    const setCardRefAction = (index: number) => (element: HTMLElement | null) => {
         if (element) cardRefs.current[index] = element
     }
 

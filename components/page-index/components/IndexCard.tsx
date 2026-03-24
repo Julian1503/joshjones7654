@@ -88,7 +88,7 @@ export function IndexCard({
         const closedHeight = closedHeightRef.current
 
         gsap.to(linkRef.current, {
-            color: 'rgba(255,255,255,0.35)',
+            color: 'rgba(255,255,255,0.62)',
             duration: 0.25,
         })
 
