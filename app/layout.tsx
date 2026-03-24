@@ -81,6 +81,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
+  other: {
+    "google-site-verification": "X-gjF4hDRh68NHxBzken8qmKQ-h84byJOZmpZ83fb_8",
+  }
 };
 
 export default function RootLayout({
