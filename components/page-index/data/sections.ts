@@ -11,7 +11,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
             'Get to know Joshua through his personality, interests, and the creative world he is building.',
         cta: 'Meet Joshua',
         href: SECTION_ANCHORS.about,
-        image: '/thebetterday.png',
+        image: '/thebetterday.webp',
     },
     {
         id: 'videos',
@@ -22,7 +22,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
             'Watch Joshua’s latest videos, from gaming moments to reactions and personal highlights.',
         cta: 'Watch videos',
         href: SECTION_ANCHORS.videos,
-        image: '/youtube.png',
+        image: '/youtube.webp',
     },
     {
         id: 'gaming',
@@ -33,7 +33,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
             'Explore the games, setups, and digital worlds that keep Joshua inspired and engaged.',
         cta: 'See his games',
         href: SECTION_ANCHORS.gaming,
-        image: '/aboutme.png',
+        image: '/aboutme.webp',
     },
     {
         id: 'music',
@@ -44,7 +44,7 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
             'From BandLab sessions to original ideas, this is where Joshua turns creativity into sound.',
         cta: 'Explore music',
         href: SECTION_ANCHORS.music,
-        image: '/studio.png',
+        image: '/studio.webp',
     },
     {
         id: 'tbd',
@@ -55,6 +55,6 @@ export const PAGE_INDEX_SECTIONS: PageIndexSectionItem[] = [
             'See the people and support around Joshua helping him keep growing, creating, and moving forward.',
         cta: 'See the support',
         href: SECTION_ANCHORS.theBetterDay,
-        image: '/community.png',
+        image: '/community.webp',
     },
 ]

@@ -6,7 +6,7 @@ export const size = {
     width: 1200,
     height: 630,
 }
-export const contentType = 'image/png'
+export const contentType = 'image/webp'
 
 export default function TwitterImage() {
     return new ImageResponse(

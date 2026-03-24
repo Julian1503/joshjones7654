@@ -53,7 +53,7 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src={isMobile ? '/parallax_bg_mobile.png' : '/parallax_bg.png'}                    alt=""
+                    src={isMobile ? '/parallax_bg_mobile.webp' : '/parallax_bg.webp'}                    alt=""
                     fill
                     priority
                     style={{
@@ -77,7 +77,7 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src="/parallax_pc.png"
+                    src="/parallax_pc.webp"
                     alt=""
                     fill
                     priority
@@ -115,7 +115,7 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src={isMobile ? '/parallax_table_mobile_v2.png' : '/parallax_table.png'}
+                    src={isMobile ? '/parallax_table_mobile_v2.webp' : '/parallax_table.webp'}
                     alt=""
                     fill
                     priority
@@ -145,7 +145,7 @@ export function HeroStage({
                 }}
             >
                 <Image
-                    src={isMobile ? '/parallax_joshua_mobile.png' : '/parallax_joshua.png'}
+                    src={isMobile ? '/parallax_joshua_mobile.webp' : '/parallax_joshua.webp'}
                     alt="Joshua"
                     fill
                     priority

@@ -54,7 +54,7 @@ export function IntroPanel({
             >
                 <div ref={logoWrapRef}>
                     <Image
-                        src="/logo.png"
+                        src="/logo.webp"
                         alt="The Better Day logo"
                         width={380}
                         height={120}
