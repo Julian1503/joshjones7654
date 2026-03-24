@@ -12,7 +12,7 @@ const CONTENT_SECURITY_POLICY = [
   "font-src 'self' https: data:",
   "connect-src 'self' https:",
   "media-src 'self' https:",
-  "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
+  "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.bandlab.com https://bandlab.com",
   "upgrade-insecure-requests",
 ].join('; ')
 
